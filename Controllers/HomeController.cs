@@ -15,6 +15,8 @@ using System.Security.Claims;
 
 
 
+
+
 namespace WCAProject.Controllers
 {
     public class HomeController : Controller
@@ -37,11 +39,19 @@ namespace WCAProject.Controllers
               .Include(c => c.Zstatus)
               .Include(c => c.Zworker)
               .Include(c => c.Service);
-
-            // var workerfilter = 2;
+            
+            
            
+                string UserName = User?.Identity.Name ?? "anonymous";
+                UserName = UserName.Split('\\').Last();
+                UserName = UserName.Split('@').First();
+                ViewData["UserName"] = UserName;
+            
 
-            //clientservices = clientservices.Where(cs => cs.Zworker.Username == workerfilter);
+            //var workerfilter = @UserName
+
+
+            clientservices = clientservices.Where(cs => cs.Zworker.UserName == UserName);
             clientservices = clientservices.Where(cs => cs.Zstatus.inq_status == "In Process");
             clientservices = clientservices.OrderByDescending(c => c.recdate);
 

@@ -30,7 +30,9 @@ namespace WCAProject.Models
         // making this open field so not technically fk
         [Display(Name = "Secondary Insurance")]
         public int? insurance2 { get; set; }
-       
+
+ 
+
         // main
 
         [RegularExpression(@"^[A-Z]+[-A-Za-z]*$", ErrorMessage = "First name must be capitalized.")]

@@ -25,6 +25,7 @@ namespace WCAProject.Data
         public DbSet<Zcounty> Zcounty { get; set; }
         public DbSet<Zhearabout> Zhearabout { get; set; }
         public DbSet<Zinsurance> Zinsurance { get; set; }
+        
         public DbSet<Zinternal> Zinternal { get; set; }
         public DbSet<Zinternalcategory> Zinternalcategory { get; set; }
         public DbSet<Zlocation> Zlocation { get; set; }

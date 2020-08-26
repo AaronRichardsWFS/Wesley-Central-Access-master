@@ -109,7 +109,7 @@ namespace WCAProject.Controllers
             ViewData["ZraceId"] = new SelectList(_context.Zrace.Where(m => m.active).OrderBy(m => m.race), "ZraceId", "race");
             ViewData["ZschoolId"] = new SelectList(_context.Zschool.Where(m => m.active).OrderBy(m => m.displayname), "ZschoolId", "displayname");
             ViewData["ZinsuranceId"] = new SelectList(_context.Zinsurance.Where(m => m.active).OrderBy(zi => zi.insurance), "ZinsuranceId", "insurance");
-
+            
             ViewData["ClientId"] = new SelectList(_context.Clients.OrderBy(c => c.name), "ClientId", "name");
             ViewData["ServiceId"] = new SelectList(_context.Services.OrderBy(m => m.service_desc), "ServiceId", "service_desc");
             ViewData["ZcaresreasonId"] = new SelectList(_context.Zcaresreason.OrderBy(m => m.caresreason), "ZcaresreasonId", "caresreason");

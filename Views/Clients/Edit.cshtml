@@ -167,7 +167,9 @@
             <div class="col-md-4 col-md-offset-1">
                 <div class="form-group">
                     <label asp-for="Client.insurance2" class="control-label"></label>
-                    <input asp-for="Client.insurance2" class="form-control" />
+                    <select asp-for="Client.insurance2" class="form-control" asp-items="@ViewBag.ZinsuranceId">
+                        <option value="" selected disabled>Select Insurance</option>
+                    </select>
                     <span asp-validation-for="Client.insurance2" class="text-danger"></span>
 
 
