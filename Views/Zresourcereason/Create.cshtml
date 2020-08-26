@@ -1,0 +1,29 @@
+@model WCAProject.Models.Zresourcereason
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add Resource Reason</h1>
+<hr />
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="resourceresult" class="control-label"></label>
+                <input asp-for="resourceresult" class="form-control" />
+                <span asp-validation-for="resourceresult" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Resource Reason" class="btn btn-success" />
+                <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Resource Reasons</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

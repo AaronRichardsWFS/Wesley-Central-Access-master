@@ -1,0 +1,39 @@
+@model WCAProject.ViewModels.InquiryFormViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Note</h1>
+
+<hr />
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Note.ClientServiceId" />
+    <input type="hidden" asp-for="Note.ClineitemId" />
+  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row rounded p-3 mb-2 table-active text-dark">
+      <div class="col-md-3 col-md-offset-1">
+        <label asp-for="Note.ZworkerId" class="control-label"></label>
+        <select asp-for="Note.ZworkerId" class ="form-control" asp-items="ViewBag.ZworkerId"></select>
+      </div>
+      <div class="col-md-3 col-md-offset-1">
+        <label asp-for="Note.ldate" class="control-label"></label>
+        <input asp-for="Note.ldate" class="form-control" />
+        <span asp-validation-for="Note.ldate" class="text-danger"></span>
+      </div>
+    <div class="col-md-6 col-md-offset-1">
+        <label asp-for="Note.action" class="control-label"></label>
+        <textarea asp-for="Note.action" class="form-control"></textarea>
+        <span asp-validation-for="Note.action" class="text-danger"></span>
+    </div>
+  </div>
+
+<div class="container" align="right">
+    <input type="submit" value="Save Note" class="btn wfs-green" />
+    <a type = "button" class="btn btn-secondary" asp-controller="ClientServices" asp-route-id="@Model.Note.ClientServiceId" asp-action="Details">Back to Inquiry</a>
+</div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

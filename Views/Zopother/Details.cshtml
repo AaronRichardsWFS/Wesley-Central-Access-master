@@ -1,0 +1,22 @@
+@model WCAProject.Models.Zopother
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="opother" class="control-label"></label>
+            <input asp-for="opother" class="form-control" disabled/>
+            <span asp-validation-for="opother" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Other Ops</a>
+        </div>
+    </div>
+</div>

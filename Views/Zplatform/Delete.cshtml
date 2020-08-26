@@ -1,0 +1,30 @@
+@model WCAProject.Models.Zplatform
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Platform: @Html.DisplayFor(model => model.opplatform)</h1>
+<h3>Are you sure you want to delete this?</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="internalId" class="control-label"></label>
+            <input asp-for="internalId" class="form-control" disabled/>
+            <span asp-validation-for="internalId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="opplatform" class="control-label"></label>
+            <input asp-for="opplatform" class="form-control" disabled/>
+            <span asp-validation-for="opplatform" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="ZplatformId" />
+    <input type="submit" value="Delete Platform" class="btn btn-danger" />
+    <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Platforms</a>
+</form>

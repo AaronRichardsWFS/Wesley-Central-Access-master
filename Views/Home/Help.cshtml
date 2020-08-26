@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Central Access Database - Help";
+}
+<h2>@ViewData["Title"]</h2>
+
+
+<p><a class="ml-4" href="mailto:helpdesk@wfspa.org?cc=aaron.richards@wfspa.org&subject=Central%20Access%20Web%20Site%20Help%20Request&body=Please%20Enter%20your%20issue%20here!">Email HelpDesk</a></p>
+
+
+<p><a asp-controller="Home" asp-action="Debug" class="ml-4">User Account Debug Information</a> - Provides Network Access Groups List (Only use if you are asked by IT)</p>
+
+
+<p><a asp-controller="Home" asp-action="Changelog" class="ml-4">Central Access Web Database Application - Changelog</a> - Details out all changes to the current system by release</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

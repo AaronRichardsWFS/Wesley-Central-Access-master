@@ -1,0 +1,57 @@
+@model IEnumerable<WCAProject.Models.Clineitem>
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientService)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zworker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ldate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.action)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientService.ClientServiceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zworker.ZworkerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ldate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.action)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ClineitemId">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.ClineitemId">Details</a>
+                @if ((await AuthorizationService.AuthorizeAsync(User, "WFS_Managers")).Succeeded)
+                {
+                    <a asp-action="Delete" asp-route-id="@item.ClineitemId">Delete</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

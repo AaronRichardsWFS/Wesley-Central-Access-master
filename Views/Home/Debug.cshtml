@@ -1,0 +1,11 @@
+@{
+    ViewData["Title"] = "Debug";
+}
+<h1>@ViewData["Title"]</h1>
+<h4>User Identity Claims:</h4>
+<ul class="list-unstyled">
+    @foreach (var claim in Context.User.Claims)
+    {
+        <li>@(claim.Type) : @(claim.Value)</li>
+    }
+</ul>

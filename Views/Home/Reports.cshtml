@@ -1,0 +1,30 @@
+﻿@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostEnv
+@using Microsoft.AspNetCore.Hosting
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "Central Access Reports";
+}
+<h2>@ViewData["Title"]</h2>
+
+<a asp-controller="Home" asp-action="ClientSearch" class="ml-4">Client Search Report</a>
+
+
+@if ((await AuthorizationService.AuthorizeAsync(User, "WFS_Managers")).Succeeded)
+{
+    <h2>Manager Reports</h2>
+    <p>Manager Reports Go Here</p>
+}
+
+@if ((await AuthorizationService.AuthorizeAsync(User, "WFS_Admins")).Succeeded)
+{
+    <h2>Admin Reports</h2>
+    <p>Admin Reports Go Here</p>
+}
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,49 @@
+@model WCAProject.Models.Zlocation
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add Location</h1>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="location" class="control-label"></label>
+                <input asp-for="location" class="form-control" />
+                <span asp-validation-for="location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="report" class="control-label"></label>
+                <input asp-for="report" class="form-control" />
+                <span asp-validation-for="report" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="active" class="control-label"></label>
+                <input asp-for="active" class="form-control" />
+                <span asp-validation-for="active" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="credstatus" class="control-label"></label>
+                <input asp-for="credstatus" class="form-control" />
+                <span asp-validation-for="credstatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="temp" class="control-label"></label>
+                <input asp-for="temp" class="form-control" />
+                <span asp-validation-for="temp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Location" class="btn btn-success" />
+                <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Locations</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

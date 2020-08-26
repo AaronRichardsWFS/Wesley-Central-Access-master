@@ -1,0 +1,34 @@
+@model WCAProject.Models.Zplatform
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add Platform</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="internalId" class="control-label"></label>
+                <input asp-for="internalId" class="form-control" />
+                <span asp-validation-for="internalId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="opplatform" class="control-label"></label>
+                <input asp-for="opplatform" class="form-control" />
+                <span asp-validation-for="opplatform" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Platform" class="btn btn-success" />
+                <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Platforms</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

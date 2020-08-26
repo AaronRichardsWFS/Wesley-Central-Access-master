@@ -1,0 +1,16 @@
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error @ViewBag.StatusCode @if (@ViewBag.StatusCode == 403)
+{
+    <p>Forbidden</p>
+}</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+<p>
+    Original Path: <b>@ViewBag.OriginalPath</b><br/>
+    Original Query String: <b>@ViewBag.OriginalQueryString</b>
+</p>
+

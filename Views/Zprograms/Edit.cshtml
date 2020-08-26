@@ -1,0 +1,40 @@
+@model WCAProject.Models.Zprograms
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Program: @Html.DisplayFor(model => model.programs_id)</h1>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ZprogramsId" />
+            <div class="form-group">
+                <label asp-for="programs_id" class="control-label"></label>
+                <input asp-for="programs_id" class="form-control" />
+                <span asp-validation-for="programs_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="program_desc" class="control-label"></label>
+                <input asp-for="program_desc" class="form-control" />
+                <span asp-validation-for="program_desc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="active" class="control-label"></label>
+                <input asp-for="active" class="form-control" />
+                <span asp-validation-for="active" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Program" class="btn btn-success" />
+                <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Programs</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,31 @@
+@model WCAProject.Models.Zhearabout
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Hear About: @Html.DisplayFor(model => model.hearabout)</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ZhearaboutId" />
+            <div class="form-group">
+                <label asp-for="hearabout" class="control-label"></label>
+                <input asp-for="hearabout" class="form-control" />
+                <span asp-validation-for="hearabout" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Hear About" class="btn btn-success" />
+                <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Hear Abouts</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

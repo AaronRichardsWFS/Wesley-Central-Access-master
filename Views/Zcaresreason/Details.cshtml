@@ -1,0 +1,27 @@
+@model WCAProject.Models.Zcaresreason
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>View Care Reason: @Html.DisplayFor(model => model.caresreason)</h1>
+
+<div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ZcaresreasonId" />
+            <div class="form-group">
+                <label asp-for="caresreason" class="control-label"></label>
+                <input asp-for="caresreason" class="form-control" />
+                <span asp-validation-for="caresreason" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="form-group">
+    <a type="button" class="btn btn-secondary" asp-action="Index">Back to List</a>
+</div>

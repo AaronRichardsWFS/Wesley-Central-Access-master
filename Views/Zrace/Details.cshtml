@@ -1,0 +1,22 @@
+@model WCAProject.Models.Zrace
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>View Race: @Html.DisplayFor(model => model.race)</h1>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="race" class="control-label"></label>
+            <input asp-for="race" class="form-control" disabled/>
+            <span asp-validation-for="race" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Races</a>
+</div>

@@ -1,0 +1,45 @@
+@model WCAProject.Models.Zlocation
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Location: @Html.DisplayFor(model => model.location)</h1>
+<h3>Are you sure you want to delete this?</h3>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="location" class="control-label"></label>
+            <input asp-for="location" class="form-control" disabled/>
+            <span asp-validation-for="location" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="report" class="control-label"></label>
+            <input asp-for="report" class="form-control" disabled/>
+            <span asp-validation-for="report" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="active" class="control-label"></label>
+            <input asp-for="active" class="form-control" disabled/>
+            <span asp-validation-for="active" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="credstatus" class="control-label"></label>
+            <input asp-for="credstatus" class="form-control" disabled/>
+            <span asp-validation-for="credstatus" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="temp" class="control-label"></label>
+            <input asp-for="temp" class="form-control" disabled/>
+            <span asp-validation-for="temp" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="ZlocationId" />
+    <input type="submit" value="Delete Location" class="btn btn-danger" />
+    <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Locations</a>
+</form>

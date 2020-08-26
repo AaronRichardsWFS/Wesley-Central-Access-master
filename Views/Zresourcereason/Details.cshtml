@@ -1,0 +1,21 @@
+@model WCAProject.Models.Zresourcereason
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>View Program: @Html.DisplayFor(model => model.resourceresult)</h1>
+<hr />
+<div class="row">
+    <div class="col-md-5">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="resourceresult" class="control-label"></label>
+            <input asp-for="resourceresult" class="form-control" disabled/>
+            <span asp-validation-for="resourceresult" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Resource Reasons</a>
+        </div>
+    </div>
+</div>

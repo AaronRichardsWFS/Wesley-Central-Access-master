@@ -1,0 +1,153 @@
+@model IEnumerable<WCAProject.Models.ScaScreen>
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-striped">
+    <thead class = "thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Client)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wsclinic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.referralsource)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.whyfamilyseen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.treatmenthistory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.asddiagnosis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.halfwayshelter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.recentlymove)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.outsidevbh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.meetcriteria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.referraldetails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shelterdetails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wasstatenotified)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gennote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.privateinsurer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.privateinsurance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.managedcaretype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.requestedlocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.servicerequested)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.currentcounty)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.Client.ClientId)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.wsclinic)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.referralsource)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.whyfamilyseen)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.treatmenthistory)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.asddiagnosis)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.halfwayshelter)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.recentlymove)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.outsidevbh)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.meetcriteria)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.referraldetails)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.shelterdetails)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.wasstatenotified)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.gennote)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.privateinsurer)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.privateinsurance)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.managedcaretype)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.requestedlocation)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.servicerequested)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.currentcounty)
+            </td>
+            <td class = "align-middle">
+                <a asp-action="Edit" asp-route-id="@item.ScaScreenId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ScaScreenId">Details</a> |
+                @if ((await AuthorizationService.AuthorizeAsync(User, "WFS_Managers")).Succeeded)
+                {
+                    <a asp-action="Delete" asp-route-id="@item.ScaScreenId">Delete</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,43 @@
+@model WCAProject.Models.Zinternal
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>View Internal Type: @Html.DisplayFor(model => model.internal_type)</h1>
+<hr />
+<div class="row">
+    <div class="col-md-5">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ZinternalId" />
+        <div class="form-group">
+            <label asp-for="internal_type" class="control-label"></label>
+            <input asp-for="internal_type" class="form-control" disabled/>
+            <span asp-validation-for="internal_type" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="report" class="control-label"></label>
+            <input asp-for="report" class="form-control" disabled/>
+            <span asp-validation-for="report" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="credstatus" class="control-label"></label>
+            <input asp-for="credstatus" class="form-control" disabled/>
+            <span asp-validation-for="credstatus" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="temp" class="control-label"></label>
+            <input asp-for="temp" class="form-control" disabled/>
+            <span asp-validation-for="temp" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="active" class="control-label"></label>
+            <input asp-for="active" class="form-control" disabled/>
+            <span asp-validation-for="active" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Internal Types</a>
+</div>

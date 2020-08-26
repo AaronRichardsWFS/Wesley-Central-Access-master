@@ -1,0 +1,136 @@
+@model PaginatedList<WCAProject.Models.ClientService>
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row justify-content-between" style="margin-bottom:-.35cm;">
+    <div class="col-md-4 col-md-offset-1">
+        <h1>Inquiries</h1>
+    </div>
+
+    <div class="mr-5">
+        <form class="row justify-content-end" asp-action="Index" method="get">
+            <div class="row-md-3 form-actions no-color ml-1">
+                <select name="statusfilter" class="form-control" asp-items="@ViewBag.ZstatusId">
+                    <option value="All Statuses" selected>All Statuses</option>
+                </select>
+            </div>
+            <div class="row-md-3 form-actions no-color ml-1">
+                <select name="workerfilter" class="form-control" asp-items="@ViewBag.ZworkerId">
+                    <option value="All Workers" selected>All Workers</option>
+                </select>
+            </div>
+            <div class="row-md-3 ml-1">
+                <input type="submit" class="btn wfs-light-blue" value="Apply Filters" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<hr />
+
+
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["DateSortParm"]"
+                   ViewData["CurrentFilter"]=searchString;
+                   class="text-white">Date Received (Click to Sort)</a>
+            </th>
+            <th>
+                Client Name
+            </th>
+            <th>
+                CA DB ID
+            </th>
+            <th>
+                Credible ID
+            </th>
+            <th>
+                Service
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Worker
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td class="align-middle">
+                <a asp-action="Edit" class="btn-link" asp-route-id="@item.ClientServiceId">@Html.DisplayFor(modelItem => item.recdate)</a>
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Client.name)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Client.ClientId)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Client.CredibleID)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Service.service_desc)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Zstatus.inq_status)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Zworker.worker)
+            </td>
+            <td align="right">
+                <a asp-action="Edit" class="btn wfs-light-blue" asp-route-id="@item.ClientServiceId">Edit</a>
+                @if ((await AuthorizationService.AuthorizeAsync(User, "WFS_Managers")).Succeeded)
+                {
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.ClientServiceId">Delete</a>
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<!-- AHR - 06/17/2020
+     Add no matches text to fileter when no items returend
+    -->
+@if ((Model.Count() == 0))
+{
+    <h5> No matches to your current filter! </h5>
+}
+<!--
+     END
+     AHR - 06/17/2020
+     Add no matches text to fileter when no items returend
+        -->
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<div class="row justify-content-between">
+    <div align="left" class="col-md-5 col-md-offset-1">
+        <a asp-action="Index"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+           asp-route-pageNumber="@(Model.PageIndex - 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           class="btn btn-secondary @prevDisabled">
+            Previous
+        </a>
+        <a asp-action="Index"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+           asp-route-pageNumber="@(Model.PageIndex + 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           class="btn btn-secondary @nextDisabled">
+            Next
+        </a>
+    </div>
+</div>

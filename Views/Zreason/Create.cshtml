@@ -1,0 +1,44 @@
+@model WCAProject.Models.Zreason
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add Reason</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="final_reason" class="control-label"></label>
+                <input asp-for="final_reason" class="form-control" />
+                <span asp-validation-for="final_reason" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="report" class="control-label"></label>
+                <input asp-for="report" class="form-control" />
+                <span asp-validation-for="report" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="active" class="control-label"></label>
+                <input asp-for="active" class="form-control" />
+                <span asp-validation-for="active" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="status_match" class="control-label"></label>
+                <input asp-for="status_match" class="form-control" />
+                <span asp-validation-for="status_match" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Reason" class="btn btn-success" />
+                <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Reasons</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

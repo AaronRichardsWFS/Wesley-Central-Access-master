@@ -1,0 +1,114 @@
+﻿@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostEnv
+@using Microsoft.AspNetCore.Hosting
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@model PaginatedList<WCAProject.Models.ClientService>
+@{
+    ViewData["Title"] = "Welcome";
+    string UserName = Context.User?.Identity.Name ?? "anonymous";
+    UserName = UserName.Split('\\').Last();
+    UserName = UserName.Split('@').First();
+    ViewData["UserName"] = UserName;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div class = "row">
+      <div class = "col text-center">
+        @if ((await AuthorizationService.AuthorizeAsync(User, "WFS_Admins")).Succeeded)
+        {
+          <p>[@UserName, Admin]</p>
+        } else if ((await AuthorizationService.AuthorizeAsync(User, "WFS_Managers")).Succeeded)
+        {
+          <p>[@UserName, Manager]</p>
+        } else if ((await AuthorizationService.AuthorizeAsync(User, "WFS_Users")).Succeeded)
+        {
+          <p>[@UserName, User]</p>
+        } else
+        {
+            <p>[Anonymous]</p>
+        }
+      </div>
+    </div>
+    <div align = "center">
+        <a class="btn wfs-green" asp-controller="Clients" asp-action="Create">
+          Create a Client</a>
+          @if ((await AuthorizationService.AuthorizeAsync(User, "WFS_Managers")).Succeeded)
+          {
+              <a class="btn wfs-green ml-4" asp-controller="Home" asp-action="Admin">
+          View/Edit Dropdown Content</a>
+          }
+    </div>
+</div>
+<br><br>
+
+<h4 align="center">Most Recent Inquiries In Process</h4>
+
+
+<table class="table table-striped table-hover">
+    <thead class = "thead-dark">
+        <tr>
+
+            <th>
+                Date Received
+            </th>
+            <th>
+                Client Name
+            </th>
+            <th>
+                CA DB ID
+            </th>
+            <th>
+                Credible ID
+            </th>
+            <th>
+                Service
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Worker
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+
+                <td class="align-middle">
+                    <a asp-action="Edit" asp-controller="ClientServices" class="btn-link" asp-route-id="@item.ClientServiceId">@Html.DisplayFor(modelItem => item.recdate)</a>
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Client.name)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Client.ClientId)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Client.CredibleID)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Service.service_desc)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Zstatus.inq_status)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Zworker.worker)
+                </td>
+                <td align="right">
+                    <a asp-action="Edit" asp-controller="ClientServices" class="btn wfs-light-blue" asp-route-id="@item.ClientServiceId">Edit</a>
+                    @if ((await AuthorizationService.AuthorizeAsync(User, "WFS_Managers")).Succeeded)
+                    {
+                        <a asp-action="Delete" asp-controller="ClientServices" class="btn btn-danger" asp-route-id="@item.ClientServiceId">Delete</a>
+                    }
+                </td>
+            </tr>
+    }
+    </tbody>
+</table>
+@if ((Model.Count() == 0)) {
+        <h5> No Recent Inquiries </h5>
+}

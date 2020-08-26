@@ -1,0 +1,26 @@
+@model WCAProject.Models.Zinternalcategory
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Internal Subcategory: @Html.DisplayFor(model => model.internalsubcat)</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="internalsubcat" class="control-label"></label>
+            <input asp-for="internalsubcat" class="form-control" disabled/>
+            <span asp-validation-for="internalsubcat" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="ZinternalcategoryId" />
+    <input type="submit" value="Delete Internal Subcategory" class="btn btn-danger" />
+    <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Internal Subcategories</a>
+</form>

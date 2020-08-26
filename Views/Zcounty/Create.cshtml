@@ -1,0 +1,28 @@
+@model WCAProject.Models.Zcounty
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add County</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="county" class="control-label"></label>
+                <input asp-for="county" class="form-control" />
+                <span asp-validation-for="county" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add County" class="btn btn-success" />
+                <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Counties</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

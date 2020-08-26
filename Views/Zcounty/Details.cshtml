@@ -1,0 +1,22 @@
+@model WCAProject.Models.Zcounty
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>View County: @Html.DisplayFor(model => model.county)</h1>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="county" class="control-label"></label>
+            <input asp-for="county" class="form-control" disabled/>
+            <span asp-validation-for="county" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Counties</a>
+</div>

@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Client Search Report";
+}
+<h2>@ViewData["Title"]</h2>
+
+<iframe src="http://dashboard.wfspa.local/reports/report/Central%20Access%20DB/Client%20Search?rs:Embed=true"width="1000" height="800"></iframe>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

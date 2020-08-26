@@ -1,0 +1,45 @@
+@model WCAProject.Models.Zworker
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Worker: @Html.DisplayFor(model => model.worker)</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ZworkerId" />
+            <div class="form-group">
+                <label asp-for="worker" class="control-label"></label>
+                <input asp-for="worker" class="form-control" />
+                <span asp-validation-for="worker" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="report" class="control-label"></label>
+                <input asp-for="report" class="form-control" />
+                <span asp-validation-for="report" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="active" class="control-label"></label>
+                <input asp-for="active" class="form-control" />
+                <span asp-validation-for="active" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Worker" class="btn btn-success" />
+                <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Workers</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

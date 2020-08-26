@@ -1,0 +1,40 @@
+@model WCAProject.Models.Zreason
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Status: @Html.DisplayFor(model => model.final_reason)</h1>
+<h3>Are you sure you want to delete this?</h3>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="final_reason" class="control-label"></label>
+            <input asp-for="final_reason" class="form-control" disabled/>
+            <span asp-validation-for="final_reason" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="report" class="control-label"></label>
+            <input asp-for="report" class="form-control" disabled/>
+            <span asp-validation-for="report" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="active" class="control-label"></label>
+            <input asp-for="active" class="form-control" disabled/>
+            <span asp-validation-for="active" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="status_match" class="control-label"></label>
+            <input asp-for="status_match" class="form-control" disabled/>
+            <span asp-validation-for="status_match" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="ZreasonId" />
+    <input type="submit" value="Delete Reason" class="btn btn-danger" />
+    <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Reasons</a>
+</form>

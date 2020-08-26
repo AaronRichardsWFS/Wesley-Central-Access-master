@@ -1,0 +1,30 @@
+@model WCAProject.Models.Zinternalcategory
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Internal Subcategory: @Html.DisplayFor(model => model.internalsubcat)</h1>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ZinternalcategoryId" />
+            <div class="form-group">
+                <label asp-for="internalsubcat" class="control-label"></label>
+                <input asp-for="internalsubcat" class="form-control" />
+                <span asp-validation-for="internalsubcat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Internal Subcategory" class="btn btn-success" />
+                <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Internal Subcategories</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

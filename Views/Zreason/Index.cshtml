@@ -1,0 +1,43 @@
+@model IEnumerable<WCAProject.Models.Zreason>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>View All Reasons</h1>
+<hr/>
+<table class="table table-striped">
+    <thead class = "thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.final_reason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.final_reason)
+            </td>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.active)
+            </td>
+            <td align = "right">
+                <a type="button" class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ZreasonId">Edit</a>
+                <a type="button" class="btn btn-secondary" asp-action="Details" asp-route-id="@item.ZreasonId">View</a>
+                <a type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ZreasonId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div align = "right">
+    <a type="button" class="btn btn-success" asp-action="Create">Add Reason</a>
+    <a class="btn btn-secondary" asp-controller="Home" asp-action="Admin">Back to All Dropdown Content</a>
+</div>

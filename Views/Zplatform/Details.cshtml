@@ -1,0 +1,26 @@
+@model WCAProject.Models.Zplatform
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>View Platform: @Html.DisplayFor(model => model.opplatform)</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="internalId" class="control-label"></label>
+            <input asp-for="internalId" class="form-control" disabled/>
+            <span asp-validation-for="internalId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="opplatform" class="control-label"></label>
+            <input asp-for="opplatform" class="form-control" disabled/>
+            <span asp-validation-for="opplatform" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Platforms</a>
+        </div>
+    </div>
+</div>

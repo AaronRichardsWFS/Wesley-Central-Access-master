@@ -1,0 +1,56 @@
+@model WCAProject.Models.Zschool
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete School: @Html.DisplayFor(model => model.displayname)</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <div class="form-group">
+          <label asp-for="site" class="control-label"></label>
+          <input asp-for="site" class="form-control" disabled/>
+          <span asp-validation-for="site" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+          <label asp-for="schooldistrict" class="control-label"></label>
+          <input asp-for="schooldistrict" class="form-control" disabled/>
+          <span asp-validation-for="schooldistrict" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+          <label asp-for="displayname" class="control-label"></label>
+          <input asp-for="displayname" class="form-control" disabled/>
+          <span asp-validation-for="displayname" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+          <label asp-for="therapist" class="control-label"></label>
+          <input asp-for="therapist" class="form-control" disabled/>
+          <span asp-validation-for="therapist" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+          <label asp-for="ServiceOffered" class="control-label"></label>
+          <input asp-for="ServiceOffered" class="form-control" disabled/>
+          <span asp-validation-for="ServiceOffered" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+          <label asp-for="Supervisor" class="control-label"></label>
+          <input asp-for="Supervisor" class="form-control" disabled/>
+          <span asp-validation-for="Supervisor" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+          <label asp-for="active" class="control-label"></label>
+          <input asp-for="active" class="form-control" disabled/>
+          <span asp-validation-for="active" class="text-danger"></span>
+      </div>
+    </div>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="ZschoolId" />
+    <input type="submit" value="Delete School" class="btn btn-danger" /> 
+    <a type="button" class="btn btn-secondary" asp-action="Index">Back to List</a>
+</form>

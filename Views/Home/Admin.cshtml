@@ -1,0 +1,107 @@
+@{
+    ViewData["Title"] = "View Dropdown Contents";
+}
+<h1 class = "text-center">@ViewData["Title"]</h1>
+<br>
+<div class="row justify-content-between">
+  <div class = "col-md-5 col-md-offset-1 rounded p-3 mb-2 table-active text-dark">
+    <div class = "text-center">
+      <h4>View Client Related Dropdowns</h4>
+    </div><br>
+    <div class = "row">
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zcounty" asp-action="Index">
+          Counties</a>
+      </div>
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zrace" asp-action="Index">
+          Races</a>
+      </div>
+    </div><br>
+    <div class = "row">
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zschool" asp-action="Index">
+          Schools</a>
+      </div>
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zinsurance" asp-action="Index">
+          Insurance</a>
+      </div>
+    </div>
+  </div>
+  <div class = "col-md-5 col-md-offset-1 rounded p-3 mb-2 table-active text-dark">
+    <div class = "text-center">
+      <h4>View Inquiry Related Dropdowns</h4>
+    </div><br>
+    <div class = "row">
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zcaresreason" asp-action="Index">
+          Cares Reasons</a>
+      </div>
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zhearabout" asp-action="Index">
+          Hear Abouts</a>
+      </div>
+    </div><br>
+    <div class = "row">
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zinternal" asp-action="Index">
+          Internal Types</a>
+      </div>
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zinternalcategory" asp-action="Index">
+          Internal Categories</a>
+      </div>
+    </div><br>
+    <div class = "row">
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zlocation" asp-action="Index">
+          Locations</a>
+      </div>
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zopother" asp-action="Index">
+          Other Ops</a>
+      </div>
+    </div><br>
+    <div class = "row">
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zplatform" asp-action="Index">
+          Platforms</a>
+      </div>
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zprograms" asp-action="Index">
+          Programs</a>
+      </div>
+    </div><br>
+    <div class = "row">
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zresourcereason" asp-action="Index">
+          Resource Reasons</a>
+      </div>
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zsite" asp-action="Index">
+          Sites</a>
+      </div>
+    </div><br>
+    <div class = "row">
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zstatus" asp-action="Index">
+          Statuses</a>
+      </div>
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zreason" asp-action="Index">
+          Reasons</a>
+      </div>
+    </div><br>
+    <div class = "row">
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Zworker" asp-action="Index">
+          Workers</a>
+      </div>
+      <div class="col-md-6 col-md-offset-1">
+        <a class="btn btn-primary btn-lg btn-block" asp-controller="Services" asp-action="Index">
+          Services</a>
+      </div>
+    </div>
+  </div>
+</div>

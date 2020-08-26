@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "WFS Service Site";
+}
+<h2>@ViewData["Title"]</h2>
+
+<iframe src="http://development02.wfspa.local:3000"width="600" height="800"></iframe>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

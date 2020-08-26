@@ -1,0 +1,75 @@
+﻿@{
+    string UserName = Context.User?.Identity.Name ?? "anonymous";
+    UserName = UserName.Split('\\').Last();
+    UserName = UserName.Split('@').First();
+    ViewData["UserName"] = UserName;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WFS Central Access</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container justify-content-between">
+                <div class="">
+                    <a class="navbar-brand text-white" asp-controller="Home" asp-action="Index"><img class="" id="logo" src="~/images/WFS-H2_reverse_web.png"></a>
+                </div>
+                <div class="">
+                    <a id="site-title" class="text-white text-center">Central Access</a>
+                </div>
+                <div class="">
+                    <ul class="navbar-nav">
+                        <li class="nav-item mr-3">
+                            <a class="btn btn-outline-light" asp-area="" asp-controller="Clients" asp-action="Index">All Clients</a>
+                        </li>
+                        <a class="btn btn-outline-light" asp-area="" asp-controller="Home" asp-action="Reports">Reports</a>
+                        <li class="nav-item mr-3">
+                        </li>
+                        <!--
+                        <li class="nav-item mr-3">
+                        <a class="btn btn-outline-light" asp-area="" asp-controller="Home" asp-action="SSite">WFS Services Site</a>
+                        </li>
+                         -->
+                        <li class="nav-item">
+                            <!--<a class="btn btn-outline-light" asp-area="" asp-controller="ClientServices" asp-action="Index">Incoming Inquiries</a>-->
+                            <a class="btn btn-outline-light" href="/ClientServices?statusfilter=New&workerfilter=All+Workers">Incoming Inquiries</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        @if (TempData["Alert"] != null)
+        {
+            <div class="alert alert-success fade show" role="alert">
+                <strong>@TempData["Alert"]</strong>
+            </div>
+        }
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted sen-light">
+        <div class="container text-center">
+            &copy; 2020 - Wesley Family Services <a asp-controller="Home" asp-action="Help" class="ml-4">Help</a>
+        </div>
+        <div class="text-center">
+
+        </div>
+    </footer>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

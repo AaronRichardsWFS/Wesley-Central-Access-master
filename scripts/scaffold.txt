@@ -1,0 +1,20 @@
+dotnet aspnet-codegenerator controller -name ZactionController -m Zaction -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries                  
+dotnet aspnet-codegenerator controller -name ZcaresreasonController -m Zcaresreason -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries        
+dotnet aspnet-codegenerator controller -name ZcountyController -m Zcounty -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries                  
+dotnet aspnet-codegenerator controller -name ZhearaboutController -m Zhearabout -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries            
+dotnet aspnet-codegenerator controller -name ZinsuranceController -m Zinsurance -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries            
+dotnet aspnet-codegenerator controller -name ZinternalController -m Zinternal -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries              
+dotnet aspnet-codegenerator controller -name ZinternalcategoryController -m Zinternalcategory -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries                                                                                                                                                                                              
+dotnet aspnet-codegenerator controller -name ZlocationController -m Zlocation -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries              
+dotnet aspnet-codegenerator controller -name ZopotherController -m Zopother -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries                
+dotnet aspnet-codegenerator controller -name ZplatformController -m Zplatform -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries              
+dotnet aspnet-codegenerator controller -name ZprogramsController -m Zprograms -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries              
+dotnet aspnet-codegenerator controller -name ZreasonController -m Zreason -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries                  
+dotnet aspnet-codegenerator controller -name ZreferralsourceController -m Zreferralsource -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries  
+
+dotnet aspnet-codegenerator controller -name ZresourcereasonController -m Zresourcereason -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries  
+dotnet aspnet-codegenerator controller -name ZschoolController -m Zschool -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries                  
+dotnet aspnet-codegenerator controller -name ZsiteController -m Zsite -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries                      
+dotnet aspnet-codegenerator controller -name ZstatusController -m Zstatus -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries                  
+dotnet aspnet-codegenerator controller -name ZworkerController -m Zworker -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries                  
+dotnet aspnet-codegenerator controller -name ZyesnoController -m Zyesno -dc WCAProjectContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries

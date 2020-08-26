@@ -1,0 +1,25 @@
+@model WCAProject.Models.Zresourcereason
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Program: @Html.DisplayFor(model => model.resourceresult)</h1>
+<h3>Are you sure you want to delete this?</h3>
+<hr />
+<div class="row">
+    <div class="col-md-5">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="resourceresult" class="control-label"></label>
+            <input asp-for="resourceresult" class="form-control" disabled/>
+            <span asp-validation-for="resourceresult" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="ZresourcereasonId" />
+    <input type="submit" value="Delete Resource Reason" class="btn btn-danger" />
+    <a type="button" class="btn btn-secondary" asp-action="Index">Back to All Resource Reasons</a>
+</form>

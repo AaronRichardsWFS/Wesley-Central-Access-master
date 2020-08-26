@@ -1,0 +1,37 @@
+@model IEnumerable<WCAProject.Models.Zhearabout>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>View All Hear Abouts (To be used in "Inquiry" forms)</h1>
+<hr/>
+<table class="table table-striped">
+    <thead class = "thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.hearabout)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class = "align-middle">
+                @Html.DisplayFor(modelItem => item.hearabout)
+            </td>
+            <td align = "right">
+                <a type="button" class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ZhearaboutId">Edit</a>
+                <a type="button" class="btn btn-secondary" asp-action="Details" asp-route-id="@item.ZhearaboutId">View</a>
+                <a type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ZhearaboutId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div align = "right">
+    <a type="button" class="btn btn-success" asp-action="Create">Add Hear About</a>
+    <a class="btn btn-secondary" asp-controller="Home" asp-action="Admin">Back to All Dropdown Content</a>
+</div>
