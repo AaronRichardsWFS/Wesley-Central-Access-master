@@ -118,3 +118,74 @@ Here are some features that could/should be added on:
 
 ---
 First production build developed by [Abhi Maddineni](https://github.com/amaddine), [CJ May](https://github.com/cmax4jam), and [Eugene Choi](https://github.com/eugeneiohc); Information Systems Program @ CMU; Feb - May 2020 
+
+Offical Changelog
+
+
+08/26/2020
+ - Fix - Fixed Secondary Insurance - This is now a drop down
+ - Fix - Rename Incoming Inquiries to Search Inquiries (will default to show all New Inquiries)
+ - Fix - Home Page 'In Process' listing now filters on logged in user
+ - Enhancement - Added new feild on the Worker table (UserName) this will be used by the system to know which user logged in is tied to witch worker entry.  Example: Worker Dawn is now tied to her computer username of haurperd
+ - Enhancement - In all List views changed links to go to 'Edit' instead of 'Detail' view
+ - Enhancement - In all List views added the CA DB ID and Credible ID
+ - Enhancement - When Selecting Service of OP hide the "OP Type" - No longer needed
+ - Enhancement - Implemented Audit backend
+        - To Do:
+                    - Add Tables to audit System
+                    - Add Audit Reports
+
+08/05/2020
+ - Fix - Footer Section Bleeding on top of other text
+ - Fix - When selecting the site of "School" the School Selection Box now shows up
+ - Fix - When selecting the Programs of "OP", "BHRS", "IFC", or "WK" the hiddedn boxes now appear
+ - Fix - Clinet Inquery - Site Drop Down was not filtering out inactives
+ - Fix - Clinet Inquery - School Drop Down was not filtering out inactives
+ - Fix - Clinet Inquery - Status Drop Down was not filtering out inactives
+ - Fix - Clinet Inquery - Worker Drop Down was not filtering out inactives
+ - Fix - Clinet Inquery - Program Drop Down was not filtering out inactives
+ - Fix - Clinet Inquery - Internal Drop Down was not filtering out inactives
+ - Fix - Clinet - Race Drop Down was not filtering out inactives
+ - Fix - Clinet - Insurance Drop Down was not filtering out inactives
+ - Fix - Clinet - Site Drop Down was not filtering out inactives
+ - Fix - Clinet - School Drop Down was not filtering out inactives
+ - Fix - Clinet - Status Drop Down was not filtering out inactives
+ - Fix - Clinet - Worker Drop Down was not filtering out inactives
+ - Fix - Clinet - Program Drop Down was not filtering out inactives
+ - Fix - Age - Went entering DOB Age will calculate
+ - Enhancement - System Recalculates age nightly
+ - Enhancement - Created new Report Section
+ - Enhancement - Moved Cleint Search Report to new Reports Section
+ - Enhancement - Added security to reports page
+ - Enhancement - Added Help Page
+ - Enhancement - Moved Change Log and Debug to help Page
+
+
+06/26/2020
+ - Enhancement - Unlocked Client Feilds on Edit Inquery Screen
+ - Fix - Added County to Inquery Client view
+ - Fix - Added County to Inquery Client Create
+ - Fix - Added County to Inquery Client Edit
+ - Enhancement - Added Page to pull SSRS Cleint Search
+ - Enhancement - Added Link to WFS Services Site
+
+06/18/2020
+ - Fix - In Progress on home page from listing results
+ - Fix - Client DB Number not showing on Client Page 
+ - Fix - Converted Insurance2 to Foreign Key tied to Insurance List
+ - Enhancement - Added Change log
+ - Fix - Fixed Incomming Clients page not defaulting to new clients
+ - Fix - Search on Client only searches the first phone number box, not the 2nd box also same with these search options email and contact relationship.
+ - Enhancement - Added Name to In Process List on Homepage
+ - Enhancement - Added Name to Incomming Inquiries
+ - Enhancement - Added County to Client Page
+
+04292020
+ - Inital Release from CMU
+
+
+
+
+
+
+
