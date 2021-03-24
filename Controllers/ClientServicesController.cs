@@ -134,7 +134,7 @@ namespace WCAProject.Controllers
             inquiryFormViewModel.Notes = await _context.Clineitems.Where(ci => ci.ClientServiceId == inquiryFormViewModel.Inquiry.ClientServiceId).OrderByDescending(ci => ci.ldate).ToListAsync();
             inquiryFormViewModel.ScaScreen = new ScaScreen{ClientService = inquiryFormViewModel.Inquiry};
             inquiryFormViewModel.ScaScreen.ClientServiceId = inquiryFormViewModel.Inquiry.ClientServiceId;
-
+            TempData["Alert"] = String.Format("client: {0}", (inquiryFormViewModel.Client.ClientId));
             return View(inquiryFormViewModel);
         }
 
@@ -148,9 +148,14 @@ namespace WCAProject.Controllers
             ClientService cs = inquiryFormViewModel.Inquiry;
             Clineitem ci = inquiryFormViewModel.Note;
             ScaScreen sca = inquiryFormViewModel.ScaScreen;
-
+            Client client = inquiryFormViewModel.Client;
+            
             if (ModelState.IsValid)
             {
+                int clientId = (int)cs.ClientId;
+                client.ClientId = clientId;
+                _context.Update(client);
+                await _context.SaveChangesAsync();
                 _context.Add(cs);
                 await _context.SaveChangesAsync();
                 ci.ClientServiceId = cs.ClientServiceId;
