@@ -99,15 +99,12 @@
                                     <input asp-for="Client.zipcode" class="form-control" />
                                     <span asp-validation-for="Client.zipcode" class="text-danger"></span>
                                 </div>
-
-
-
                                 <!--AHR add inc county-->
                                 <div class="row">
-                                    <div class="col-md-3 col-md-offset-1">
+                                    <div class="col-md-12 col-md-offset-1">
                                         <label asp-for="Client.ZcountyId" class="control-label"></label>
-                                        <select asp-for="Client.ZcountyId" class="form-control" disabled>
-                                            <option selected disabled>@Html.DisplayFor(model => model.Client.Zcounty.county)</option>
+                                        <select asp-for="Client.ZcountyId" class="form-control" asp-items="@ViewBag.ZcountyId">
+                                            <option value="" selected disabled>Select County</option>
                                         </select>
                                         <span asp-validation-for="Client.ZcountyId" class="text-danger"></span>
                                     </div>
@@ -166,7 +163,9 @@
                                     <div class="col-md-4 col-md-offset-1">
                                         <div class="form-group">
                                             <label asp-for="Client.insurance2" class="control-label"></label>
-                                            <input asp-for="Client.insurance2" class="form-control" />
+                                            <select asp-for="Client.insurance2" class="form-control" asp-items="@ViewBag.ZinsuranceId">
+                                                <option value="" selected disabled>Select Insurance</option>
+                                            </select>
                                             <span asp-validation-for="Client.insurance2" class="text-danger"></span>
                                         </div>
                                     </div>
