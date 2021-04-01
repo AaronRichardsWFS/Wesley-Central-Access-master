@@ -60,8 +60,8 @@
                                 </div>
                                 <div class="col-md-3 col-md-offset-1">
                                     <label asp-for="Client.ZraceId" class="control-label"></label>
-                                    <select asp-for="Client.ZraceId" class="form-control" disabled>
-                                        <option selected disabled>@Html.DisplayFor(model => model.Client.Zrace.race)</option>
+                                    <select asp-for="Client.ZraceId" class="form-control" asp-items="@ViewBag.ZraceId" disabled>
+                                        <option value="" selected disabled>Select Race</option>
                                     </select>
                                     <span asp-validation-for="Client.ZraceId" class="text-danger"></span>
                                 </div>
@@ -84,7 +84,7 @@
                                       </div>
                                       <div class="col-md-3 col-md-offset-1">
                                           <label asp-for="Client.state" class="control-label"></label>
-                                          <select asp-for="Client.state" class="form-control">
+                                          <select asp-for="Client.state" class="form-control" disabled>
                                               <option selected>PA</option>
                                           </select>
                                           <span asp-validation-for="Client.state" class="text-danger"></span>

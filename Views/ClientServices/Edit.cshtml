@@ -65,8 +65,8 @@
                                         </div> 
                                         <div class="col-md-3 col-md-offset-1">
                                             <label asp-for="Client.ZraceId" class="control-label"></label>
-                                            <select asp-for="Client.ZraceId" class="form-control">
-                                                <option selected disabled>@Html.DisplayFor(model => model.Client.Zrace.race)</option>
+                                            <select asp-for="Client.ZraceId" class="form-control" asp-items="@ViewBag.ZraceId">
+                                                <option value="" selected disabled>Select Race</option>
                                             </select>
                                             <span asp-validation-for="Client.ZraceId" class="text-danger"></span>
                                         </div>
