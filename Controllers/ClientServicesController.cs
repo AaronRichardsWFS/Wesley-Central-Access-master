@@ -101,7 +101,7 @@ namespace WCAProject.Controllers
             inquiryDetailsViewModel.ScaScreen = await _context.ScaScreen.FirstOrDefaultAsync(sca => sca.ClientServiceId == clientService.ClientServiceId);
 
             ViewData["ZcountyId"] = new SelectList(_context.Zcounty.OrderBy(m => m.county), "ZcountyId", "county", inquiryDetailsViewModel.Client.ZcountyId);
-            ViewData["ZraceId"] = new SelectList(_context.Zrace.Where(m => m.active).OrderBy(m => m.race), "ZraceId", "race", inquiryDetailsViewModel.Client.ZraceId);
+            ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race", inquiryDetailsViewModel.Client.ZraceId);
             ViewData["ZinsuranceId"] = new SelectList(_context.Zinsurance.Where(m => m.active).OrderBy(m => m.insurance), "ZinsuranceId", "insurance", inquiryDetailsViewModel.Client.ZinsuranceId);
 
             return View(inquiryDetailsViewModel);
@@ -140,7 +140,7 @@ namespace WCAProject.Controllers
             inquiryFormViewModel.ScaScreen.ClientServiceId = inquiryFormViewModel.Inquiry.ClientServiceId;
 
             ViewData["ZcountyId"] = new SelectList(_context.Zcounty.OrderBy(m => m.county), "ZcountyId", "county", inquiryFormViewModel.Client.ZcountyId);
-            ViewData["ZraceId"] = new SelectList(_context.Zrace.Where(m => m.active).OrderBy(m => m.race), "ZraceId", "race", inquiryFormViewModel.Client.ZraceId);
+            ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race", inquiryFormViewModel.Client.ZraceId);
             ViewData["ZinsuranceId"] = new SelectList(_context.Zinsurance.Where(m => m.active).OrderBy(m => m.insurance), "ZinsuranceId", "insurance", inquiryFormViewModel.Client.ZinsuranceId);
 
             return View(inquiryFormViewModel);
@@ -225,7 +225,7 @@ namespace WCAProject.Controllers
             ViewData["ZstatusId"] = new SelectList(_context.Zstatus.Where(m => m.active).OrderBy(m => m.inq_status), "ZstatusId", "inq_status", clientService.ZstatusId);
             ViewData["ZworkerId"] = new SelectList(_context.Zworker.Where(m => m.active).OrderBy(m => m.worker), "ZworkerId", "worker", clientService.ZworkerId);
             ViewData["ZcountyId"] = new SelectList(_context.Zcounty.OrderBy(m => m.county), "ZcountyId", "county", client.ZcountyId);
-            ViewData["ZraceId"] = new SelectList(_context.Zrace.Where(m => m.active).OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
+            ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
             ViewData["ZinsuranceId"] = new SelectList(_context.Zinsurance.Where(m => m.active).OrderBy(m => m.insurance), "ZinsuranceId", "insurance", client.ZinsuranceId);
 
             InquiryDetailsViewModel inquiryDetailsViewModel = new InquiryDetailsViewModel();
@@ -297,7 +297,7 @@ namespace WCAProject.Controllers
             ViewData["ZstatusId"] = new SelectList(_context.Zstatus.Where(m => m.active).OrderBy(m => m.inq_status), "ZstatusId", "inq_status", cs.ZstatusId);
             ViewData["ZworkerId"] = new SelectList(_context.Zworker.Where(m => m.active).OrderBy(m => m.worker), "ZworkerId", "worker", cs.ZworkerId);
             ViewData["ZcountyId"] = new SelectList(_context.Zcounty.OrderBy(m => m.county), "ZcountyId", "county", client.ZcountyId);
-            ViewData["ZraceId"] = new SelectList(_context.Zrace.Where(m => m.active).OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
+            ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
             ViewData["ZinsuranceId"] = new SelectList(_context.Zinsurance.Where(m => m.active).OrderBy(m => m.insurance), "ZinsuranceId", "insurance", client.ZinsuranceId);
 
             return View(inquiryFormViewModel);
