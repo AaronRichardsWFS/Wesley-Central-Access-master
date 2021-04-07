@@ -6,7 +6,9 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit Client - @Html.DisplayFor(model => model.Client.cfirst) @Html.DisplayFor(model => model.Client.clast)</h1>
+<h1>
+    Edit Client @Html.DisplayFor(model => model.Client.ClientId)- @Html.DisplayFor(model => model.Client.cfirst) @Html.DisplayFor(model => model.Client.clast)
+</h1>
 <hr />
 <form asp-action="Edit">
     <input type="hidden" asp-for="Client.ClientId" />
@@ -104,7 +106,6 @@
 
                 </div>
                 <div class="col-md-3 col-md-offset-1">
-
                 </div>
             </div><br style="line-height:5px;" />
             <!--AHR End add inc county-->
@@ -189,6 +190,7 @@
     </div>
 
     <div class="container" align="right">
+        <a type="button" class="btn wfs-purple" asp-controller="ClientServices" asp-action="Create" asp-route-clientid="@Model.Client.ClientId">New Inquiry</a>
         <input type="submit" value="Save Client" class="btn wfs-green ml-1" />
         <a type="button" class="btn btn-secondary ml-1" asp-action="Index">Back to List</a>
     </div>
