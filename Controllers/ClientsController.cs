@@ -198,6 +198,13 @@ namespace WCAProject.Controllers
 
             ClientEditViewModel clientEditViewModel = new ClientEditViewModel();
             clientEditViewModel.Client = await _context.Clients.FirstOrDefaultAsync(m => m.ClientId == client.ClientId);
+            clientEditViewModel.Inquiries = await _context.ClientServices
+                    .Where(cs => cs.ClientId == client.ClientId)
+                    .Include(cs => cs.Zstatus)
+                    .Include(cs => cs.Service)
+                    .Include(cs => cs.Zworker)
+                    .OrderByDescending(cs => cs.recdate)
+                    .ToListAsync();
 
             return View(clientEditViewModel);
         }
