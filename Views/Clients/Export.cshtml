@@ -1,0 +1,33 @@
+@model WCAProject.ViewModels.ClientDetailsViewModel
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>@Model.Client.cfirst @Model.Client.clast - @(Model.Client.ClientId)</h1>
+<p>Date of Birth: @Model.Client.dob</p>
+<p>Age: @Model.Client.age</p>
+<p>SSN: @Model.Client.ssn</p>
+<p>Gender: @Model.Client.gender</p>
+<p>Race: @Model.Client.Zrace.race</p>
+<p>Credible ID: @Model.Client.CredibleID</p>
+<p>Address: @Model.Client.address @Model.Client.city, @Model.Client.state @Model.Client.zipcode</p>
+<p>County: @Model.Client.Zcounty.county</p>
+
+<strong>Contact 1</strong>
+<p>Email: @Model.Client.email</p>
+<p>Phone: @Model.Client.phone</p>
+<p>Relationship: @Model.Client.contact</p>
+<strong>Contact 2</strong>
+<p>Email: @Model.Client.email2</p>
+<p>Phone: @Model.Client.phone2</p>
+<p>Relationship: @Model.Client.contact2</p>
+
+<strong>Primary Insurance</strong>
+<p>Provider: @Model.Client.Zinsurance.insurance</p>
+<p>Notes: @Model.Client.ins_note</p>
+<strong>Secondary Insurance</strong>
+<p>Provider: @Model.Client.insurance2</p>
+<p>Notes: @Model.Client.ins_other_note</p>

@@ -190,6 +190,7 @@
     </div>
 
     <div class="container" align="right">
+        <a type="button" class="btn btn-secondary ml-1" asp-action="Export" asp-route-id="@Model.Client.ClientId">Printer-Friendly View</a>
         <a type="button" class="btn wfs-purple" asp-controller="ClientServices" asp-action="Create" asp-route-clientid="@Model.Client.ClientId">New Inquiry</a>
         <input type="submit" value="Save Client" class="btn wfs-green ml-1" />
         <a type="button" class="btn btn-secondary ml-1" asp-action="Index">Back to List</a>

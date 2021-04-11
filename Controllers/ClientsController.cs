@@ -97,6 +97,39 @@ namespace WCAProject.Controllers
             return View(clientDetailsViewModel);
         }
 
+        // GET: Clients/Export/5
+        public async Task<IActionResult> Export(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var client = await _context.Clients
+                .Include(c => c.Zcounty)
+                .Include(c => c.Zrace)
+                .Include(c => c.Zinsurance)
+                .FirstOrDefaultAsync(m => m.ClientId == id);
+            if (client == null)
+            {
+                return NotFound();
+            }
+
+            ClientDetailsViewModel clientDetailsViewModel = new ClientDetailsViewModel()
+            {
+                Client = client,
+                Inquiries = await _context.ClientServices
+                    .Where(cs => cs.ClientId == client.ClientId)
+                    .Include(cs => cs.Zstatus)
+                    .Include(cs => cs.Service)
+                    .Include(cs => cs.Zworker)
+                    .OrderByDescending(cs => cs.recdate)
+                    .ToListAsync()
+            };
+
+            return View(clientDetailsViewModel);
+        }
+
         public void AddNote()
         {
 
