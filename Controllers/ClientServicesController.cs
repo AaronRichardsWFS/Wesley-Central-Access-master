@@ -103,6 +103,7 @@ namespace WCAProject.Controllers
             ViewData["ZcountyId"] = new SelectList(_context.Zcounty.OrderBy(m => m.county), "ZcountyId", "county", inquiryDetailsViewModel.Client.ZcountyId);
             ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race", inquiryDetailsViewModel.Client.ZraceId);
             ViewData["ZinsuranceId"] = new SelectList(_context.Zinsurance.Where(m => m.active).OrderBy(m => m.insurance), "ZinsuranceId", "insurance", inquiryDetailsViewModel.Client.ZinsuranceId);
+            ViewData["ZworkerId"] = new SelectList(_context.Zworker.Where(m => m.active).OrderBy(m => m.worker), "ZworkerId", "worker");
 
             return View(inquiryDetailsViewModel);
         }
