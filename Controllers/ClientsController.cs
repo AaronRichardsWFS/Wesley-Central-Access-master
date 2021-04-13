@@ -127,6 +127,42 @@ namespace WCAProject.Controllers
                     .ToListAsync()
             };
 
+            if (client.Zrace == null)
+            {
+                ViewData["race"] = "N/A";
+            } 
+            else
+            {
+                ViewData["race"] = client.Zrace.race;
+            }
+
+            if (client.Zinsurance == null)
+            {
+                ViewData["insurance1"] = "N/A";
+            } 
+            else
+            {
+                ViewData["insurance1"] = client.Zinsurance.insurance;
+            }
+
+            if (client.Zcounty == null)
+            {
+                ViewData["county"] = "N/A";
+            }
+            else
+            {
+                ViewData["county"] = client.Zcounty.county;
+            }
+
+            if (client.insurance2 == null)
+            {
+                ViewData["insurance2"] = "N/A";
+            }
+            else
+            {
+                ViewData["insurance2"] = _context.Zinsurance.Find(client.insurance2).insurance;
+            }
+
             return View(clientDetailsViewModel);
         }
 
