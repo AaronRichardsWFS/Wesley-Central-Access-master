@@ -11,10 +11,10 @@
 <p>Age: @Model.Client.age</p>
 <p>SSN: @Model.Client.ssn</p>
 <p>Gender: @Model.Client.gender</p>
-<p>Race: @Model.Client.Zrace.race</p>
+<p>Race: @ViewBag.race</p>
 <p>Credible ID: @Model.Client.CredibleID</p>
 <p>Address: @Model.Client.address @Model.Client.city, @Model.Client.state @Model.Client.zipcode</p>
-<p>County: @Model.Client.Zcounty.county</p>
+<p>County: @ViewBag.county</p>
 
 <strong>Contact 1</strong>
 <p>Email: @Model.Client.email</p>
@@ -26,8 +26,8 @@
 <p>Relationship: @Model.Client.contact2</p>
 
 <strong>Primary Insurance</strong>
-<p>Provider: @Model.Client.Zinsurance.insurance</p>
+<p>Provider: @ViewBag.insurance1</p>
 <p>Notes: @Model.Client.ins_note</p>
 <strong>Secondary Insurance</strong>
-<p>Provider: @Model.Client.insurance2</p>
+<p>Provider: @ViewBag.insurance2</p>
 <p>Notes: @Model.Client.ins_other_note</p>
