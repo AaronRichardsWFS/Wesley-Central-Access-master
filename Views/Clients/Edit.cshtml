@@ -1,11 +1,13 @@
 @model WCAProject.ViewModels.ClientEditViewModel;
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
 
 @{
     ViewData["Title"] = "Edit";
 }
 
 <h1>
-    Edit Client @Html.DisplayFor(model => model.Client.ClientId)- @Html.DisplayFor(model => model.Client.cfirst) @Html.DisplayFor(model => model.Client.clast)
+    Edit Client @Html.DisplayFor(model => model.Client.ClientId) - @Html.DisplayFor(model => model.Client.cfirst) @Html.DisplayFor(model => model.Client.clast)
 </h1>
 <hr />
 <form asp-action="Edit">
@@ -54,7 +56,7 @@
                 <div class="col-md-3 col-md-offset-1">
                     <label asp-for="Client.ZraceId" class="control-label"></label>
                     <select asp-for="Client.ZraceId" class="form-control" asp-items="@ViewBag.ZraceId">
-                        <option value="" selected disabed>Select Race</option>
+                        <option value="" selected disabled>Select Race</option>
                     </select>
                     <span asp-validation-for="Client.ZraceId" class="text-danger"></span>
                 </div>
@@ -88,19 +90,14 @@
                     <span asp-validation-for="Client.zipcode" class="text-danger"></span>
                 </div>
             </div><br style="line-height:5px;" />
-
-
             <!--AHR add inc county-->
             <div class="row">
                 <div class="col-md-3 col-md-offset-1">
                     <label asp-for="Client.ZcountyId" class="control-label"></label>
                     <select asp-for="Client.ZcountyId" class="form-control" asp-items="@ViewBag.ZcountyId">
-                        <option value="" selected disabed>Select County</option>
+                        <option value="" selected disabled>Select County</option>
                     </select>
                     <span asp-validation-for="Client.ZcountyId" class="text-danger"></span>
-
-
-
                 </div>
                 <div class="col-md-3 col-md-offset-1">
 
@@ -109,12 +106,9 @@
 
                 </div>
                 <div class="col-md-3 col-md-offset-1">
-
                 </div>
             </div><br style="line-height:5px;" />
             <!--AHR End add inc county-->
-
-
             <div class="row">
                 <div class="col-md-3 col-md-offset-1">
                     <label asp-for="Client.phone" class="control-label"></label>
@@ -173,10 +167,6 @@
                             <option value="" selected disabled>Select Insurance</option>
                         </select>
                         <span asp-validation-for="Client.insurance2" class="text-danger"></span>
-
-
-
-
                     </div>
                 </div>
                 <div class="col-md-12 col-md-offset-1">
@@ -205,6 +195,59 @@
         <a type="button" class="btn btn-secondary ml-1" asp-action="Index">Back to List</a>
     </div>
 </form>
+
+<h2>Inquiries</h2>
+<div class="row justify-content-around">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    Date
+                <th>
+                    Status
+                </th>
+                <th>
+                    Worker
+                </th>
+                <th>
+                    <a asp-action="Index"
+                       asp-controller="ClientServices"
+                       asp-route-sortOrder="@ViewData["DateSortParm"]"
+                       asp-route-currentFilter="ViewData[" CurrentFilter"]"
+                       class="text-white">Last Updated (Click to Sort)</a>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model.Inquiries)
+            {
+                <tr>
+                    <td class="align-middle">
+                        <a asp-controller="ClientServices" asp-action="Details" class="" asp-route-id="@item.ClientServiceId">@Html.DisplayFor(modelItem => item.recdate)</a>
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.Service.service_desc)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.Zstatus.inq_status)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.Zworker.worker)
+                    </td>
+                    <td align="right">
+                        <a asp-controller="ClientServices" asp-action="Edit" class="btn wfs-light-blue" asp-route-id="@item.ClientServiceId">Edit</a>
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "WFS_Managers")).Succeeded)
+                        {
+                            <a asp-controller="ClientServices" asp-action="Delete" class="btn btn-danger" asp-route-id="@item.ClientServiceId">Delete</a>
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
