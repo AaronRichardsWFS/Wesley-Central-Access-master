@@ -170,10 +170,19 @@ namespace WCAProject.Migrations
                     b.Property<string>("bhrs_diag")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("child")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("closedate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("court")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("diagnosis")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("drug")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("eval_date")
@@ -188,6 +197,9 @@ namespace WCAProject.Migrations
                     b.Property<string>("family_avail")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("harm")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("homeloc")
                         .HasColumnType("nvarchar(max)");
 
@@ -195,6 +207,9 @@ namespace WCAProject.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("intnote")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("legal")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("optype")
@@ -221,10 +236,19 @@ namespace WCAProject.Migrations
                     b.Property<string>("site_other")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("substance")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("trackdate")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("tracknote")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("treatment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("withdraw")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ClientServiceId");
