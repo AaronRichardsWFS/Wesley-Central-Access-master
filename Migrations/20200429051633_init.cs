@@ -398,7 +398,10 @@ namespace WCAProject.Migrations
                     recdate = table.Column<DateTime>(nullable: true),
                     site_other = table.Column<string>(nullable: true),
                     diagnosis = table.Column<string>(nullable: true),
+                    drug = table.Column<string>(nullable: true),
+                    child = table.Column<string>(nullable: true),
                     closedate = table.Column<DateTime>(nullable: true),
+                    court = table.Column<string>(nullable: true),
                     eval_date = table.Column<string>(nullable: true),
                     bhrs_diag = table.Column<string>(nullable: true),
                     prescription = table.Column<string>(nullable: true),
@@ -411,9 +414,14 @@ namespace WCAProject.Migrations
                     extnote = table.Column<string>(nullable: true),
                     trackdate = table.Column<string>(nullable: true),
                     tracknote = table.Column<string>(nullable: true),
+                    treatment = table.Column<string>(nullable: true),
+                    harm = table.Column<string>(nullable: true),
                     homeloc = table.Column<string>(nullable: true),
                     schoolloc = table.Column<string>(nullable: true),
-                    optype = table.Column<string>(nullable: true)
+                    substance = table.Column<string>(nullable: true),
+                    optype = table.Column<string>(nullable: true),
+                    legal = table.Column<string>(nullable: true),
+                    withdraw = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

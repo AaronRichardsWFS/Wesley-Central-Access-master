@@ -140,5 +140,31 @@ namespace WCAProject.Models
 
         [Display(Name = "OP Type")]
         public string optype {get; set;}
+
+        // main + specific screening questions for MH Screen
+
+        [Display(Name = "Currently in MH or D&A Treatment")]
+        public string treatment { get; set; }
+
+        [Display(Name = "Thoughts of Harming Self/Others")]
+        public string harm { get; set; }
+
+        [Display(Name = "Children")]
+        public string child { get; set; }
+
+        [Display(Name = "Recent Substance Use")]
+        public string substance { get; set; }
+
+        [Display(Name = "Injecting Drugs")]
+        public string drug { get; set; }
+
+        [Display(Name = "Withdraw Symptoms")]
+        public string withdraw { get; set; }
+
+        [Display(Name = "Legal Issues")]
+        public string legal { get; set; }
+
+        [Display(Name = "Is issue Court Ordered")]
+        public string court { get; set; }
     }
 }
