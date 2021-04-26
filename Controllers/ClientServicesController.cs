@@ -172,7 +172,9 @@ namespace WCAProject.Controllers
                 await _context.SaveChangesAsync();
                 _context.Add(sca);
                 await _context.SaveChangesAsync();
-                TempData["Alert"] = "Created Inquiry";
+                sca.ClientServiceId = cs.ClientServiceId;
+                _context.Update(sca);
+                await _context.SaveChangesAsync();
                 return RedirectToAction("Details", "ClientServices", new {id = cs.ClientServiceId});
             }
             ViewData["ClientId"] = new SelectList(_context.Clients.OrderBy(m => m.name), "ClientId", "name", cs.ClientId);
