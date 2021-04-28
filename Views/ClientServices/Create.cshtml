@@ -418,11 +418,6 @@
                                 <div class="col-md-12 rounded p-3 mb-2 table-active text-dark">
                                     <div class="row">
                                         <div class="col-md-4 col-md-offset-1">
-                                            <label asp-for="ScaScreen.wsclinic" class="control-label"></label>
-                                            <input asp-for="ScaScreen.wsclinic" class="form-control" />
-                                            <span asp-validation-for="ScaScreen.wsclinic" class="text-danger"></span>
-                                        </div>
-                                        <div class="col-md-4 col-md-offset-1">
                                             <label asp-for="ScaScreen.referralsource" class="control-label"></label>
                                             <input asp-for="ScaScreen.referralsource" class="form-control" />
                                             <span asp-validation-for="ScaScreen.referralsource" class="text-danger"></span>
@@ -453,7 +448,12 @@
                                     <div class="row">
                                         <div class="col-md-4 col-md-offset-1">
                                             <label asp-for="ScaScreen.recentlymove" class="control-label"></label>
-                                            <input asp-for="ScaScreen.recentlymove" class="form-control" />
+                                            <select asp-for="ScaScreen.recentlymove" class="form-control">
+                                                <option value="" selected disabled>Select Option</option>
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                                <option>Not Known at This Time</option>
+                                            </select>
                                             <span asp-validation-for="ScaScreen.recentlymove" class="text-danger"></span>
                                         </div>
                                         <div class="col-md-4 col-md-offset-1">
@@ -463,7 +463,12 @@
                                         </div>
                                         <div class="col-md-4 col-md-offset-1">
                                             <label asp-for="ScaScreen.meetcriteria" class="control-label"></label>
-                                            <input asp-for="ScaScreen.meetcriteria" class="form-control" />
+                                            <select asp-for="ScaScreen.meetcriteria" class="form-control">
+                                                <option value="" selected disabled>Select Option</option>
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                                <option>Not Known at This Time</option>
+                                            </select>
                                             <span asp-validation-for="ScaScreen.meetcriteria" class="text-danger"></span>
                                         </div>
                                     </div><br style="line-height:5px;" />
@@ -480,27 +485,37 @@
                                         </div>
                                         <div class="col-md-4 col-md-offset-1">
                                             <label asp-for="ScaScreen.wasstatenotified" class="control-label"></label>
-                                            <input asp-for="ScaScreen.wasstatenotified" class="form-control" />
+                                            <select asp-for="ScaScreen.wasstatenotified" class="form-control">
+                                                <option value="" selected disabled>Select Option</option>
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                                <option>Not Known at This Time</option>
+                                            </select>
                                             <span asp-validation-for="ScaScreen.wasstatenotified" class="text-danger"></span>
                                         </div>
                                     </div><br style="line-height:5px;" />
-                                    <div class="row">
-                                        <div class="col-md-4 col-md-offset-1">
-                                            <label asp-for="ScaScreen.gennote" class="control-label"></label>
-                                            <textarea asp-for="ScaScreen.gennote" class="form-control"></textarea>
-                                            <span asp-validation-for="ScaScreen.gennote" class="text-danger"></span>
-                                        </div>
-                                        <div class="col-md-4 col-md-offset-1">
-                                            <label asp-for="ScaScreen.privateinsurer" class="control-label"></label>
-                                            <input asp-for="ScaScreen.privateinsurer" class="form-control" />
-                                            <span asp-validation-for="ScaScreen.privateinsurer" class="text-danger"></span>
-                                        </div>
-                                        <div class="col-md-4 col-md-offset-1">
-                                            <label asp-for="ScaScreen.privateinsurance" class="control-label"></label>
-                                            <input asp-for="ScaScreen.privateinsurance" class="form-control" />
-                                            <span asp-validation-for="ScaScreen.privateinsurance" class="text-danger"></span>
-                                        </div>
-                                    </div><br style="line-height:5px;" />
+                                          <div class="row">
+                                              <div class="col-md-4 col-md-offset-1">
+                                                  <label asp-for="ScaScreen.gennote" class="control-label"></label>
+                                                  <textarea asp-for="ScaScreen.gennote" class="form-control"></textarea>
+                                                  <span asp-validation-for="ScaScreen.gennote" class="text-danger"></span>
+                                              </div>
+                                              <div class="col-md-4 col-md-offset-1">
+                                                  <label asp-for="ScaScreen.privateinsurance" class="control-label"></label>
+                                                  <select asp-for="ScaScreen.privateinsurance" class="form-control">
+                                                      <option value="" selected disabled>Select Option</option>
+                                                      <option>Yes</option>
+                                                      <option>No</option>
+                                                      <option>Not Known at This Time</option>
+                                                  </select>
+                                                  <span asp-validation-for="ScaScreen.privateinsurance" class="text-danger"></span>
+                                              </div>
+                                              <div class="col-md-4 col-md-offset-1">
+                                                  <label asp-for="ScaScreen.privateinsurer" class="control-label"></label>
+                                                  <input asp-for="ScaScreen.privateinsurer" class="form-control" />
+                                                  <span asp-validation-for="ScaScreen.privateinsurer" class="text-danger"></span>
+                                              </div>
+                                          </div><br style="line-height:5px;" />
                                     <div class="row">
                                         <div class="col-md-4 col-md-offset-1">
                                             <label asp-for="ScaScreen.managedcaretype" class="control-label"></label>
