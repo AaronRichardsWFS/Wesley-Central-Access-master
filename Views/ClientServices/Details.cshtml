@@ -417,7 +417,7 @@
                                 <div class="row">
                                     <div class="col-md-4 col-md-offset-1">
                                         <label asp-for="ScaScreen.referralsource" class="control-label"></label>
-                                        <input asp-for="ScaScreen.referralsource" class="form-control" disabled />
+                                        <input asp-for="ScaScreen.referralsource" class="form-control" disabled/>
                                         <span asp-validation-for="ScaScreen.referralsource" class="text-danger"></span>
                                     </div>
                                     <div class="col-md-4 col-md-offset-1">
@@ -425,24 +425,46 @@
                                         <textarea asp-for="ScaScreen.whyfamilyseen" class="form-control" disabled></textarea>
                                         <span asp-validation-for="ScaScreen.whyfamilyseen" class="text-danger"></span>
                                     </div>
-                                </div><br style="line-height:5px;" />
-                                <div class="row">
                                     <div class="col-md-4 col-md-offset-1">
                                         <label asp-for="ScaScreen.treatmenthistory" class="control-label"></label>
-                                        <input asp-for="ScaScreen.treatmenthistory" class="form-control" disabled />
+                                        <select asp-for="ScaScreen.treatmenthistory" class="form-control" disabled>
+                                            <option value="" selected disabled>Select Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>Not Known at This Time</option>
+                                        </select>
                                         <span asp-validation-for="ScaScreen.treatmenthistory" class="text-danger"></span>
                                     </div>
+                                </div>
+                                <br style="line-height:5px;" />
+                                <div class="row">
                                     <div class="col-md-4 col-md-offset-1">
                                         <label asp-for="ScaScreen.asddiagnosis" class="control-label"></label>
-                                        <input asp-for="ScaScreen.asddiagnosis" class="form-control" disabled />
+                                        <select asp-for="ScaScreen.asddiagnosis" class="form-control" disabled>
+                                            <option value="" selected disabled>Select Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>Not Known at This Time</option>
+                                        </select>
                                         <span asp-validation-for="ScaScreen.asddiagnosis" class="text-danger"></span>
                                     </div>
                                     <div class="col-md-4 col-md-offset-1">
                                         <label asp-for="ScaScreen.halfwayshelter" class="control-label"></label>
-                                        <input asp-for="ScaScreen.halfwayshelter" class="form-control" disabled />
+                                        <select asp-for="ScaScreen.halfwayshelter" class="form-control" disabled>
+                                            <option value="" selected disabled>Select Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>Not Known at This Time</option>
+                                        </select>
                                         <span asp-validation-for="ScaScreen.halfwayshelter" class="text-danger"></span>
                                     </div>
-                                </div><br style="line-height:5px;" />
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label asp-for="ScaScreen.shelterdetails" class="control-label"></label>
+                                        <textarea asp-for="ScaScreen.shelterdetails" class="form-control" disabled></textarea>
+                                        <span asp-validation-for="ScaScreen.shelterdetails" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <br style="line-height:5px;" />
                                 <div class="row">
                                     <div class="col-md-4 col-md-offset-1">
                                         <label asp-for="ScaScreen.recentlymove" class="control-label"></label>
@@ -455,9 +477,14 @@
                                         <span asp-validation-for="ScaScreen.recentlymove" class="text-danger"></span>
                                     </div>
                                     <div class="col-md-4 col-md-offset-1">
-                                        <label asp-for="ScaScreen.outsidevbh" class="control-label"></label>
-                                        <input asp-for="ScaScreen.outsidevbh" class="form-control" disabled />
-                                        <span asp-validation-for="ScaScreen.outsidevbh" class="text-danger"></span>
+                                        <label asp-for="ScaScreen.wasstatenotified" class="control-label"></label>
+                                        <select asp-for="ScaScreen.wasstatenotified" class="form-control" disabled>
+                                            <option value="" selected disabled>Select Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>Not Known at This Time</option>
+                                        </select>
+                                        <span asp-validation-for="ScaScreen.wasstatenotified" class="text-danger"></span>
                                     </div>
                                     <div class="col-md-4 col-md-offset-1">
                                         <label asp-for="ScaScreen.meetcriteria" class="control-label"></label>
@@ -470,79 +497,72 @@
                                         <span asp-validation-for="ScaScreen.meetcriteria" class="text-danger"></span>
                                     </div>
                                 </div><br style="line-height:5px;" />
-                                <div class="row">
-                                    <div class="col-md-4 col-md-offset-1">
-                                        <label asp-for="ScaScreen.referraldetails" class="control-label"></label>
-                                        <input asp-for="ScaScreen.referraldetails" class="form-control" disabled />
-                                        <span asp-validation-for="ScaScreen.referraldetails" class="text-danger"></span>
-                                    </div>
-                                    <div class="col-md-4 col-md-offset-1">
-                                        <label asp-for="ScaScreen.shelterdetails" class="control-label"></label>
-                                        <input asp-for="ScaScreen.shelterdetails" class="form-control" disabled />
-                                        <span asp-validation-for="ScaScreen.shelterdetails" class="text-danger"></span>
-                                    </div>
-                                    <div class="col-md-4 col-md-offset-1">
-                                        <label asp-for="ScaScreen.wasstatenotified" class="control-label"></label>
-                                        <select asp-for="ScaScreen.wasstatenotified" class="form-control" disabled>
-                                            <option value="" selected disabled>Select Option</option>
-                                            <option>Yes</option>
-                                            <option>No</option>
-                                            <option>Not Known at This Time</option>
-                                        </select>
-                                        <span asp-validation-for="ScaScreen.wasstatenotified" class="text-danger"></span>
-                                    </div>
-                                </div><br style="line-height:5px;" />
                                       <div class="row">
                                           <div class="col-md-4 col-md-offset-1">
-                                              <label asp-for="ScaScreen.gennote" class="control-label"></label>
-                                              <textarea asp-for="ScaScreen.gennote" class="form-control" disabled></textarea>
-                                              <span asp-validation-for="ScaScreen.gennote" class="text-danger"></span>
-                                          </div>
-                                          <div class="col-md-4 col-md-offset-1">
-                                              <label asp-for="ScaScreen.privateinsurance" class="control-label"></label>
-                                              <select asp-for="ScaScreen.privateinsurance" class="form-control" disabled>
+                                              <label asp-for="ScaScreen.outsidevbh" class="control-label"></label>
+                                              <select asp-for="ScaScreen.outsidevbh" class="form-control" disabled>
                                                   <option value="" selected disabled>Select Option</option>
                                                   <option>Yes</option>
                                                   <option>No</option>
                                                   <option>Not Known at This Time</option>
                                               </select>
-                                              <span asp-validation-for="ScaScreen.privateinsurance" class="text-danger"></span>
+                                              <span asp-validation-for="ScaScreen.outsidevbh" class="text-danger"></span>
                                           </div>
                                           <div class="col-md-4 col-md-offset-1">
-                                              <label asp-for="ScaScreen.privateinsurer" class="control-label"></label>
-                                              <input asp-for="ScaScreen.privateinsurer" class="form-control" disabled />
-                                              <span asp-validation-for="ScaScreen.privateinsurer" class="text-danger"></span>
+                                              <label asp-for="ScaScreen.currentcounty" class="control-label"></label>
+                                              <input asp-for="ScaScreen.currentcounty" class="form-control" disabled />
+                                              <span asp-validation-for="ScaScreen.currentcounty" class="text-danger"></span>
+                                          </div>
+                                          <div class="col-md-4 col-md-offset-1">
+                                              <label asp-for="ScaScreen.referraldetails" class="control-label"></label>
+                                              <input asp-for="ScaScreen.referraldetails" class="form-control" disabled />
+                                              <span asp-validation-for="ScaScreen.referraldetails" class="text-danger"></span>
                                           </div>
                                       </div><br style="line-height:5px;" />
                                 <div class="row">
                                     <div class="col-md-4 col-md-offset-1">
-                                        <label asp-for="ScaScreen.managedcaretype" class="control-label"></label>
-                                        <input asp-for="ScaScreen.managedcaretype" class="form-control" disabled />
-                                        <span asp-validation-for="ScaScreen.managedcaretype" class="text-danger"></span>
+                                        <label asp-for="ScaScreen.gennote" class="control-label"></label>
+                                        <textarea asp-for="ScaScreen.gennote" class="form-control" disabled></textarea>
+                                        <span asp-validation-for="ScaScreen.gennote" class="text-danger"></span>
                                     </div>
                                     <div class="col-md-4 col-md-offset-1">
-                                        <label asp-for="ScaScreen.requestedlocation" class="control-label"></label>
-                                        <input asp-for="ScaScreen.requestedlocation" class="form-control" disabled />
-                                        <span asp-validation-for="ScaScreen.requestedlocation" class="text-danger"></span>
+                                        <label asp-for="ScaScreen.privateinsurance" class="control-label"></label>
+                                        <select asp-for="ScaScreen.privateinsurance" class="form-control" disabled>
+                                            <option value="" selected disabled>Select Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>Not Known at This Time</option>
+                                        </select>
+                                        <span asp-validation-for="ScaScreen.privateinsurance" class="text-danger"></span>
                                     </div>
                                     <div class="col-md-4 col-md-offset-1">
-                                        <label asp-for="ScaScreen.servicerequested" class="control-label"></label>
-                                        <input asp-for="ScaScreen.servicerequested" class="form-control" disabled />
-                                        <span asp-validation-for="ScaScreen.servicerequested" class="text-danger"></span>
+                                        <label asp-for="ScaScreen.privateinsurer" class="control-label"></label>
+                                        <input asp-for="ScaScreen.privateinsurer" class="form-control" disabled />
+                                        <span asp-validation-for="ScaScreen.privateinsurer" class="text-danger"></span>
                                     </div>
                                 </div><br style="line-height:5px;" />
                                 <div class="row">
                                     <div class="col-md-4 col-md-offset-1">
-                                        <label asp-for="ScaScreen.currentcounty" class="control-label"></label>
-                                        <input asp-for="ScaScreen.currentcounty" class="form-control" disabled />
-                                        <span asp-validation-for="ScaScreen.currentcounty" class="text-danger"></span>
+                                        <label asp-for="ScaScreen.managedcaretype" class="control-label"></label>
+                                        <input asp-for="ScaScreen.managedcaretype" class="form-control" disabled/>
+                                        <span asp-validation-for="ScaScreen.managedcaretype" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label asp-for="ScaScreen.requestedlocation" class="control-label"></label>
+                                        <input asp-for="ScaScreen.requestedlocation" class="form-control" disabled/>
+                                        <span asp-validation-for="ScaScreen.requestedlocation" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label asp-for="ScaScreen.servicerequested" class="control-label"></label>
+                                        <input asp-for="ScaScreen.servicerequested" class="form-control" disabled/>
+                                        <span asp-validation-for="ScaScreen.servicerequested" class="text-danger"></span>
                                     </div>
                                 </div><br style="line-height:5px;" />
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <a type="button" class="btn wfs-light-blue" asp-controller="ClientServices" asp-action="Edit" asp-route-id="@Model.Inquiry.ClientServiceId">Edit</a>
+                        <button type="button" class="btn wfs-green" data-dismiss="modal">Save Changes</button>
                     </div>
                 </div>
             </div>
