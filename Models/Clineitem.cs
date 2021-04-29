@@ -21,5 +21,10 @@ namespace WCAProject.Models
 
         [MaxLength(255)]
         public string action { get; set; }
+
+        /*Z action drop down*/ 
+        [Display(Name = "Action")]
+        public int? ZactionId { get; set; }
+        public Zaction Zaction { get; set; }
     }
 }

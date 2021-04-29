@@ -238,7 +238,7 @@ namespace WCAProject.Controllers
                 _context.Add(clientNewViewModel.Note);
                 await _context.SaveChangesAsync();
                 TempData["Alert"] = String.Format("Created Client: {0} {1}", client.cfirst, client.clast);
-                return RedirectToAction("Details", "Clients", new {id = client.ClientId});
+                return RedirectToAction("Edit", "Clients", new {id = client.ClientId});
             }
             ViewData["ZcountyId"] = new SelectList(_context.Zcounty.OrderBy(m => m.county), "ZcountyId", "county", client.ZcountyId);
             ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
@@ -322,7 +322,7 @@ namespace WCAProject.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Details", "Clients", new {id = client.ClientId});
+                return RedirectToAction("Edit", "Clients", new {id = client.ClientId});
             }
             ViewData["ZcountyId"] = new SelectList(_context.Zcounty.OrderBy(m => m.county), "ZcountyId", "county", client.ZcountyId);
             ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
