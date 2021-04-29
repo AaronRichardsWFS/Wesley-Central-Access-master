@@ -115,6 +115,7 @@
             </td>
             <td class="text-right">
                 <!-- <a type="button" class="btn wfs-purple" asp-controller="ClientServices" asp-action="Create" asp-route-clientid="@item.ClientId">New Inquiry</a> -->
+                <a asp-action="Details" class="btn wfs-purple" asp-route-id="@item.ClientId">View</a>
                 @if ((await AuthorizationService.AuthorizeAsync(User, "WFS_Managers")).Succeeded)
                 {
                     <a type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ClientId">Delete</a>

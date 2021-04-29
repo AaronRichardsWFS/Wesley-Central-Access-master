@@ -170,12 +170,11 @@ namespace WCAProject.Controllers
                 ci.ClientServiceId = cs.ClientServiceId;
                 _context.Add(ci);
                 await _context.SaveChangesAsync();
-                _context.Add(sca);
-                await _context.SaveChangesAsync();
                 sca.ClientServiceId = cs.ClientServiceId;
                 _context.Update(sca);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Details", "ClientServices", new {id = cs.ClientServiceId});
+                TempData["Alert"] = "Created Inquiry";
+                return RedirectToAction("Edit", "ClientServices", new {id = cs.ClientServiceId});
             }
             ViewData["ClientId"] = new SelectList(_context.Clients.OrderBy(m => m.name), "ClientId", "name", cs.ClientId);
             ViewData["ServiceId"] = new SelectList(_context.Services.OrderBy(m => m.service_desc), "ServiceId", "service_desc", cs.ServiceId);
@@ -298,7 +297,8 @@ namespace WCAProject.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Details", "ClientServices", new {id = cs.ClientServiceId});
+                /*modified following line from Details to Edit*/
+                return RedirectToAction("Edit", "ClientServices", new {id = cs.ClientServiceId});
             }
             ViewData["ClientId"] = new SelectList(_context.Clients.OrderBy(m => m.name), "ClientId", "name", cs.ClientId);
             ViewData["ServiceId"] = new SelectList(_context.Services.OrderBy(m => m.service_desc), "ServiceId", "service_desc", cs.ServiceId);

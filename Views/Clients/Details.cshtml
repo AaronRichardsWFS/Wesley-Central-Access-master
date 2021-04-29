@@ -227,7 +227,7 @@
             {
                 <tr>
                     <td class="align-middle">
-                        <a asp-controller="ClientServices" asp-action="Details" class="" asp-route-id="@item.ClientServiceId">@Html.DisplayFor(modelItem => item.recdate)</a>
+                        <a asp-controller="ClientServices" asp-action="Edit" class="" asp-route-id="@item.ClientServiceId">@Html.DisplayFor(modelItem => item.recdate)</a>
                     </td>
                     <td class="align-middle">
                         @Html.DisplayFor(modelItem => item.Service.service_desc)
@@ -239,7 +239,7 @@
                         @Html.DisplayFor(modelItem => item.Zworker.worker)
                     </td>
                     <td align="right">
-                        <a asp-controller="ClientServices" asp-action="Edit" class="btn wfs-light-blue" asp-route-id="@item.ClientServiceId">Edit</a>
+                        <a asp-controller="ClientServices" asp-action="Details" class="btn wfs-light-blue" asp-route-id="@item.ClientServiceId">View</a>
                         @if ((await AuthorizationService.AuthorizeAsync(User, "WFS_Managers")).Succeeded)
                         {
                             <a asp-controller="ClientServices" asp-action="Delete" class="btn btn-danger" asp-route-id="@item.ClientServiceId">Delete</a>
