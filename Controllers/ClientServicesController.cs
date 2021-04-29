@@ -170,7 +170,8 @@ namespace WCAProject.Controllers
                 ci.ClientServiceId = cs.ClientServiceId;
                 _context.Add(ci);
                 await _context.SaveChangesAsync();
-                _context.Add(sca);
+                sca.ClientServiceId = cs.ClientServiceId;
+                _context.Update(sca);
                 await _context.SaveChangesAsync();
                 TempData["Alert"] = "Created Inquiry";
                 return RedirectToAction("Edit", "ClientServices", new {id = cs.ClientServiceId});
@@ -234,6 +235,14 @@ namespace WCAProject.Controllers
             inquiryDetailsViewModel.Inquiry = clientService;
             inquiryDetailsViewModel.Notes = await _context.Clineitems.Where(ci => ci.ClientServiceId == clientService.ClientServiceId).OrderByDescending(ci => ci.ldate).ToListAsync();
             inquiryDetailsViewModel.ScaScreen = await _context.ScaScreen.FirstOrDefaultAsync(m => m.ClientServiceId == clientService.ClientServiceId);
+            if (inquiryDetailsViewModel.ScaScreen == null)
+            {
+                inquiryDetailsViewModel.ScaId = 0;
+            } 
+            else
+            {
+                inquiryDetailsViewModel.ScaId = inquiryDetailsViewModel.ScaScreen.ScaScreenId;
+            }
 
             return View(inquiryDetailsViewModel);
         }
@@ -243,11 +252,12 @@ namespace WCAProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, InquiryFormViewModel inquiryFormViewModel)
+        public async Task<IActionResult> Edit(int id, InquiryDetailsViewModel inquiryDetailsViewModel)
         {
-            ClientService cs = inquiryFormViewModel.Inquiry;
-            ScaScreen sca = inquiryFormViewModel.ScaScreen;
-            Client client = inquiryFormViewModel.Client;
+            ClientService cs = inquiryDetailsViewModel.Inquiry;
+            ScaScreen sca = inquiryDetailsViewModel.ScaScreen;
+            Client client = inquiryDetailsViewModel.Client;
+            int scaId = inquiryDetailsViewModel.ScaId;
 
             if (id != cs.ClientServiceId)
             {
@@ -262,9 +272,17 @@ namespace WCAProject.Controllers
                     _context.Update(client);
                     await _context.SaveChangesAsync();
                     _context.Update(cs);
-                    sca.ClientServiceId = cs.ClientServiceId;
                     await _context.SaveChangesAsync();
-                    _context.Update(sca);
+                    sca.ClientServiceId = cs.ClientServiceId;
+                    if (scaId == 0)
+                    {
+                        _context.Add(sca);
+                    }
+                    else
+                    {
+                        sca.ScaScreenId = scaId;
+                        _context.Update(sca);
+                    }
                     TempData["Alert"] = "Saved Changes to Inquiry";
                     await _context.SaveChangesAsync();
                 }
@@ -302,7 +320,7 @@ namespace WCAProject.Controllers
             ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
             ViewData["ZinsuranceId"] = new SelectList(_context.Zinsurance.Where(m => m.active).OrderBy(m => m.insurance), "ZinsuranceId", "insurance", client.ZinsuranceId);
 
-            return View(inquiryFormViewModel);
+            return View(inquiryDetailsViewModel);
         }
 
         // GET: ClientServices/Delete/5
