@@ -141,30 +141,68 @@ namespace WCAProject.Models
         [Display(Name = "OP Type")]
         public string optype {get; set;}
 
-        // main + specific screening questions for MH Screen
+        // main + specific screening questions for MH OP
 
-        [Display(Name = "Currently in MH or D&A Treatment")]
+        [Display(Name = "Currently in MH or D&A Treatment?")]
         public string treatment { get; set; }
 
-        [Display(Name = "Thoughts of Harming Self/Others")]
+        [Display(Name = "Thoughts of Harming Self/Others?")]
         public string harm { get; set; }
 
-        [Display(Name = "Children")]
+        [Display(Name = "Do you have children?")]
         public string child { get; set; }
 
-        [Display(Name = "Recent Substance Use")]
+        [Display(Name = "Have you had Recent Substance Use?")]
         public string substance { get; set; }
 
-        [Display(Name = "Injecting Drugs")]
+        [Display(Name = "Are you Injecting Drugs?")]
         public string drug { get; set; }
 
-        [Display(Name = "Withdraw Symptoms")]
+        [Display(Name = "Are you Experiencing any Withdraw Symptoms?")]
         public string withdraw { get; set; }
 
-        [Display(Name = "Legal Issues")]
+        [Display(Name = "Are you involved in any Legal Issues?")]
         public string legal { get; set; }
 
-        [Display(Name = "Is issue Court Ordered")]
+        [Display(Name = "Is above issue Court Ordered?")]
         public string court { get; set; }
+
+        // main + specific screening questions for D&A
+
+        [Display(Name = "What is your Maiden Name? (if applicable)")]
+        public string maiden { get; set; }
+
+        [Display(Name = "What Substances were you Using?")]
+        public string what_sub { get; set; }
+
+        [Display(Name = "Last Date of Use? (if applicable)")]
+        public string last_date { get; set; }
+
+        [Display(Name = "How Much and how Often? (if applicable)")]
+        public string much_often { get; set; }
+
+        [Display(Name = "Have you Recently been Treated for an Overdose?")]
+        public string overdose { get; set; }
+
+        [Display(Name = "Have you Recieved Mental Health Treatment? (when and type?)")]
+        public string mental { get; set; }
+
+        [Display(Name = "Are you Pregnant/Any Possibilities of so?")]
+        public string pregnant { get; set; }
+
+        [Display(Name = "Have you Given Birth in the Last 28 Days?")]
+        public string birth { get; set; }
+
+        [Display(Name = "Are you a Veteran?")]
+        public string veteran { get; set; }
+
+        [Display(Name = "Have you Injected Drugs?")]
+        public string drug_da { get; set; }
+
+        [Display(Name = "Are you Experiencing any Withdraw Symptoms?")]
+        public string withdraw_da { get; set; }
+
+        [Display(Name = "Thoughts of Harming Self/Others?")]
+        public string harm_da { get; set; }
     }
 }

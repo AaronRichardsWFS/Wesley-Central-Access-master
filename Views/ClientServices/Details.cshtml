@@ -291,7 +291,7 @@
                         </div><p style="font-size:5px" class="text-white">_</p>
                     </div>
                 }
-                @if ((servv == "BHRS") || (servv == "IFC") || (servv == "WK"))
+                @if ((servv == "IFC") || (servv == "WK"))
                 {
                     <div class="row">
                         <div class="col-md-4 col-md-offset-1">
@@ -342,7 +342,80 @@
                         </div>
                     </div><p style="font-size:5px" class="text-white">_</p>
                 }
-                @if (servv == "MH")
+                @*@{var servv2 = @Model.Inquiry.Service != null ? @Model.Inquiry.Service.service_desc : null;}*@
+                @if (servv == "BHRS")
+                {
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.maiden" class="control-label"></label>
+                            <input asp-for="Inquiry.maiden" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.maiden" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.veteran" class="control-label"></label>
+                            <input asp-for="Inquiry.veteran" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.veteran" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.harm_da" class="control-label"></label>
+                            <textarea asp-for="Inquiry.harm_da" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.harm_da" class="text-danger"></span>
+                        </div><p style="font-size:5px" class="text-white">_</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.what_sub" class="control-label"></label>
+                            <input asp-for="Inquiry.what_sub" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.what_sub" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.last_date" class="control-label"></label>
+                            <input asp-for="Inquiry.last_date" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.last_date" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.much_often" class="control-label"></label>
+                            <textarea asp-for="Inquiry.much_often" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.much_often" class="text-danger"></span>
+                        </div><p style="font-size:5px" class="text-white">_</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.drug_da" class="control-label"></label>
+                            <input asp-for="Inquiry.drug_da" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.drug_da" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.withdraw_da" class="control-label"></label>
+                            <input asp-for="Inquiry.withdraw_da" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.withdraw_da" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.overdose" class="control-label"></label>
+                            <textarea asp-for="Inquiry.overdose" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.overdose" class="text-danger"></span>
+                        </div><p style="font-size:5px" class="text-white">_</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.mental" class="control-label"></label>
+                            <input asp-for="Inquiry.mental" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.mental" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.pregnant" class="control-label"></label>
+                            <input asp-for="Inquiry.pregnant" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.pregnant" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.birth" class="control-label"></label>
+                            <textarea asp-for="Inquiry.birth" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.birth" class="text-danger"></span>
+                        </div><p style="font-size:5px" class="text-white">_</p>
+                    </div>
+                }
+                @*@{var servv3 = @Model.Inquiry.Service != null ? @Model.Inquiry.Service.service_desc : null;}*@
+                @if (servv == "MH OH")
                 {
                     <div class="row">
                         <div class="col-md-12 col-md-offset-1">
