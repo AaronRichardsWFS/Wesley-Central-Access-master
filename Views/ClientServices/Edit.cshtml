@@ -695,9 +695,11 @@
                         <textarea asp-for="@item.action" class="form-control" disabled></textarea>
                         <span asp-validation-for="@item.action" class="text-danger"></span>
                     </div>
-                </div>
-
-            }
+                    </div>
+                    }
+                    <div class="container" align="right">
+                        <a type="button" class="btn wfs-green" asp-controller="Clineitems" asp-action="Create" asp-route-csid="@Model.Inquiry.ClientServiceId">Add Note to Inquiry</a>
+                    </div>
 </form>
 
 @section Scripts {
