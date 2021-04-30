@@ -264,7 +264,6 @@ namespace WCAProject.Controllers
             ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
             ViewData["ZinsuranceId"] = new SelectList(_context.Zinsurance.Where(m => m.active).OrderBy(m => m.insurance), "ZinsuranceId", "insurance", client.ZinsuranceId);
 
-
             ClientEditViewModel clientEditViewModel = new ClientEditViewModel();
             clientEditViewModel.Client = await _context.Clients.FirstOrDefaultAsync(m => m.ClientId == client.ClientId);
             clientEditViewModel.Inquiries = await _context.ClientServices
