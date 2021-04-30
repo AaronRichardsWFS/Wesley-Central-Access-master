@@ -235,6 +235,8 @@ namespace WCAProject.Controllers
             inquiryDetailsViewModel.Notes = await _context.Clineitems.Where(ci => ci.ClientServiceId == clientService.ClientServiceId).OrderByDescending(ci => ci.ldate).ToListAsync();
             inquiryDetailsViewModel.ScaScreen = await _context.ScaScreen.FirstOrDefaultAsync(m => m.ClientServiceId == clientService.ClientServiceId);
 
+            ViewData["ZactionId"] = new SelectList(_context.Zaction.OrderBy(m => m.action), "ZactionId", "action", inquiryDetailsViewModel.Notes[0].ZactionId);
+
             return View(inquiryDetailsViewModel);
         }
 
