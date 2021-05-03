@@ -244,6 +244,8 @@ namespace WCAProject.Controllers
                 inquiryDetailsViewModel.ScaId = inquiryDetailsViewModel.ScaScreen.ScaScreenId;
             }
 
+            ViewData["ZactionId"] = new SelectList(_context.Zaction.OrderBy(m => m.action), "ZactionId", "action", inquiryDetailsViewModel.Notes[0].ZactionId);
+
             return View(inquiryDetailsViewModel);
         }
 
