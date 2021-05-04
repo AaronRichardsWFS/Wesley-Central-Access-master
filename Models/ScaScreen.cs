@@ -91,6 +91,9 @@ namespace WCAProject.Models
         [MaxLength(50)]
         public string currentcounty { get; set; }
 
+        [Display(Name = "Is WFS an option?")]
+        [MaxLength(50)]
+        public string iswfsoption { get; set; }
     }
 
 }
