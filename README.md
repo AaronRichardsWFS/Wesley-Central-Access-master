@@ -119,7 +119,7 @@ Here are some features that could/should be added on:
 ---
 First production build developed by [Abhi Maddineni](https://github.com/amaddine), [CJ May](https://github.com/cmax4jam), and [Eugene Choi](https://github.com/eugeneiohc); Information Systems Program @ CMU; Feb - May 2020 
 
-Feature improvements developed by [Abhi Deverapalli](https://github.com/abhidevarapalli), [Raymond Li](https://github.com/raybicboi), and [Jeff Xu](https://github.com/jeffjxu)
+Feature improvements developed by [Abhi Deverapalli](https://github.com/abhidevarapalli), [Raymond Li](https://github.com/raybicboi), and [Jeff Xu](https://github.com/jeffjxu); Information Systems Program @ CMU; Feb - May 2021
 
 Offical Changelog
 
