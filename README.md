@@ -135,9 +135,11 @@ Offical Changelog
  - Enhancement - SCA form fields are ordered to match the form on MS Access
  - Enhancement - a list of all inquiries for a client are listed when editing that client
  - Enhancement - when a client or a inquiry form is saved, the user is redirected to the edit page instead of the view page
+ - Enhancement - when a client or a inquiry form is created, the user is redirected to the edit page instead of the view page
  - Enhancement - screening questions are now saved in the database under inquiry
  - Enhancement - client ID is displayed when editing a client
  - Enhancement - client form accordion is automatically uncollapsed on create inquiry page and edit inquiry page
+ - Enhancement - skeleton view and controller code for a printer-friendly view is created but hidden
 
 08/26/2020
  - Fix - Fixed Secondary Insurance - This is now a drop down
