@@ -119,8 +119,27 @@ Here are some features that could/should be added on:
 ---
 First production build developed by [Abhi Maddineni](https://github.com/amaddine), [CJ May](https://github.com/cmax4jam), and [Eugene Choi](https://github.com/eugeneiohc); Information Systems Program @ CMU; Feb - May 2020 
 
+Feature improvements developed by [Abhi Deverapalli](https://github.com/abhidevarapalli), [Raymond Li](https://github.com/raybicboi), and [Jeff Xu](https://github.com/jeffjxu)
+
 Offical Changelog
 
+05/07/2021
+ - Fix - fixed client form so it is editable and saveable on create inquiry page and edit inquiry page
+ - Fix - fixed SCA form so it is saveable on create inquiry and edit inquiry page
+ - Fix - fixed several dropdown fields in client form
+ - Fix - fixed notes feature so it is editable and saveable on create inquiry and edit inquiry page
+ - Fix - added actions dropdown for notes
+ - Fix - the poorly spaced client form fields is in a nicer format
+ - Fix - "Save Changes" button on SCA screen is changed to "Close" since it doesn't actually save the SCA form
+ - Enhancement - inquiry form is now responsive as more fields will show up if specific services are selected in the dropdown
+ - Enhancement - SCA form fields are ordered to match the form on MS Access
+ - Enhancement - a list of all inquiries for a client are listed when editing that client
+ - Enhancement - when a client or a inquiry form is saved, the user is redirected to the edit page instead of the view page
+ - Enhancement - when a client or a inquiry form is created, the user is redirected to the edit page instead of the view page
+ - Enhancement - screening questions are now saved in the database under inquiry
+ - Enhancement - client ID is displayed when editing a client
+ - Enhancement - client form accordion is automatically uncollapsed on create inquiry page and edit inquiry page
+ - Enhancement - skeleton view and controller code for a printer-friendly view is created but hidden
 
 08/26/2020
  - Fix - Fixed Secondary Insurance - This is now a drop down
@@ -139,23 +158,23 @@ Offical Changelog
  - Fix - Footer Section Bleeding on top of other text
  - Fix - When selecting the site of "School" the School Selection Box now shows up
  - Fix - When selecting the Programs of "OP", "BHRS", "IFC", or "WK" the hiddedn boxes now appear
- - Fix - Clinet Inquery - Site Drop Down was not filtering out inactives
- - Fix - Clinet Inquery - School Drop Down was not filtering out inactives
- - Fix - Clinet Inquery - Status Drop Down was not filtering out inactives
- - Fix - Clinet Inquery - Worker Drop Down was not filtering out inactives
- - Fix - Clinet Inquery - Program Drop Down was not filtering out inactives
- - Fix - Clinet Inquery - Internal Drop Down was not filtering out inactives
- - Fix - Clinet - Race Drop Down was not filtering out inactives
- - Fix - Clinet - Insurance Drop Down was not filtering out inactives
- - Fix - Clinet - Site Drop Down was not filtering out inactives
- - Fix - Clinet - School Drop Down was not filtering out inactives
- - Fix - Clinet - Status Drop Down was not filtering out inactives
- - Fix - Clinet - Worker Drop Down was not filtering out inactives
- - Fix - Clinet - Program Drop Down was not filtering out inactives
+ - Fix - Client Inquiry - Site Drop Down was not filtering out inactives
+ - Fix - Client Inquiry - School Drop Down was not filtering out inactives
+ - Fix - Client Inquiry - Status Drop Down was not filtering out inactives
+ - Fix - Client Inquiry - Worker Drop Down was not filtering out inactives
+ - Fix - Client Inquiry - Program Drop Down was not filtering out inactives
+ - Fix - Client Inquiry - Internal Drop Down was not filtering out inactives
+ - Fix - Client - Race Drop Down was not filtering out inactives
+ - Fix - Client - Insurance Drop Down was not filtering out inactives
+ - Fix - Client - Site Drop Down was not filtering out inactives
+ - Fix - Client - School Drop Down was not filtering out inactives
+ - Fix - Client - Status Drop Down was not filtering out inactives
+ - Fix - Client - Worker Drop Down was not filtering out inactives
+ - Fix - Client - Program Drop Down was not filtering out inactives
  - Fix - Age - Went entering DOB Age will calculate
  - Enhancement - System Recalculates age nightly
  - Enhancement - Created new Report Section
- - Enhancement - Moved Cleint Search Report to new Reports Section
+ - Enhancement - Moved Client Search Report to new Reports Section
  - Enhancement - Added security to reports page
  - Enhancement - Added Help Page
  - Enhancement - Moved Change Log and Debug to help Page
@@ -163,10 +182,10 @@ Offical Changelog
 
 06/26/2020
  - Enhancement - Unlocked Client Feilds on Edit Inquery Screen
- - Fix - Added County to Inquery Client view
- - Fix - Added County to Inquery Client Create
- - Fix - Added County to Inquery Client Edit
- - Enhancement - Added Page to pull SSRS Cleint Search
+ - Fix - Added County to Inquiry Client view
+ - Fix - Added County to Inquiry Client Create
+ - Fix - Added County to Inquiry Client Edit
+ - Enhancement - Added Page to pull SSRS Client Search
  - Enhancement - Added Link to WFS Services Site
 
 06/18/2020
