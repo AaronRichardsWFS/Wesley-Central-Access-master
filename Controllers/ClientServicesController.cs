@@ -210,6 +210,13 @@ namespace WCAProject.Controllers
             {
                 return NotFound();
             }
+
+            InquiryDetailsViewModel inquiryDetailsViewModel = new InquiryDetailsViewModel();
+            inquiryDetailsViewModel.Client = await _context.Clients.FirstOrDefaultAsync(m => m.ClientId == clientService.ClientId);
+            inquiryDetailsViewModel.Inquiry = clientService;
+            inquiryDetailsViewModel.Notes = await _context.Clineitems.Where(ci => ci.ClientServiceId == clientService.ClientServiceId).OrderByDescending(ci => ci.ldate).ToListAsync();
+            inquiryDetailsViewModel.ScaScreen = await _context.ScaScreen.FirstOrDefaultAsync(m => m.ClientServiceId == clientService.ClientServiceId);
+
             ViewData["ClientId"] = new SelectList(_context.Clients.OrderBy(m => m.name), "ClientId", "name", clientService.ClientId);
             ViewData["ServiceId"] = new SelectList(_context.Services.OrderBy(m => m.service_desc), "ServiceId", "service_desc", clientService.ServiceId);
             ViewData["ZcaresreasonId"] = new SelectList(_context.Zcaresreason.OrderBy(m => m.caresreason), "ZcaresreasonId", "caresreason", clientService.ZcaresreasonId);
@@ -225,16 +232,11 @@ namespace WCAProject.Controllers
             ViewData["ZschoolId"] = new SelectList(_context.Zschool.Where(m => m.active).OrderBy(m => m.displayname), "ZschoolId", "displayname", clientService.ZschoolId);
             ViewData["ZsiteId"] = new SelectList(_context.Zsite.Where(m => m.active).OrderBy(m => m.site), "ZsiteId", "site", clientService.ZsiteId);
             ViewData["ZstatusId"] = new SelectList(_context.Zstatus.Where(m => m.active).OrderBy(m => m.inq_status), "ZstatusId", "inq_status", clientService.ZstatusId);
-            ViewData["ZworkerId"] = new SelectList(_context.Zworker.Where(m => m.active).OrderBy(m => m.worker), "ZworkerId", "worker", clientService.ZworkerId);
+            ViewData["ZworkerId"] = new SelectList(_context.Zworker.Where(m => m.active).OrderBy(m => m.worker), "ZworkerId", "worker", inquiryDetailsViewModel.Notes[0].ZworkerId);
             ViewData["ZcountyId"] = new SelectList(_context.Zcounty.OrderBy(m => m.county), "ZcountyId", "county", client.ZcountyId);
             ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
             ViewData["ZinsuranceId"] = new SelectList(_context.Zinsurance.Where(m => m.active).OrderBy(m => m.insurance), "ZinsuranceId", "insurance", client.ZinsuranceId);
 
-            InquiryDetailsViewModel inquiryDetailsViewModel = new InquiryDetailsViewModel();
-            inquiryDetailsViewModel.Client = await _context.Clients.FirstOrDefaultAsync(m => m.ClientId == clientService.ClientId);
-            inquiryDetailsViewModel.Inquiry = clientService;
-            inquiryDetailsViewModel.Notes = await _context.Clineitems.Where(ci => ci.ClientServiceId == clientService.ClientServiceId).OrderByDescending(ci => ci.ldate).ToListAsync();
-            inquiryDetailsViewModel.ScaScreen = await _context.ScaScreen.FirstOrDefaultAsync(m => m.ClientServiceId == clientService.ClientServiceId);
             if (inquiryDetailsViewModel.ScaScreen == null)
             {
                 inquiryDetailsViewModel.ScaId = 0;
@@ -243,8 +245,9 @@ namespace WCAProject.Controllers
             {
                 inquiryDetailsViewModel.ScaId = inquiryDetailsViewModel.ScaScreen.ScaScreenId;
             }
-
+            
             ViewData["ZactionId"] = new SelectList(_context.Zaction.OrderBy(m => m.action), "ZactionId", "action", inquiryDetailsViewModel.Notes[0].ZactionId);
+            ViewData["WorkerNames"] = new SelectList(_context.Zworker.OrderBy(m => m.ZworkerId), "ZworkerId", "worker", clientService.ZworkerId).ToList();
 
             return View(inquiryDetailsViewModel);
         }

@@ -337,6 +337,9 @@ namespace WCAProject.Migrations
                     b.Property<int?>("ZworkerId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ZactionId")
+                        .HasColumnType("int");
+
                     b.Property<string>("action")
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
@@ -349,6 +352,8 @@ namespace WCAProject.Migrations
                     b.HasIndex("ClientServiceId");
 
                     b.HasIndex("ZworkerId");
+
+                    b.HasIndex("ZactionId");
 
                     b.ToTable("Clineitems");
                 });

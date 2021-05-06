@@ -677,21 +677,26 @@
                 <div class="row rounded p-3 mb-2 table-active text-dark">
                     <div class="col-md-3 col-md-offset-1">
                         <label asp-for="@item.ZworkerId" class="control-label"></label>
-                        <select asp-for="@item.ZworkerId" class="form-control" asp-items="ViewBag.ZworkerId"></select>
+                        <input class="form-control" value="@(ViewBag.WorkerNames[(int)item.ZworkerId-1].Text)" disabled />
+
                     </div>
                     <div class="col-md-3 col-md-offset-1">
                         <label asp-for="@item.ldate" class="control-label"></label>
-                        <input asp-for="@item.ldate" class="form-control" disabled />
+                        <input asp-for="@item.ldate" class="form-control" disabled/>
                         <span asp-validation-for="@item.ldate" class="text-danger"></span>
                     </div>
                     <div class="col-md-3 col-md-offset-1">
                         <label asp-for="@item.ZactionId" class="control-label"></label>
-                        <select asp-for="@item.ZactionId" class="form-control" asp-items="ViewBag.ZactionId"></select>
+                        <select asp-for="@item.ZactionId" class="form-control" asp-items="ViewBag.ZactionId" disabled></select>
                     </div>
                     <div class="col-md-6 col-md-offset-1">
-                        <label asp-for="@item.action" class="control-label"></label>
+                        <label class="control-label">Note</label>
                         <textarea asp-for="@item.action" class="form-control" disabled></textarea>
                         <span asp-validation-for="@item.action" class="text-danger"></span>
+                    </div>
+                    <div>
+                        @*<input type="submit" value="Save Note" class="btn wfs-green" asp-controller="Clineitems" asp-route-id="@item.ClineitemId"/>*@
+                        <a type="button" class="btn wfs-light-blue" asp-controller="Clineitems" asp-action="Edit" asp-route-id="@item.ClineitemId">Edit Note</a>
                     </div>
                 </div>
 
