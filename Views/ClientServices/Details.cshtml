@@ -675,6 +675,10 @@
                     <input asp-for="@item.ldate" class="form-control" disabled />
                     <span asp-validation-for="@item.ldate" class="text-danger"></span>
                 </div>
+                <div class="col-md-3 col-md-offset-1">
+                    <label asp-for="@item.ZactionId" class="control-label"></label>
+                    <select asp-for="@item.ZactionId" class="form-control" asp-items="ViewBag.ZactionId"></select>
+                </div>
                 <div class="col-md-6 col-md-offset-1">
                     <label asp-for="@item.action" class="control-label"></label>
                     <textarea asp-for="@item.action" class="form-control" disabled></textarea>
