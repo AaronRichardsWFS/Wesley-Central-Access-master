@@ -6,6 +6,7 @@ namespace WCAProject.ViewModels
     {
         public Client Client { get; set; }
         public ScaScreen ScaScreen { get; set; }
+        public List<ClientService> Inquiries { get; set; }
 
     }
 }

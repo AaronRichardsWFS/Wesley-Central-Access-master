@@ -398,7 +398,10 @@ namespace WCAProject.Migrations
                     recdate = table.Column<DateTime>(nullable: true),
                     site_other = table.Column<string>(nullable: true),
                     diagnosis = table.Column<string>(nullable: true),
+                    drug = table.Column<string>(nullable: true),
+                    child = table.Column<string>(nullable: true),
                     closedate = table.Column<DateTime>(nullable: true),
+                    court = table.Column<string>(nullable: true),
                     eval_date = table.Column<string>(nullable: true),
                     bhrs_diag = table.Column<string>(nullable: true),
                     prescription = table.Column<string>(nullable: true),
@@ -411,9 +414,26 @@ namespace WCAProject.Migrations
                     extnote = table.Column<string>(nullable: true),
                     trackdate = table.Column<string>(nullable: true),
                     tracknote = table.Column<string>(nullable: true),
+                    treatment = table.Column<string>(nullable: true),
+                    harm = table.Column<string>(nullable: true),
                     homeloc = table.Column<string>(nullable: true),
                     schoolloc = table.Column<string>(nullable: true),
-                    optype = table.Column<string>(nullable: true)
+                    substance = table.Column<string>(nullable: true),
+                    optype = table.Column<string>(nullable: true),
+                    legal = table.Column<string>(nullable: true),
+                    withdraw = table.Column<string>(nullable: true),
+                    birth = table.Column<string>(nullable: true),
+                    last_date = table.Column<string>(nullable: true),
+                    maiden = table.Column<string>(nullable: true),
+                    mental = table.Column<string>(nullable: true),
+                    much_often = table.Column<string>(nullable: true),
+                    overdose = table.Column<string>(nullable: true),
+                    pregnant = table.Column<string>(nullable: true),
+                    veteran = table.Column<string>(nullable: true),
+                    what_sub = table.Column<string>(nullable: true),
+                    drug_da = table.Column<string>(nullable: true),
+                    withdraw_da = table.Column<string>(nullable: true),
+                    harm_da = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -525,7 +545,8 @@ namespace WCAProject.Migrations
                     ClientServiceId = table.Column<int>(nullable: true),
                     ZworkerId = table.Column<int>(nullable: true),
                     ldate = table.Column<DateTime>(nullable: true),
-                    action = table.Column<string>(maxLength: 255, nullable: true)
+                    action = table.Column<string>(maxLength: 3000, nullable: true),
+                    ZactionId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -541,6 +562,12 @@ namespace WCAProject.Migrations
                         column: x => x.ZworkerId,
                         principalTable: "Zworker",
                         principalColumn: "ZworkerId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Clineitems_Zaction_ZactionId",
+                        column: x => x.ZactionId,
+                        principalTable: "Zaction",
+                        principalColumn: "ZactionId",
                         onDelete: ReferentialAction.Restrict);
                 });
             

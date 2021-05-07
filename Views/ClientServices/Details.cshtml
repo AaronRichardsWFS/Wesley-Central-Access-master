@@ -13,7 +13,7 @@
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Client Details - @(Model.Client.name) - @(Model.Client.ClientId)
+                        Client @(Model.Client.ClientId) Details - @(Model.Client.name)
                     </button>
                 </h5>
             </div>
@@ -26,559 +26,712 @@
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-1">
                                     <label asp-for="Client.cfirst" class="control-label"></label>
-                                    <input asp-for="Client.cfirst" class="form-control" disabled />
+                                    <input asp-for="Client.cfirst" class="form-control" disabled/>
                                     <span asp-validation-for="Client.cfirst" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-3 col-md-offset-1">
                                     <label asp-for="Client.clast" class="control-label"></label>
-                                    <input asp-for="Client.clast" class="form-control" disabled />
+                                    <input asp-for="Client.clast" class="form-control" disabled/>
                                     <span asp-validation-for="Client.clast" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-3 col-md-offset-1">
                                     <label asp-for="Client.dob" class="control-label"></label>
-                                    <input asp-for="Client.dob" class="form-control" disabled />
+                                    <input asp-for="Client.dob" class="form-control" disabled/>
                                     <span asp-validation-for="Client.dob" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-3 col-md-offset-1">
                                     <label asp-for="Client.age" class="control-label"></label>
                                     <span asp-validation-for="Client.age" class="text-danger"></span>
-                                    <input asp-for="Client.age" class="form-control" disabled />
+                                    <input asp-for="Client.age" class="form-control" disabled/>
                                 </div>
                             </div><br style="line-height:5px;" />
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-1">
                                     <label asp-for="Client.ssn" class="control-label"></label>
-                                    <input asp-for="Client.ssn" class="form-control" disabled />
+                                    <input id="ssn" asp-for="Client.ssn" class="form-control" disabled/>
                                     <span asp-validation-for="Client.ssn" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-3 col-md-offset-1">
                                     <label asp-for="Client.gender" class="control-label"></label>
                                     <select asp-for="Client.gender" class="form-control" disabled>
-                                        <option selected disabled>@Html.DisplayFor(model => model.Client.gender)</option>
+                                        <option value="" selected disabled>Select Gender</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Other</option>
                                     </select>
                                     <span asp-validation-for="Client.gender" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-3 col-md-offset-1">
                                     <label asp-for="Client.ZraceId" class="control-label"></label>
-                                    <select asp-for="Client.ZraceId" class="form-control" disabled>
-                                        <option selected disabled>@Html.DisplayFor(model => model.Client.Zrace.race)</option>
+                                    <select asp-for="Client.ZraceId" class="form-control" asp-items="@ViewBag.ZraceId" disabled>
+                                        <option value="" selected>Select Race</option>
                                     </select>
                                     <span asp-validation-for="Client.ZraceId" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-3 col-md-offset-1">
                                     <label asp-for="Client.CredibleID" class="control-label"></label>
                                     <span asp-validation-for="Client.CredibleID" class="text-danger"></span>
-                                    <input asp-for="Client.CredibleID" class="form-control" disabled />
+                                    <input asp-for="Client.CredibleID" class="form-control" disabled/>
                                 </div>
                             </div><br style="line-height:5px;" />
-                                  <div class="row">
-                                      <div class="col-md-3 col-md-offset-1">
-                                          <label asp-for="Client.address" class="control-label"></label>
-                                          <input asp-for="Client.address" class="form-control" disabled />
-                                          <span asp-validation-for="Client.address" class="text-danger"></span>
-                                      </div>
-                                      <div class="col-md-3 col-md-offset-1">
-                                          <label asp-for="Client.city" class="control-label"></label>
-                                          <input asp-for="Client.city" class="form-control" disabled />
-                                          <span asp-validation-for="Client.city" class="text-danger"></span>
-                                      </div>
-                                      <div class="col-md-3 col-md-offset-1">
-                                          <label asp-for="Client.state" class="control-label"></label>
-                                          <select asp-for="Client.state" class="form-control" disabled>
-                                              <option selected disabled>@Html.DisplayFor(model => model.Client.state)</option>
-                                          </select>
-                                          <span asp-validation-for="Client.state" class="text-danger"></span>
-                                      </div>
-                                      <div class="col-md-3 col-md-offset-1">
-                                          <label asp-for="Client.zipcode" class="control-label"></label>
-                                          <input asp-for="Client.zipcode" class="form-control" disabled />
-                                          <span asp-validation-for="Client.zipcode" class="text-danger"></span>
-                                      </div>
-                                      <!--AHR add inc county-->
-                                      <div class="row">
-                                          <div class="col-md-3 col-md-offset-1">
-                                              <label asp-for="Client.ZcountyId" class="control-label"></label>
-                                              <select asp-for="Client.ZcountyId" class="form-control" disabled>
-                                                  <option selected disabled>@Html.DisplayFor(model => model.Client.Zcounty.county)</option>
-                                              </select>
-                                              <span asp-validation-for="Client.ZcountyId" class="text-danger"></span>
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-1">
+                                    <label asp-for="Client.address" class="control-label"></label>
+                                    <input asp-for="Client.address" class="form-control" disabled/>
+                                    <span asp-validation-for="Client.address" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-3 col-md-offset-1">
+                                    <label asp-for="Client.city" class="control-label"></label>
+                                    <input asp-for="Client.city" class="form-control" disabled/>
+                                    <span asp-validation-for="Client.city" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-3 col-md-offset-1">
+                                    <label asp-for="Client.state" class="control-label"></label>
+                                    <select asp-for="Client.state" class="form-control" disabled>
+                                        <option selected>PA</option>
+                                    </select>
+                                    <span asp-validation-for="Client.state" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-3 col-md-offset-1">
+                                    <label asp-for="Client.zipcode" class="control-label"></label>
+                                    <input asp-for="Client.zipcode" class="form-control" disabled/>
+                                    <span asp-validation-for="Client.zipcode" class="text-danger"></span>
+                                </div>
+                            </div> <br style="line-height:5px;" />
 
-
-
-
-
-                                          </div>
-
-
-
-
-                                      </div><br style="line-height:5px;" />
-                                      <div class="row">
-                                          <div class="col-md-3 col-md-offset-1">
-                                              <label asp-for="Client.phone" class="control-label"></label>
-                                              <input asp-for="Client.phone" class="form-control" disabled />
-                                              <span asp-validation-for="Client.phone" class="text-danger"></span>
-                                          </div>
-                                          <div class="col-md-3 col-md-offset-1">
-                                              <label asp-for="Client.email" class="control-label"></label>
-                                              <input asp-for="Client.email" class="form-control" disabled />
-                                              <span asp-validation-for="Client.email" class="text-danger"></span>
-                                          </div>
-                                          <div class="col-md-6 col-md-offset-1">
-                                              <label asp-for="Client.contact" class="control-label"></label>
-                                              <input asp-for="Client.contact" class="form-control" disabled />
-                                              <span asp-validation-for="Client.contact" class="text-danger"></span>
-                                          </div>
-                                      </div><br style="line-height:5px;" />
-                                      <div class="row">
-                                          <div class="col-md-3 col-md-offset-1">
-                                              <label asp-for="Client.phone2" class="control-label"></label>
-                                              <input asp-for="Client.phone2" class="form-control" disabled />
-                                              <span asp-validation-for="Client.phone2" class="text-danger"></span>
-                                          </div>
-                                          <div class="col-md-3 col-md-offset-1">
-                                              <label asp-for="Client.email2" class="control-label"></label>
-                                              <input asp-for="Client.email2" class="form-control" disabled />
-                                              <span asp-validation-for="Client.email2" class="text-danger"></span>
-                                          </div>
-                                          <div class="col-md-6 col-md-offset-1">
-                                              <label asp-for="Client.contact2" class="control-label"></label>
-                                              <input asp-for="Client.contact2" class="form-control" disabled />
-                                              <span asp-validation-for="Client.contact2" class="text-danger"></span>
-                                          </div>
-                                      </div><br style="line-height:5px;" /><hr /><br style="line-height:5px;" />
-                                      <div class="row">
-                                          <div class="col-md-4 col-md-offset-1">
-                                              <div class="form-group">
-                                                  <label asp-for="Client.ZinsuranceId" class="control-label"></label>
-                                                  <select asp-for="Client.ZinsuranceId" class="form-control" disabled>
-                                                      <option selected disabled>@Html.DisplayFor(model => model.Client.Zinsurance.insurance)</option>
-                                                  </select>
-                                                  <span asp-validation-for="Client.ZinsuranceId" class="text-danger"></span>
-                                              </div>
-                                          </div>
-                                          <div class="col-md-12 col-md-offset-1">
-                                              <div class="form-group">
-                                                  <label asp-for="Client.ins_note" class="control-label"></label>
-                                                  <textarea asp-for="Client.ins_note" class="form-control" disabled></textarea>
-                                                  <span asp-validation-for="Client.ins_note" class="text-danger"></span>
-                                              </div>
-                                          </div>
-                                          <div class="col-md-4 col-md-offset-1">
-                                              <div class="form-group">
-                                                  <label asp-for="Client.insurance2" class="control-label"></label>
-                                                  <input asp-for="Client.insurance2" class="form-control" disabled />
-                                                  <span asp-validation-for="Client.insurance2" class="text-danger"></span>
-                                              </div>
-                                          </div>
-                                          <div class="col-md-12 col-md-offset-1">
-                                              <div class="form-group">
-                                                  <label asp-for="Client.ins_other_note" class="control-label"></label>
-                                                  <textarea asp-for="Client.ins_other_note" class="form-control" disabled></textarea>
-                                                  <span asp-validation-for="Client.ins_other_note" class="text-danger"></span>
-                                              </div>
-                                          </div>
-                                      </div><hr /><br style="line-height:5px;" />
-                                      <div class="row">
-                                          <div class="col-md-12 col-md-offset-1">
-                                              <div class="form-group">
-                                                  <h4><label asp-for="Client.nextactionnote" class="control-label"></label></h4>
-                                                  <textarea asp-for="Client.nextactionnote" class="form-control" disabled></textarea>
-                                                  <span asp-validation-for="Client.nextactionnote" class="text-danger"></span>
-                                              </div>
-                                          </div>
-                                      </div><br style="line-height:5px;" />
-                                  </div>
+                            <!--AHR add inc county-->
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-1">
+                                    <label asp-for="Client.ZcountyId" class="control-label"></label>
+                                    <select asp-for="Client.ZcountyId" class="form-control" asp-items="@ViewBag.ZcountyId" disabled>
+                                        <option value="" selected disabled>Select County</option>
+                                    </select>
+                                    <span asp-validation-for="Client.ZcountyId" class="text-danger"></span>
+                                </div>
+                            </div><br style="line-height:5px;" />
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-1">
+                                    <label asp-for="Client.phone" class="control-label"></label>
+                                    <input id="phone" asp-for="Client.phone" class="form-control" disabled/>
+                                    <span asp-validation-for="Client.phone" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-3 col-md-offset-1">
+                                    <label asp-for="Client.email" class="control-label"></label>
+                                    <input asp-for="Client.email" class="form-control" disabled/>
+                                    <span asp-validation-for="Client.email" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6 col-md-offset-1">
+                                    <label asp-for="Client.contact" class="control-label"></label>
+                                    <input asp-for="Client.contact" class="form-control" disabled/>
+                                    <span asp-validation-for="Client.contact" class="text-danger"></span>
+                                </div>
+                            </div><br style="line-height:5px;" />
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-1">
+                                    <label asp-for="Client.phone2" class="control-label"></label>
+                                    <input id="phone" asp-for="Client.phone2" class="form-control" disabled/>
+                                    <span asp-validation-for="Client.phone2" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-3 col-md-offset-1">
+                                    <label asp-for="Client.email2" class="control-label"></label>
+                                    <input asp-for="Client.email2" class="form-control" disabled/>
+                                    <span asp-validation-for="Client.email2" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6 col-md-offset-1">
+                                    <label asp-for="Client.contact2" class="control-label"></label>
+                                    <input asp-for="Client.contact2" class="form-control" disabled/>
+                                    <span asp-validation-for="Client.contact2" class="text-danger"></span>
+                                </div>
+                            </div><br style="line-height:5px;" /><hr /><br style="line-height:5px;" />
+                            <div class="row">
+                                <div class="col-md-4 col-md-offset-1">
+                                    <div class="form-group">
+                                        <label asp-for="Client.ZinsuranceId" class="control-label"></label>
+                                        <select asp-for="Client.ZinsuranceId" class="form-control" asp-items="@ViewBag.ZinsuranceId" disabled>
+                                            <option value="" selected disabled>Select Insurance</option>
+                                        </select>
+                                        <span asp-validation-for="Client.ZinsuranceId" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-md-offset-1">
+                                    <div class="form-group">
+                                        <label asp-for="Client.ins_note" class="control-label"></label>
+                                        <textarea asp-for="Client.ins_note" class="form-control" disabled></textarea>
+                                        <span asp-validation-for="Client.ins_note" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-md-offset-1">
+                                    <div class="form-group">
+                                        <label asp-for="Client.insurance2" class="control-label"></label>
+                                        <select asp-for="Client.insurance2" class="form-control" asp-items="@ViewBag.ZinsuranceId" disabled>
+                                            <option value="" selected disabled>Select Insurance</option>
+                                        </select>
+                                        <span asp-validation-for="Client.insurance2" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-md-offset-1">
+                                    <div class="form-group">
+                                        <label asp-for="Client.ins_other_note" class="control-label"></label>
+                                        <textarea asp-for="Client.ins_other_note" class="form-control" disabled></textarea>
+                                        <span asp-validation-for="Client.ins_other_note" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div><hr /><br style="line-height:5px;" />
+                            <div class="row">
+                                <div class="col-md-12 col-md-offset-1">
+                                    <div class="form-group">
+                                        <h4><label asp-for="Client.nextactionnote" class="control-label"></label></h4>
+                                        <textarea asp-for="Client.nextactionnote" class="form-control" disabled></textarea>
+                                        <span asp-validation-for="Client.nextactionnote" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div><br style="line-height:5px;" /><hr /><br style="line-height:5px;" />
+                        </div><br style="line-height:5px;" />
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container" align="right">
-        <a type="button" class="btn wfs-light-blue" asp-controller="Clients" asp-action="Edit" asp-route-id="@Model.Client.ClientId">Edit Client</a>
-    </div>
 
-
-    <h3 class="mt-3">Inquiry Details</h3>
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="row justify-content-between">
-        <div class="col-md-8 col-md-offset-1 rounded p-3 mb-2 table-active text-dark">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-1">
-                    <label asp-for="Inquiry.ClientId" class="control-label"></label>
-                    <input type="hidden" asp-for="Inquiry.ClientId">
-                    <br /><p class="font-weight-bold" id="client-selected">@(Model.Client.name)</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-md-offset-1">
-                    <label asp-for="Inquiry.intext" class="control-label"></label>
-                    <select asp-for="Inquiry.intext" class="form-control" disabled>
-                        <option selected disabled>@Html.DisplayFor(model => model.Inquiry.intext)</option>
-                    </select>
-                    <span asp-validation-for="Inquiry.intext" class="text-danger"></span>
-                </div>
-            </div><br style="line-height:5px;" />
-            @{var intextv = @Model.Inquiry.intext;}
-            @if (intextv == "Internal")
-            {
+        <h3 class="mt-3">Inquiry Details</h3>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row justify-content-between">
+            <div class="col-md-8 col-md-offset-1 rounded p-3 mb-2 table-active text-dark">
                 <div class="row">
-                    <div class="col-md-4 col-md-offset-1">
-                        <label asp-for="Inquiry.ZinternalId" class="control-label"></label>
-                        <select asp-for="Inquiry.ZinternalId" class="form-control" asp-items="@ViewBag.ZinternalId" disabled>
-                            <option value="" selected disabled>@Html.DisplayFor(model => model.Inquiry.Zinternal.internal_type)</option>
+                    <div class="col-md-6 col-md-offset-1">
+                        <label asp-for="Inquiry.ClientId" class="control-label"></label>
+                        <input type="hidden" asp-for="Inquiry.ClientId">
+                        <br /><p class="font-weight-bold" id="client-selected">@(Model.Client.name)</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-1">
+                        <label asp-for="Inquiry.intext" class="control-label"></label>
+                        <select asp-for="Inquiry.intext" class="form-control" disabled>
+                            <option selected disabled>@Html.DisplayFor(model => model.Inquiry.intext)</option>
                         </select>
-                        <span asp-validation-for="Inquiry.ZinternalId" class="text-danger"></span>
+                        <span asp-validation-for="Inquiry.intext" class="text-danger"></span>
                     </div>
-                    <div class="col-md-8 col-md-offset-1">
-                        <label asp-for="Inquiry.intnote" class="control-label"></label>
-                        <input asp-for="Inquiry.intnote" class="form-control" disabled />
-                        <span asp-validation-for="Inquiry.intnote" class="text-danger"></span>
-                    </div><p style="font-size:5px" class="text-white">_</p>
-                </div>
-            }
-            else if (intextv == "External")
-            {
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-1">
-                        <label asp-for="Inquiry.exttype" class="control-label"></label>
-                        <input asp-for="Inquiry.exttype" class="form-control" disabled />
-                        <span asp-validation-for="Inquiry.exttype" class="text-danger"></span>
-                    </div>
-                    <div class="col-md-8 col-md-offset-1">
-                        <label asp-for="Inquiry.extnote" class="control-label"></label>
-                        <input asp-for="Inquiry.extnote" class="form-control" disabled />
-                        <span asp-validation-for="Inquiry.extnote" class="text-danger"></span>
-                    </div><p style="font-size:5px" class="text-white">_</p>
-                </div>
-            }
-            <div class="row">
-                <div class="col-md-6 col-md-offset-1">
-                    <label asp-for="Inquiry.ServiceId" class="control-label"></label>
-                    <select asp-for="Inquiry.ServiceId" class="form-control" asp-items="@ViewBag.ServiceId" disabled>
-                        <option value="" selected disabled>@Html.DisplayFor(model => model.Inquiry.Service.service_desc)</option>
-                    </select>
-                    <span asp-validation-for="Inquiry.ServiceId" class="text-danger"></span>
-                </div>
-                @{var servv = @Model.Inquiry.Service != null ? @Model.Inquiry.Service.service_desc : null;}
-                @if (servv == "OP")
+                </div><br style="line-height:5px;" />
+                @{var intextv = @Model.Inquiry.intext;}
+                @if (intextv == "Internal")
                 {
-                    <div class=col-md-6 col-md-offset-1">
-                        <label asp-for="Inquiry.optype" class="control-label"></label>
-                        <input asp-for="Inquiry.optype" class="form-control" disabled />
-                        <span asp-validation-for="Inquiry.optype" class="text-danger"></span>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.ZinternalId" class="control-label"></label>
+                            <select asp-for="Inquiry.ZinternalId" class="form-control" asp-items="@ViewBag.ZinternalId" disabled>
+                                <option value="" selected disabled>@Html.DisplayFor(model => model.Inquiry.Zinternal.internal_type)</option>
+                            </select>
+                            <span asp-validation-for="Inquiry.ZinternalId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-8 col-md-offset-1">
+                            <label asp-for="Inquiry.intnote" class="control-label"></label>
+                            <input asp-for="Inquiry.intnote" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.intnote" class="text-danger"></span>
+                        </div><p style="font-size:5px" class="text-white">_</p>
                     </div>
                 }
-            </div><br style="line-height:5px;" />
-            <div class="row">
-                <div class="col-md-6 col-md-offset-1">
-                    <label asp-for="Inquiry.ZsiteId" class="control-label"></label>
-                    <select asp-for="Inquiry.ZsiteId" class="form-control" asp-items="@ViewBag.ZsiteId" disabled>
-                        <option value="" selected disabled>@Html.DisplayFor(model => model.Inquiry.Zsite.site)</option>
-                    </select>
-                    <span asp-validation-for="Inquiry.ZsiteId" class="text-danger"></span>
-                </div>
-                <div class="col-md-6 col-md-offset-1">
-                    <label asp-for="Inquiry.site2" class="control-label"></label>
-                    <input asp-for="Inquiry.site2" class="form-control" disabled />
-                    <span asp-validation-for="Inquiry.site2" class="text-danger"></span>
-                </div><p style="font-size:5px" class="text-white">_</p>
-            </div>
-            @{var sitev = @Model.Inquiry.Zsite != null ? @Model.Inquiry.Zsite.site : null;}
-            @if (sitev == "School")
-            {
+                else if (intextv == "External")
+                {
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.exttype" class="control-label"></label>
+                            <input asp-for="Inquiry.exttype" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.exttype" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-8 col-md-offset-1">
+                            <label asp-for="Inquiry.extnote" class="control-label"></label>
+                            <input asp-for="Inquiry.extnote" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.extnote" class="text-danger"></span>
+                        </div><p style="font-size:5px" class="text-white">_</p>
+                    </div>
+                }
                 <div class="row">
-                    <div class="col-md-12 col-md-offset-1">
-                        <label asp-for="Inquiry.ZschoolId" class="control-label"></label>
-                        <select asp-for="Inquiry.ZschoolId" class="form-control" asp-items="@ViewBag.ZschoolId" disabled>
-                            <option value="" selected disabled>@Html.DisplayFor(model => model.Inquiry.Zschool.displayname)</option>
+                    <div class="col-md-6 col-md-offset-1">
+                        <label asp-for="Inquiry.ServiceId" class="control-label"></label>
+                        <select asp-for="Inquiry.ServiceId" class="form-control" asp-items="@ViewBag.ServiceId" disabled>
+                            <option value="" selected disabled>@Html.DisplayFor(model => model.Inquiry.Service.service_desc)</option>
                         </select>
-                        <span asp-validation-for="Inquiry.ZschoolId" class="text-danger"></span>
-                    </div><p style="font-size:5px" class="text-white">_</p>
-                </div>
-            }
-            @if ((servv == "BHRS") || (servv == "IFC") || (servv == "WK"))
-            {
+                        <span asp-validation-for="Inquiry.ServiceId" class="text-danger"></span>
+                    </div>
+                    @{var servv = @Model.Inquiry.Service != null ? @Model.Inquiry.Service.service_desc : null;}
+                    @if (servv == "OP")
+                    {
+                        <div class=col-md-6 col-md-offset-1">
+                            <label asp-for="Inquiry.optype" class="control-label"></label>
+                            <input asp-for="Inquiry.optype" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.optype" class="text-danger"></span>
+                        </div>
+                    }
+                </div><br style="line-height:5px;" />
                 <div class="row">
-                    <div class="col-md-4 col-md-offset-1">
-                        <label asp-for="Inquiry.psychologist" class="control-label"></label>
-                        <input asp-for="Inquiry.psychologist" class="form-control" disabled />
-                        <span asp-validation-for="Inquiry.psychologist" class="text-danger"></span>
+                    <div class="col-md-6 col-md-offset-1">
+                        <label asp-for="Inquiry.ZsiteId" class="control-label"></label>
+                        <select asp-for="Inquiry.ZsiteId" class="form-control" asp-items="@ViewBag.ZsiteId" disabled>
+                            <option value="" selected disabled>@Html.DisplayFor(model => model.Inquiry.Zsite.site)</option>
+                        </select>
+                        <span asp-validation-for="Inquiry.ZsiteId" class="text-danger"></span>
                     </div>
-                    <div class="col-md-4 col-md-offset-1">
-                        <label asp-for="Inquiry.eval_date" class="control-label"></label>
-                        <input asp-for="Inquiry.eval_date" class="form-control" disabled />
-                        <span asp-validation-for="Inquiry.eval_date" class="text-danger"></span>
-                    </div>
-                    <div class="col-md-4 col-md-offset-1">
-                        <label asp-for="Inquiry.pocdates" class="control-label"></label>
-                        <textarea asp-for="Inquiry.pocdates" class="form-control" disabled></textarea>
-                        <span asp-validation-for="Inquiry.pocdates" class="text-danger"></span>
+                    <div class="col-md-6 col-md-offset-1">
+                        <label asp-for="Inquiry.site2" class="control-label"></label>
+                        <input asp-for="Inquiry.site2" class="form-control" disabled />
+                        <span asp-validation-for="Inquiry.site2" class="text-danger"></span>
                     </div><p style="font-size:5px" class="text-white">_</p>
                 </div>
+                @{var sitev = @Model.Inquiry.Zsite != null ? @Model.Inquiry.Zsite.site : null;}
+                @if (sitev == "School")
+                {
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-1">
+                            <label asp-for="Inquiry.ZschoolId" class="control-label"></label>
+                            <select asp-for="Inquiry.ZschoolId" class="form-control" asp-items="@ViewBag.ZschoolId" disabled>
+                                <option value="" selected disabled>@Html.DisplayFor(model => model.Inquiry.Zschool.displayname)</option>
+                            </select>
+                            <span asp-validation-for="Inquiry.ZschoolId" class="text-danger"></span>
+                        </div><p style="font-size:5px" class="text-white">_</p>
+                    </div>
+                }
+                @if ((servv == "IFC") || (servv == "WK"))
+                {
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.psychologist" class="control-label"></label>
+                            <input asp-for="Inquiry.psychologist" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.psychologist" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.eval_date" class="control-label"></label>
+                            <input asp-for="Inquiry.eval_date" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.eval_date" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.pocdates" class="control-label"></label>
+                            <textarea asp-for="Inquiry.pocdates" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.pocdates" class="text-danger"></span>
+                        </div><p style="font-size:5px" class="text-white">_</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.diagnosis" class="control-label"></label>
+                            <input asp-for="Inquiry.diagnosis" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.diagnosis" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.homeloc" class="control-label"></label>
+                            <input asp-for="Inquiry.homeloc" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.homeloc" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.schoolloc" class="control-label"></label>
+                            <input asp-for="Inquiry.schoolloc" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.schoolloc" class="text-danger"></span>
+                        </div><p style="font-size:5px" class="text-white">_</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-1">
+                            <label asp-for="Inquiry.prescription" class="control-label"></label>
+                            <textarea asp-for="Inquiry.prescription" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.prescription" class="text-danger"></span>
+                        </div><p style="font-size:5px" class="text-white">_</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-1">
+                            <label asp-for="Inquiry.family_avail" class="control-label"></label>
+                            <textarea asp-for="Inquiry.family_avail" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.family_avail" class="text-danger"></span>
+                        </div>
+                    </div><p style="font-size:5px" class="text-white">_</p>
+                }
+                @*@{var servv2 = @Model.Inquiry.Service != null ? @Model.Inquiry.Service.service_desc : null;}*@
+                @if (servv == "BHRS")
+                {
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.maiden" class="control-label"></label>
+                            <input asp-for="Inquiry.maiden" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.maiden" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.veteran" class="control-label"></label>
+                            <input asp-for="Inquiry.veteran" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.veteran" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.harm_da" class="control-label"></label>
+                            <textarea asp-for="Inquiry.harm_da" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.harm_da" class="text-danger"></span>
+                        </div><p style="font-size:5px" class="text-white">_</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.what_sub" class="control-label"></label>
+                            <input asp-for="Inquiry.what_sub" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.what_sub" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.last_date" class="control-label"></label>
+                            <input asp-for="Inquiry.last_date" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.last_date" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.much_often" class="control-label"></label>
+                            <textarea asp-for="Inquiry.much_often" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.much_often" class="text-danger"></span>
+                        </div><p style="font-size:5px" class="text-white">_</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.drug_da" class="control-label"></label>
+                            <input asp-for="Inquiry.drug_da" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.drug_da" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.withdraw_da" class="control-label"></label>
+                            <input asp-for="Inquiry.withdraw_da" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.withdraw_da" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.overdose" class="control-label"></label>
+                            <textarea asp-for="Inquiry.overdose" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.overdose" class="text-danger"></span>
+                        </div><p style="font-size:5px" class="text-white">_</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.mental" class="control-label"></label>
+                            <input asp-for="Inquiry.mental" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.mental" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.pregnant" class="control-label"></label>
+                            <input asp-for="Inquiry.pregnant" class="form-control" disabled />
+                            <span asp-validation-for="Inquiry.pregnant" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <label asp-for="Inquiry.birth" class="control-label"></label>
+                            <textarea asp-for="Inquiry.birth" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.birth" class="text-danger"></span>
+                        </div><p style="font-size:5px" class="text-white">_</p>
+                    </div>
+                }
+                @*@{var servv3 = @Model.Inquiry.Service != null ? @Model.Inquiry.Service.service_desc : null;}*@
+                @if (servv == "MH OH")
+                {
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-1">
+                            <label asp-for="Inquiry.treatment" class="control-label"></label>
+                            <textarea asp-for="Inquiry.treatment" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.treatment" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 col-md-offset-1">
+                            <label asp-for="Inquiry.harm" class="control-label"></label>
+                            <textarea asp-for="Inquiry.harm" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.harm" class="text-danger"></span>
+                        </div>
+                    </div><p style="font-size:5px" class="text-white">_</p>
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-1">
+                            <label asp-for="Inquiry.child" class="control-label"></label>
+                            <textarea asp-for="Inquiry.child" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.child" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 col-md-offset-1">
+                            <label asp-for="Inquiry.substance" class="control-label"></label>
+                            <textarea asp-for="Inquiry.substance" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.substance" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 col-md-offset-1">
+                            <label asp-for="Inquiry.drug" class="control-label"></label>
+                            <textarea asp-for="Inquiry.drug" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.drug" class="text-danger"></span>
+                        </div>
+                    </div><p style="font-size:5px" class="text-white">_</p>
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-1">
+                            <label asp-for="Inquiry.withdraw" class="control-label"></label>
+                            <textarea asp-for="Inquiry.withdraw" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.withdraw" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 col-md-offset-1">
+                            <label asp-for="Inquiry.legal" class="control-label"></label>
+                            <textarea asp-for="Inquiry.legal" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.legal" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 col-md-offset-1">
+                            <label asp-for="Inquiry.court" class="control-label"></label>
+                            <textarea asp-for="Inquiry.court" class="form-control" disabled></textarea>
+                            <span asp-validation-for="Inquiry.court" class="text-danger"></span>
+                        </div>
+                    </div><p style="font-size:5px" class="text-white">_</p>
+                }
+                <hr />
                 <div class="row">
-                    <div class="col-md-4 col-md-offset-1">
-                        <label asp-for="Inquiry.diagnosis" class="control-label"></label>
-                        <input asp-for="Inquiry.diagnosis" class="form-control" disabled />
-                        <span asp-validation-for="Inquiry.diagnosis" class="text-danger"></span>
+                    <div class="col-md-6 col-md-offset-1">
+                        <label asp-for="Inquiry.trackdate" class="control-label"></label>
+                        <input asp-for="Inquiry.trackdate" class="form-control" disabled></input>
+                        <span asp-validation-for="Inquiry.trackdate" class="text-danger"></span>
                     </div>
-                    <div class="col-md-4 col-md-offset-1">
-                        <label asp-for="Inquiry.homeloc" class="control-label"></label>
-                        <input asp-for="Inquiry.homeloc" class="form-control" disabled />
-                        <span asp-validation-for="Inquiry.homeloc" class="text-danger"></span>
+                    <div class="col-md-6 col-md-offset-1">
+                        <label asp-for="Inquiry.tracknote" class="control-label"></label>
+                        <input asp-for="Inquiry.tracknote" class="form-control" disabled></input>
+                        <span asp-validation-for="Inquiry.tracknote" class="text-danger"></span>
                     </div>
-                    <div class="col-md-4 col-md-offset-1">
-                        <label asp-for="Inquiry.schoolloc" class="control-label"></label>
-                        <input asp-for="Inquiry.schoolloc" class="form-control" disabled />
-                        <span asp-validation-for="Inquiry.schoolloc" class="text-danger"></span>
-                    </div><p style="font-size:5px" class="text-white">_</p>
                 </div>
+            </div>
+            <div class="col-md ml-1 col-md-offset-1 rounded p-3 mb-2 table-active text-dark">
                 <div class="row">
                     <div class="col-md-12 col-md-offset-1">
-                        <label asp-for="Inquiry.prescription" class="control-label"></label>
-                        <textarea asp-for="Inquiry.prescription" class="form-control" disabled></textarea>
-                        <span asp-validation-for="Inquiry.prescription" class="text-danger"></span>
-                    </div><p style="font-size:5px" class="text-white">_</p>
-                </div>
+                        <label asp-for="Inquiry.ZstatusId" class="control-label"></label>
+                        <select asp-for="Inquiry.ZstatusId" class="form-control" asp-items="@ViewBag.ZstatusId" disabled>
+                            <option value="" selected disabled>@Html.DisplayFor(model => model.Inquiry.Zstatus.inq_status)</option>
+                        </select>
+                        <span asp-validation-for="Inquiry.ZstatusId" class="text-danger"></span>
+                    </div>
+                </div><br style="line-height:5px;" />
                 <div class="row">
                     <div class="col-md-12 col-md-offset-1">
-                        <label asp-for="Inquiry.family_avail" class="control-label"></label>
-                        <textarea asp-for="Inquiry.family_avail" class="form-control" disabled></textarea>
-                        <span asp-validation-for="Inquiry.family_avail" class="text-danger"></span>
+                        <label asp-for="Inquiry.ZreasonId" class="control-label"></label>
+                        <select asp-for="Inquiry.ZreasonId" class="form-control" asp-items="@ViewBag.ZreasonId" disabled>
+                            <option value="" selected disabled>@Html.DisplayFor(model => model.Inquiry.Zreason.final_reason)</option>
+                        </select>
+                        <span asp-validation-for="Inquiry.ZreasonId" class="text-danger"></span>
                     </div>
-                </div><p style="font-size:5px" class="text-white">_</p>
-            }
-            <hr />
-            <div class="row">
-                <div class="col-md-6 col-md-offset-1">
-                    <label asp-for="Inquiry.trackdate" class="control-label"></label>
-                    <input asp-for="Inquiry.trackdate" class="form-control" disabled></input>
-                    <span asp-validation-for="Inquiry.trackdate" class="text-danger"></span>
-                </div>
-                <div class="col-md-6 col-md-offset-1">
-                    <label asp-for="Inquiry.tracknote" class="control-label"></label>
-                    <input asp-for="Inquiry.tracknote" class="form-control" disabled></input>
-                    <span asp-validation-for="Inquiry.tracknote" class="text-danger"></span>
+                </div><br style="line-height:5px;" />
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-1">
+                        <label asp-for="Inquiry.ZworkerId" class="control-label"></label>
+                        <select asp-for="Inquiry.ZworkerId" class="form-control" asp-items="@ViewBag.ZworkerId" disabled>
+                            <option value="" selected disabled>@Html.DisplayFor(model => model.Inquiry.Zworker.worker)</option>
+                        </select>
+                        <span asp-validation-for="Inquiry.ZworkerId" class="text-danger"></span>
+                    </div>
+                </div><br style="line-height:5px;" />
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-1">
+                        <label asp-for="Inquiry.recdate" class="control-label"></label>
+                        <input asp-for="Inquiry.recdate" class="form-control" disabled />
+                        <span asp-validation-for="Inquiry.recdate" class="text-danger"></span>
+                    </div>
+                </div><br style="line-height:5px;" />
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-1">
+                        <label asp-for="Inquiry.closedate" class="control-label"></label>
+                        <input asp-for="Inquiry.closedate" class="form-control" disabled />
+                        <span asp-validation-for="Inquiry.closedate" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md ml-1 col-md-offset-1 rounded p-3 mb-2 table-active text-dark">
-            <div class="row">
-                <div class="col-md-12 col-md-offset-1">
-                    <label asp-for="Inquiry.ZstatusId" class="control-label"></label>
-                    <select asp-for="Inquiry.ZstatusId" class="form-control" asp-items="@ViewBag.ZstatusId" disabled>
-                        <option value="" selected disabled>@Html.DisplayFor(model => model.Inquiry.Zstatus.inq_status)</option>
-                    </select>
-                    <span asp-validation-for="Inquiry.ZstatusId" class="text-danger"></span>
-                </div>
-            </div><br style="line-height:5px;" />
-            <div class="row">
-                <div class="col-md-12 col-md-offset-1">
-                    <label asp-for="Inquiry.ZreasonId" class="control-label"></label>
-                    <select asp-for="Inquiry.ZreasonId" class="form-control" asp-items="@ViewBag.ZreasonId" disabled>
-                        <option value="" selected disabled>@Html.DisplayFor(model => model.Inquiry.Zreason.final_reason)</option>
-                    </select>
-                    <span asp-validation-for="Inquiry.ZreasonId" class="text-danger"></span>
-                </div>
-            </div><br style="line-height:5px;" />
-            <div class="row">
-                <div class="col-md-12 col-md-offset-1">
-                    <label asp-for="Inquiry.ZworkerId" class="control-label"></label>
-                    <select asp-for="Inquiry.ZworkerId" class="form-control" asp-items="@ViewBag.ZworkerId" disabled>
-                        <option value="" selected disabled>@Html.DisplayFor(model => model.Inquiry.Zworker.worker)</option>
-                    </select>
-                    <span asp-validation-for="Inquiry.ZworkerId" class="text-danger"></span>
-                </div>
-            </div><br style="line-height:5px;" />
-            <div class="row">
-                <div class="col-md-12 col-md-offset-1">
-                    <label asp-for="Inquiry.recdate" class="control-label"></label>
-                    <input asp-for="Inquiry.recdate" class="form-control" disabled />
-                    <span asp-validation-for="Inquiry.recdate" class="text-danger"></span>
-                </div>
-            </div><br style="line-height:5px;" />
-            <div class="row">
-                <div class="col-md-12 col-md-offset-1">
-                    <label asp-for="Inquiry.closedate" class="control-label"></label>
-                    <input asp-for="Inquiry.closedate" class="form-control" disabled />
-                    <span asp-validation-for="Inquiry.closedate" class="text-danger"></span>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- sca screen here -->
-    <div class="modal fade bd-example-modal-lg" id="scaModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">SCA Screen</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row justify-content-between">
-                        <div class="col-md-12 rounded p-3 mb-2 table-active text-dark">
-                            <div class="row">
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.wsclinic" class="control-label"></label>
-                                    <input asp-for="ScaScreen.wsclinic" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.wsclinic" class="text-danger"></span>
+        <!-- sca screen here -->
+        <div class="modal fade bd-example-modal-lg" id="scaModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">SCA Screen</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row justify-content-between">
+                            <div class="col-md-12 rounded p-3 mb-2 table-active text-dark">
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Is being seen at an in network clinic at WFS an option?</label>
+                                        <select asp-for="ScaScreen.iswfsoption" class="form-control">
+                                            <option value="" selected disabled>Select Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>Not Known at This Time</option>
+                                        </select>
+                                        <span asp-validation-for="ScaScreen.iswfsoption" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Does Client have private insurance?</label>
+                                        <select asp-for="ScaScreen.privateinsurance" class="form-control">
+                                            <option value="" selected disabled>Select Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>Not Known at This Time</option>
+                                        </select>
+                                        <span asp-validation-for="ScaScreen.privateinsurance" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">If yes, who?</label>
+                                        <input asp-for="ScaScreen.privateinsurer" class="form-control" />
+                                        <span asp-validation-for="ScaScreen.privateinsurer" class="text-danger"></span>
+                                    </div>
                                 </div>
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.referralsource" class="control-label"></label>
-                                    <input asp-for="ScaScreen.referralsource" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.referralsource" class="text-danger"></span>
+                                <br style="line-height:5px;" />
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Managed care type</label>
+                                        <input asp-for="ScaScreen.managedcaretype" class="form-control" />
+                                        <span asp-validation-for="ScaScreen.managedcaretype" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Referral Source</label>
+                                        <input asp-for="ScaScreen.referralsource" class="form-control" />
+                                        <span asp-validation-for="ScaScreen.referralsource" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Requested Location</label>
+                                        <input asp-for="ScaScreen.requestedlocation" class="form-control" />
+                                        <span asp-validation-for="ScaScreen.requestedlocation" class="text-danger"></span>
+                                    </div>
                                 </div>
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.whyfamilyseen" class="control-label"></label>
-                                    <textarea asp-for="ScaScreen.whyfamilyseen" class="form-control" disabled></textarea>
-                                    <span asp-validation-for="ScaScreen.whyfamilyseen" class="text-danger"></span>
-                                </div>
-                            </div><br style="line-height:5px;" />
-                            <div class="row">
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.treatmenthistory" class="control-label"></label>
-                                    <input asp-for="ScaScreen.treatmenthistory" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.treatmenthistory" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.asddiagnosis" class="control-label"></label>
-                                    <input asp-for="ScaScreen.asddiagnosis" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.asddiagnosis" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.halfwayshelter" class="control-label"></label>
-                                    <input asp-for="ScaScreen.halfwayshelter" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.halfwayshelter" class="text-danger"></span>
-                                </div>
-                            </div><br style="line-height:5px;" />
-                            <div class="row">
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.recentlymove" class="control-label"></label>
-                                    <input asp-for="ScaScreen.recentlymove" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.recentlymove" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.outsidevbh" class="control-label"></label>
-                                    <input asp-for="ScaScreen.outsidevbh" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.outsidevbh" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.meetcriteria" class="control-label"></label>
-                                    <input asp-for="ScaScreen.meetcriteria" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.meetcriteria" class="text-danger"></span>
-                                </div>
-                            </div><br style="line-height:5px;" />
-                            <div class="row">
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.referraldetails" class="control-label"></label>
-                                    <input asp-for="ScaScreen.referraldetails" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.referraldetails" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.shelterdetails" class="control-label"></label>
-                                    <input asp-for="ScaScreen.shelterdetails" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.shelterdetails" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.wasstatenotified" class="control-label"></label>
-                                    <input asp-for="ScaScreen.wasstatenotified" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.wasstatenotified" class="text-danger"></span>
-                                </div>
-                            </div><br style="line-height:5px;" />
-                            <div class="row">
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.gennote" class="control-label"></label>
-                                    <textarea asp-for="ScaScreen.gennote" class="form-control" disabled></textarea>
-                                    <span asp-validation-for="ScaScreen.gennote" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.privateinsurer" class="control-label"></label>
-                                    <input asp-for="ScaScreen.privateinsurer" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.privateinsurer" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.privateinsurance" class="control-label"></label>
-                                    <input asp-for="ScaScreen.privateinsurance" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.privateinsurance" class="text-danger"></span>
-                                </div>
-                            </div><br style="line-height:5px;" />
-                            <div class="row">
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.managedcaretype" class="control-label"></label>
-                                    <input asp-for="ScaScreen.managedcaretype" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.managedcaretype" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.requestedlocation" class="control-label"></label>
-                                    <input asp-for="ScaScreen.requestedlocation" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.requestedlocation" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.servicerequested" class="control-label"></label>
-                                    <input asp-for="ScaScreen.servicerequested" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.servicerequested" class="text-danger"></span>
-                                </div>
-                            </div><br style="line-height:5px;" />
-                            <div class="row">
-                                <div class="col-md-4 col-md-offset-1">
-                                    <label asp-for="ScaScreen.currentcounty" class="control-label"></label>
-                                    <input asp-for="ScaScreen.currentcounty" class="form-control" disabled />
-                                    <span asp-validation-for="ScaScreen.currentcounty" class="text-danger"></span>
-                                </div>
-                            </div><br style="line-height:5px;" />
+                                <br style="line-height:5px;" />
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Service Requested</label>
+                                        <input asp-for="ScaScreen.servicerequested" class="form-control" />
+                                        <span asp-validation-for="ScaScreen.servicerequested" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Does Client have history of treatment at WFS?</label>
+                                        <select asp-for="ScaScreen.treatmenthistory" class="form-control">
+                                            <option value="" selected disabled>Select Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>Not Known at This Time</option>
+                                        </select>
+                                        <span asp-validation-for="ScaScreen.treatmenthistory" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">For AOP, does Client have an ASD diagnosis?</label>
+                                        <select asp-for="ScaScreen.asddiagnosis" class="form-control">
+                                            <option value="" selected disabled>Select Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>Not Known at This Time</option>
+                                        </select>
+                                        <span asp-validation-for="ScaScreen.asddiagnosis" class="text-danger"></span>
+                                    </div>
+                                </div><br style="line-height:5px;" />
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Is Client living in halfway house/shelter?</label>
+                                        <select asp-for="ScaScreen.halfwayshelter" class="form-control">
+                                            <option value="" selected disabled>Select Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>Not Known at This Time</option>
+                                        </select>
+                                        <span asp-validation-for="ScaScreen.halfwayshelter" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">If so, where?</label>
+                                        <textarea asp-for="ScaScreen.shelterdetails" class="form-control"></textarea>
+                                        <span asp-validation-for="ScaScreen.shelterdetails" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Did Client recently move?</label>
+                                        <select asp-for="ScaScreen.recentlymove" class="form-control">
+                                            <option value="" selected disabled>Select Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>Not Known at This Time</option>
+                                        </select>
+                                        <span asp-validation-for="ScaScreen.recentlymove" class="text-danger"></span>
+                                    </div>
+                                </div><br style="line-height:5px;" />
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Was state notified?</label>
+                                        <select asp-for="ScaScreen.wasstatenotified" class="form-control">
+                                            <option value="" selected disabled>Select Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>Not Known at This Time</option>
+                                        </select>
+                                        <span asp-validation-for="ScaScreen.wasstatenotified" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Is Client in placement outside of home county?</label>
+                                        <select asp-for="ScaScreen.outsidevbh" class="form-control">
+                                            <option value="" selected disabled>Select Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>Not Known at This Time</option>
+                                        </select>
+                                        <span asp-validation-for="ScaScreen.outsidevbh" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Current county</label>
+                                        <input asp-for="ScaScreen.currentcounty" class="form-control" />
+                                        <span asp-validation-for="ScaScreen.currentcounty" class="text-danger"></span>
+                                    </div>
+                                </div><br style="line-height:5px;" />
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Why does family want to be seen by WFS?</label>
+                                        <textarea asp-for="ScaScreen.whyfamilyseen" class="form-control"></textarea>
+                                        <span asp-validation-for="ScaScreen.whyfamilyseen" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Does Client meet criteria? (Completed by Eligibility Specialist)</label>
+                                        <select asp-for="ScaScreen.meetcriteria" class="form-control">
+                                            <option value="" selected disabled>Select Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>Not Known at This Time</option>
+                                        </select>
+                                        <span asp-validation-for="ScaScreen.meetcriteria" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <label class="control-label">Note</label>
+                                        <textarea asp-for="ScaScreen.gennote" class="form-control"></textarea>
+                                        <span asp-validation-for="ScaScreen.gennote" class="text-danger"></span>
+                                    </div>
+                                </div><br style="line-height:5px;" />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <a type="button" class="btn wfs-light-blue" asp-controller="ClientServices" asp-action="Edit" asp-route-id="@Model.Inquiry.ClientServiceId">Edit</a>
+                    <div class="modal-footer">
+                        <button type="button" class="btn wfs-green" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container" align="right">
-        <a type="button" class="btn wfs-light-blue text-white" data-toggle="modal" data-target="#scaModal">View SCA Screen</a>
-        <a type="button" class="btn wfs-light-blue" asp-controller="ClientServices" asp-action="Edit" asp-route-id="@Model.Inquiry.ClientServiceId">Edit Inquiry</a>
-        <a type="button" class="btn btn-secondary" asp-controller="Clients" asp-route-id="@Model.Client.ClientId" asp-action="Details">Back to @(Model.Client.name)</a>
-    </div>
-
-    <h4>Notes</h4>
-    @foreach (var item in Model.Notes)
-    {
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="row rounded p-3 mb-2 table-active text-dark">
-            <div class="col-md-3 col-md-offset-1">
-                <label asp-for="@item.ZworkerId" class="control-label"></label>
-                <select asp-for="@item.ZworkerId" class="form-control" asp-items="ViewBag.ZworkerId" disabled></select>
-            </div>
-
-
-
-
-
-
-            <div class="col-md-3 col-md-offset-1">
-                <label asp-for="@item.ldate" class="control-label"></label>
-                <input asp-for="@item.ldate" class="form-control" disabled />
-                <span asp-validation-for="@item.ldate" class="text-danger"></span>
-            </div>
-            <div class="col-md-6 col-md-offset-1">
-                <label asp-for="@item.action" class="control-label"></label>
-                <textarea asp-for="@item.action" class="form-control" disabled></textarea>
-                <span asp-validation-for="@item.action" class="text-danger"></span>
-            </div>
-            <div>
-                <a type="button" class="btn wfs-light-blue" asp-controller="Clineitems" asp-action="Edit" asp-route-id="@item.ClineitemId">Edit Note</a>
-            </div>
+        <div class="container" align="right">
+            <a type="button" class="btn wfs-light-blue text-white" data-toggle="modal" data-target="#scaModal">View SCA Screen</a>
+            <a type="button" class="btn wfs-light-blue" asp-controller="ClientServices" asp-action="Edit" asp-route-id="@Model.Inquiry.ClientServiceId">Edit Inquiry</a>
+            <a type="button" class="btn btn-secondary" asp-controller="Clients" asp-route-id="@Model.Client.ClientId" asp-action="Details">Back to @(Model.Client.name)</a>
         </div>
 
-    }
-    <div class="container" align="right">
-        <a type="button" class="btn wfs-green" asp-controller="Clineitems" asp-action="Create" asp-route-csid="@Model.Inquiry.ClientServiceId">Add Note to Inquiry</a>
-    </div>
+        <h4>Notes</h4>
+        @foreach (var item in Model.Notes)
+        {
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row rounded p-3 mb-2 table-active text-dark">
+                <div class="col-md-3 col-md-offset-1">
+                    <label asp-for="@item.ZworkerId" class="control-label"></label>
+                    <select asp-for="@item.ZworkerId" class="form-control" asp-items="@ViewBag.ZworkerId" disabled></select>
+                </div>
+                <div class="col-md-3 col-md-offset-1">
+                    <label asp-for="@item.ldate" class="control-label"></label>
+                    <input asp-for="@item.ldate" class="form-control" disabled />
+                    <span asp-validation-for="@item.ldate" class="text-danger"></span>
+                </div>
+                <div class="col-md-3 col-md-offset-1">
+                    <label asp-for="@item.ZactionId" class="control-label"></label>
+                    <select asp-for="@item.ZactionId" class="form-control" asp-items="ViewBag.ZactionId"></select>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <label asp-for="@item.action" class="control-label"></label>
+                    <textarea asp-for="@item.action" class="form-control" disabled></textarea>
+                    <span asp-validation-for="@item.action" class="text-danger"></span>
+                </div>
+                <div>
+                    <a type="button" class="btn wfs-light-blue" asp-controller="Clineitems" asp-action="Edit" asp-route-id="@item.ClineitemId">Edit Note</a>
+                </div>
+            </div>
+
+        }
+        <div class="container" align="right">
+            <a type="button" class="btn wfs-green" asp-controller="Clineitems" asp-action="Create" asp-route-csid="@Model.Inquiry.ClientServiceId">Add Note to Inquiry</a>
+        </div>
 
 </form>

@@ -170,10 +170,25 @@ namespace WCAProject.Migrations
                     b.Property<string>("bhrs_diag")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("birth")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("child")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("closedate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("court")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("diagnosis")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("drug")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("drug_da")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("eval_date")
@@ -188,6 +203,12 @@ namespace WCAProject.Migrations
                     b.Property<string>("family_avail")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("harm")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("harm_da")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("homeloc")
                         .HasColumnType("nvarchar(max)");
 
@@ -197,10 +218,31 @@ namespace WCAProject.Migrations
                     b.Property<string>("intnote")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("last_date")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("legal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("maiden")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("mental")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("much_often")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("optype")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("overdose")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("pocdates")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("pregnant")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("prescription")
@@ -221,10 +263,28 @@ namespace WCAProject.Migrations
                     b.Property<string>("site_other")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("substance")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("trackdate")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("tracknote")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("treatment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("veteran")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("what_sub")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("withdraw")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("withdraw_da")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ClientServiceId");
@@ -277,6 +337,9 @@ namespace WCAProject.Migrations
                     b.Property<int?>("ZworkerId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ZactionId")
+                        .HasColumnType("int");
+
                     b.Property<string>("action")
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
@@ -289,6 +352,8 @@ namespace WCAProject.Migrations
                     b.HasIndex("ClientServiceId");
 
                     b.HasIndex("ZworkerId");
+
+                    b.HasIndex("ZactionId");
 
                     b.ToTable("Clineitems");
                 });

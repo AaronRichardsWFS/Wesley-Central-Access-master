@@ -8,5 +8,7 @@ namespace WCAProject.ViewModels
         public ClientService Inquiry { get; set; }
         public List<Clineitem> Notes { get; set; }
         public ScaScreen ScaScreen { get; set; }
+
+        public int ScaId { get; set; }
     }
 }

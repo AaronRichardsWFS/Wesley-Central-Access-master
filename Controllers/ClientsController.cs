@@ -97,6 +97,75 @@ namespace WCAProject.Controllers
             return View(clientDetailsViewModel);
         }
 
+        // GET: Clients/Export/5
+        public async Task<IActionResult> Export(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var client = await _context.Clients
+                .Include(c => c.Zcounty)
+                .Include(c => c.Zrace)
+                .Include(c => c.Zinsurance)
+                .FirstOrDefaultAsync(m => m.ClientId == id);
+            if (client == null)
+            {
+                return NotFound();
+            }
+
+            ClientDetailsViewModel clientDetailsViewModel = new ClientDetailsViewModel()
+            {
+                Client = client,
+                Inquiries = await _context.ClientServices
+                    .Where(cs => cs.ClientId == client.ClientId)
+                    .Include(cs => cs.Zstatus)
+                    .Include(cs => cs.Service)
+                    .Include(cs => cs.Zworker)
+                    .OrderByDescending(cs => cs.recdate)
+                    .ToListAsync()
+            };
+
+            if (client.Zrace == null)
+            {
+                ViewData["race"] = "";
+            } 
+            else
+            {
+                ViewData["race"] = client.Zrace.race;
+            }
+
+            if (client.Zinsurance == null)
+            {
+                ViewData["insurance1"] = "";
+            } 
+            else
+            {
+                ViewData["insurance1"] = client.Zinsurance.insurance;
+            }
+
+            if (client.Zcounty == null)
+            {
+                ViewData["county"] = "";
+            }
+            else
+            {
+                ViewData["county"] = client.Zcounty.county;
+            }
+
+            if (client.insurance2 == null)
+            {
+                ViewData["insurance2"] = "";
+            }
+            else
+            {
+                ViewData["insurance2"] = _context.Zinsurance.Find(client.insurance2).insurance;
+            }
+
+            return View(clientDetailsViewModel);
+        }
+
         public void AddNote()
         {
 
@@ -106,7 +175,7 @@ namespace WCAProject.Controllers
         public IActionResult Create()
         {
             ViewData["ZcountyId"] = new SelectList(_context.Zcounty.OrderBy(m => m.county), "ZcountyId", "county");
-            ViewData["ZraceId"] = new SelectList(_context.Zrace.Where(m => m.active).OrderBy(m => m.race), "ZraceId", "race");
+            ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race");
             ViewData["ZschoolId"] = new SelectList(_context.Zschool.Where(m => m.active).OrderBy(m => m.displayname), "ZschoolId", "displayname");
             ViewData["ZinsuranceId"] = new SelectList(_context.Zinsurance.Where(m => m.active).OrderBy(zi => zi.insurance), "ZinsuranceId", "insurance");
             
@@ -169,10 +238,10 @@ namespace WCAProject.Controllers
                 _context.Add(clientNewViewModel.Note);
                 await _context.SaveChangesAsync();
                 TempData["Alert"] = String.Format("Created Client: {0} {1}", client.cfirst, client.clast);
-                return RedirectToAction("Details", "Clients", new {id = client.ClientId});
+                return RedirectToAction("Edit", "Clients", new {id = client.ClientId});
             }
             ViewData["ZcountyId"] = new SelectList(_context.Zcounty.OrderBy(m => m.county), "ZcountyId", "county", client.ZcountyId);
-            ViewData["ZraceId"] = new SelectList(_context.Zrace.Where(m => m.active).OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
+            ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
             ViewData["ZinsuranceId"] = new SelectList(_context.Zinsurance.Where(m => m.active).OrderBy(m => m.insurance), "ZinsuranceId", "insurance", client.ZinsuranceId);
 
             return View(clientNewViewModel);
@@ -192,11 +261,18 @@ namespace WCAProject.Controllers
                 return NotFound();
             }
             ViewData["ZcountyId"] = new SelectList(_context.Zcounty.OrderBy(m => m.county), "ZcountyId", "county", client.ZcountyId);
-            ViewData["ZraceId"] = new SelectList(_context.Zrace.Where(m => m.active).OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
+            ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
             ViewData["ZinsuranceId"] = new SelectList(_context.Zinsurance.Where(m => m.active).OrderBy(m => m.insurance), "ZinsuranceId", "insurance", client.ZinsuranceId);
 
             ClientEditViewModel clientEditViewModel = new ClientEditViewModel();
             clientEditViewModel.Client = await _context.Clients.FirstOrDefaultAsync(m => m.ClientId == client.ClientId);
+            clientEditViewModel.Inquiries = await _context.ClientServices
+                    .Where(cs => cs.ClientId == client.ClientId)
+                    .Include(cs => cs.Zstatus)
+                    .Include(cs => cs.Service)
+                    .Include(cs => cs.Zworker)
+                    .OrderByDescending(cs => cs.recdate)
+                    .ToListAsync();
 
             return View(clientEditViewModel);
         }
@@ -245,10 +321,10 @@ namespace WCAProject.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Details", "Clients", new {id = client.ClientId});
+                return RedirectToAction("Edit", "Clients", new {id = client.ClientId});
             }
             ViewData["ZcountyId"] = new SelectList(_context.Zcounty.OrderBy(m => m.county), "ZcountyId", "county", client.ZcountyId);
-            ViewData["ZraceId"] = new SelectList(_context.Zrace.Where(m => m.active).OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
+            ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race", client.ZraceId);
             ViewData["ZinsuranceId"] = new SelectList(_context.Zinsurance.Where(m => m.active).OrderBy(m => m.insurance), "ZinsuranceId", "insurance", client.ZinsuranceId);
             return View(clientEditViewModel);
         }
