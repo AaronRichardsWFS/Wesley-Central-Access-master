@@ -504,15 +504,19 @@
             <div class="row rounded p-3 mb-2 table-active text-dark">
                 <div class="col-md-3 col-md-offset-1">
                     <label asp-for="Note.ZworkerId" class="control-label"></label>
-                    <select asp-for="Note.ZworkerId" class="form-control" asp-items="@ViewBag.ZworkerId"></select>
+                    <select asp-for="Note.ZworkerId" class="form-control" asp-items="ViewBag.ZworkerId"></select>
                 </div>
                 <div class="col-md-3 col-md-offset-1">
                     <label asp-for="Note.ldate" class="control-label"></label>
                     <input asp-for="Note.ldate" class="form-control" />
                     <span asp-validation-for="Note.ldate" class="text-danger"></span>
                 </div>
+                <div class="col-md-3 col-md-offset-1">
+                    <label asp-for="Note.ZactionId" class="control-label"></label>
+                    <select asp-for="Note.ZactionId" class="form-control" asp-items="ViewBag.ZactionId"></select>
+                </div>
                 <div class="col-md-6 col-md-offset-1">
-                    <label asp-for="Note.action" class="control-label"></label>
+                    <label class="control-label">Note</label>
                     <textarea asp-for="Note.action" class="form-control"></textarea>
                     <span asp-validation-for="Note.action" class="text-danger"></span>
                 </div>
