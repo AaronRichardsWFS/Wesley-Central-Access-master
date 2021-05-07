@@ -222,8 +222,13 @@
           <div class="row">
               <div class="col-md-12 col-md-offset-1">
                   <label asp-for="Inquiry.intext" class="control-label"></label>
-                  <select id="intext" name="intext" asp-for="Inquiry.intext" class="form-control">
-                      <option selected disabled>@Html.DisplayFor(model => model.Inquiry.intext)</option>
+                  @*                  <select id="intext" name="intext" asp-for="Inquiry.intext" class="form-control">
+            <option selected disabled>@Html.DisplayFor(model => model.Inquiry.intext)</option>
+        </select>*@
+                  <select id="intext" asp-for="Inquiry.intext" class="form-control">
+                      <option value="" selected disabled>Internal or External</option>
+                      <option>Internal</option>
+                      <option>External</option>
                   </select>
                   <span asp-validation-for="Inquiry.intext" class="text-danger"></span>
               </div>
@@ -233,10 +238,9 @@
                   <label asp-for="Inquiry.ZinternalId" class="control-label"></label>
                   <select asp-for="Inquiry.ZinternalId" class="form-control" asp-items="@ViewBag.ZinternalId">
                       <option value="" selected disabled>Select Type</option>
-                      <option value="">Internal</option>
-                      <option value="">External</option>
+@*                      <option value="">Internal</option>
+                      <option value="">External</option>*@
                   </select>
-
                   <span asp-validation-for="Inquiry.ZinternalId" class="text-danger"></span>
               </div>
               <div class="col-md-8 col-md-offset-1">
@@ -260,7 +264,7 @@
           <div class="row">
               <div class="col-md-6 col-md-offset-1">
                   <label asp-for="Inquiry.ServiceId" class="control-label"></label>
-                  <select asp-for="Inquiry.ServiceId" class="form-control" asp-items="@ViewBag.ServiceId">
+                  <select id="serv" asp-for="Inquiry.ServiceId" class="form-control" asp-items="@ViewBag.ServiceId">
                       <option value="" selected disabled>Select Service</option>
                   </select>
                   <span asp-validation-for="Inquiry.ServiceId" class="text-danger"></span>
