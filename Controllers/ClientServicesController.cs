@@ -127,7 +127,6 @@ namespace WCAProject.Controllers
             ViewData["ZschoolId"] = new SelectList(_context.Zschool.Where(m => m.active).OrderBy(m => m.displayname), "ZschoolId", "displayname");
             ViewData["ZsiteId"] = new SelectList(_context.Zsite.Where(m => m.active).OrderBy(m => m.site), "ZsiteId", "site");
             ViewData["ZstatusId"] = new SelectList(_context.Zstatus.Where(m => m.active).OrderBy(m => m.inq_status), "ZstatusId", "inq_status");
-            ViewData["ZworkerId"] = new SelectList(_context.Zworker.Where(m => m.active).OrderBy(m => m.worker), "ZworkerId", "worker");
 
             InquiryFormViewModel inquiryFormViewModel = new InquiryFormViewModel();
             inquiryFormViewModel.Client = await _context.Clients.FirstOrDefaultAsync(m => m.ClientId == clientid);
@@ -143,6 +142,8 @@ namespace WCAProject.Controllers
             ViewData["ZcountyId"] = new SelectList(_context.Zcounty.OrderBy(m => m.county), "ZcountyId", "county", inquiryFormViewModel.Client.ZcountyId);
             ViewData["ZraceId"] = new SelectList(_context.Zrace.OrderBy(m => m.race), "ZraceId", "race", inquiryFormViewModel.Client.ZraceId);
             ViewData["ZinsuranceId"] = new SelectList(_context.Zinsurance.Where(m => m.active).OrderBy(m => m.insurance), "ZinsuranceId", "insurance", inquiryFormViewModel.Client.ZinsuranceId);
+            ViewData["ZactionId"] = new SelectList(_context.Zaction.OrderBy(m => m.action), "ZactionId", "action", inquiryFormViewModel.Note.ZactionId);
+            ViewData["ZworkerId"] = new SelectList(_context.Zworker.Where(m => m.active).OrderBy(m => m.worker), "ZworkerId", "worker", inquiryFormViewModel.Note.ZworkerId);
 
             return View(inquiryFormViewModel);
         }
@@ -248,8 +249,6 @@ namespace WCAProject.Controllers
             
             ViewData["ZactionId"] = new SelectList(_context.Zaction.OrderBy(m => m.action), "ZactionId", "action", inquiryDetailsViewModel.Notes[0].ZactionId);
             ViewData["WorkerNames"] = new SelectList(_context.Zworker.OrderBy(m => m.ZworkerId), "ZworkerId", "worker", clientService.ZworkerId).ToList();
-
-            ViewData["ZactionId"] = new SelectList(_context.Zaction.OrderBy(m => m.action), "ZactionId", "action", inquiryDetailsViewModel.Notes[0].ZactionId);
 
             return View(inquiryDetailsViewModel);
         }
