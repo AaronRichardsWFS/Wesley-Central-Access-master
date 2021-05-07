@@ -4,70 +4,91 @@
 <h2>@ViewData["Title"]</h2>
 
 
+<h2>05/07/2021</h2>
+    <p> - Fix - Corrected Inquiries list headers on cleint edit page</p>
 
-<h2>08/26/2020</h2>
-<p> - Fix - Fixed Secondary Insurance - This is now a drop down</p>
-<p> - Fix - Rename Incoming Inquiries to Search Inquiries (will default to show all New Inquiries)</p>
-<p> - Fix - Home Page 'In Process' listing now filters on logged in user</p>
-<p> - Enhancement - Added new feild on the Worker table (UserName) this will be used by the system to know which user logged in is tied to witch worker entry.  Example: Worker Dawn is now tied to her computer username of haurperd</p>
-<p> - Enhancement - In all List views changed links to go to 'Edit' instead of 'Detail' view</p>
-<p> - Enhancement - In all List views added the CA DB ID and Credible ID</p>
-<p> - Enhancement - When Selecting Service of OP hide the "OP Type" - No longer needed</p>
-<p> - Enhancement - Implemented Audit backend
+
+<h2>05/07/2021 - CMU 2021 Release</h2>
+    <p> - Fix - fixed client form so it is editable and saveable on create inquiry page and edit inquiry page</p>
+    <p> - Fix - fixed SCA form so it is saveable on create inquiry and edit inquiry page</p>
+    <p> - Fix - fixed several dropdown fields in client form</p>
+    <p> - Fix - fixed notes feature so it is editable and saveable on create inquiry and edit inquiry page</p>
+    <p> - Fix - added actions dropdown for notes</p>
+    <p> - Fix - the poorly spaced client form fields is in a nicer format</p>
+    <p> - Fix - "Save Changes" button on SCA screen is changed to "Close" since it doesn't actually save the SCA form</p>
+    <p> - Enhancement - inquiry form is now responsive as more fields will show up if specific services are selected in the dropdown</p>
+    <p> - Enhancement - SCA form fields are ordered to match the form on MS Access</p>
+    <p> - Enhancement - a list of all inquiries for a client are listed when editing that client</p>
+    <p> - Enhancement - when a client or a inquiry form is saved, the user is redirected to the edit page instead of the view page</p>
+    <p> - Enhancement - when a client or a inquiry form is created, the user is redirected to the edit page instead of the view page</p>
+    <p> - Enhancement - screening questions are now saved in the database under inquiry</p>
+    <p> - Enhancement - client ID is displayed when editing a client</p>
+    <p> - Enhancement - client form accordion is automatically uncollapsed on create inquiry page and edit inquiry page</p>
+    <p> - Enhancement - skeleton view and controller code for a printer-friendly view is created but hidden</p>
+
+
+    <h2>08/26/2020</h2>
+    <p> - Fix - Fixed Secondary Insurance - This is now a drop down</p>
+    <p> - Fix - Rename Incoming Inquiries to Search Inquiries (will default to show all New Inquiries)</p>
+    <p> - Fix - Home Page 'In Process' listing now filters on logged in user</p>
+    <p> - Enhancement - Added new feild on the Worker table (UserName) this will be used by the system to know which user logged in is tied to witch worker entry.  Example: Worker Dawn is now tied to her computer username of haurperd</p>
+    <p> - Enhancement - In all List views changed links to go to 'Edit' instead of 'Detail' view</p>
+    <p> - Enhancement - In all List views added the CA DB ID and Credible ID</p>
+    <p> - Enhancement - When Selecting Service of OP hide the "OP Type" - No longer needed</p>
+    <p>
+        - Enhancement - Implemented Audit backend
         - To Do:
-                    - Add Tables to audit System
-                    - Add Audit Reports</p>
+        - Add Tables to audit System
+        - Add Audit Reports
+    </p>
 
-<h2>08/05/2020</h2>
-<p> - Fix - Footer Section Bleeding on top of other text</p>
-<p> - Fix - When selecting the site of "School" the School Selection Box now shows up</p>
-<p> - Fix - When selecting the Programs of "OP", "BHRS", "IFC", or "WK" the hiddedn boxes now appear</p>
-<p> - Fix - Clinet Inquery - Site Drop Down was not filtering out inactives</p>
-<p> - Fix - Clinet Inquery - School Drop Down was not filtering out inactives</p>
-<p> - Fix - Clinet Inquery - Status Drop Down was not filtering out inactives</p>
-<p> - Fix - Clinet Inquery - Worker Drop Down was not filtering out inactives</p>
-<p> - Fix - Clinet Inquery - Program Drop Down was not filtering out inactives</p>
-<p> - Fix - Clinet Inquery - Internal Drop Down was not filtering out inactives</p>
-<p> - Fix - Clinet - Race Drop Down was not filtering out inactives</p>
-<p> - Fix - Clinet - Insurance Drop Down was not filtering out inactives</p>
-<p> - Fix - Clinet - Site Drop Down was not filtering out inactives</p>
-<p> - Fix - Clinet - School Drop Down was not filtering out inactives</p>
-<p> - Fix - Clinet - Status Drop Down was not filtering out inactives</p>
-<p> - Fix - Clinet - Worker Drop Down was not filtering out inactives</p>
-<p> - Fix - Clinet - Program Drop Down was not filtering out inactives</p>
-<p> - Fix - Age - Went entering DOB Age will calculate</p>
-<p> - Enhancement - System Recalculates age nightly</p>
-<p> - Enhancement - Created new Report Section</p>
-<p> - Enhancement - Moved Cleint Search Report to new Reports Section</p>
-<p> - Enhancement - Added security to reports page</p>
-<p> - Enhancement - Added Help Page</p>
-<p> - Enhancement - Moved Change Log and Debug to help Page</p>
-
-
-<h2>06/26/2020</h2>
-<p> - Enhancement - Unlocked Client Feilds on Edit Inquery Screen</p>
-<p> - Fix - Added County to Inquery Client view</p>
-<p> - Fix - Added County to Inquery Client Create</p>
-<p> - Fix - Added County to Inquery Client Edit</p>
-<p> - Enhancement - Added Page to pull SSRS Cleint Search</p>
-<p> - Enhancement - Added Link to WFS Services Site</p>
-
-<h2>06/18/2020</h2>
-<p> - Fix - In Progress on home page from listing results</p>
-<p> - Fix - Client DB Number not showing on Client Page </p>
-<p> - Fix - Converted Insurance2 to Foreign Key tied to Insurance List</p>
-<p> - Enhancement - Added Change log</p>
-<p> - Fix - Fixed Incomming Clients page not defaulting to new clients</p>
-<p> - Fix - Search on Client only searches the first phone number box, not the 2nd box also same with these search options email and contact relationship.</p>
-<p> - Enhancement - Added Name to In Process List on Homepage</p>
-<p> - Enhancement - Added Name to Incomming Inquiries</p>
-<p> - Enhancement - Added County to Client Page</p>
-
-<h2>04292020</h2>
-<p> - Inital Release from CMU</p>
+    <h2>08/05/2020</h2>
+    <p> - Fix - Footer Section Bleeding on top of other text</p>
+    <p> - Fix - When selecting the site of "School" the School Selection Box now shows up</p>
+    <p> - Fix - When selecting the Programs of "OP", "BHRS", "IFC", or "WK" the hiddedn boxes now appear</p>
+    <p> - Fix - Clinet Inquery - Site Drop Down was not filtering out inactives</p>
+    <p> - Fix - Clinet Inquery - School Drop Down was not filtering out inactives</p>
+    <p> - Fix - Clinet Inquery - Status Drop Down was not filtering out inactives</p>
+    <p> - Fix - Clinet Inquery - Worker Drop Down was not filtering out inactives</p>
+    <p> - Fix - Clinet Inquery - Program Drop Down was not filtering out inactives</p>
+    <p> - Fix - Clinet Inquery - Internal Drop Down was not filtering out inactives</p>
+    <p> - Fix - Clinet - Race Drop Down was not filtering out inactives</p>
+    <p> - Fix - Clinet - Insurance Drop Down was not filtering out inactives</p>
+    <p> - Fix - Clinet - Site Drop Down was not filtering out inactives</p>
+    <p> - Fix - Clinet - School Drop Down was not filtering out inactives</p>
+    <p> - Fix - Clinet - Status Drop Down was not filtering out inactives</p>
+    <p> - Fix - Clinet - Worker Drop Down was not filtering out inactives</p>
+    <p> - Fix - Clinet - Program Drop Down was not filtering out inactives</p>
+    <p> - Fix - Age - Went entering DOB Age will calculate</p>
+    <p> - Enhancement - System Recalculates age nightly</p>
+    <p> - Enhancement - Created new Report Section</p>
+    <p> - Enhancement - Moved Cleint Search Report to new Reports Section</p>
+    <p> - Enhancement - Added security to reports page</p>
+    <p> - Enhancement - Added Help Page</p>
+    <p> - Enhancement - Moved Change Log and Debug to help Page</p>
 
 
+    <h2>06/26/2020</h2>
+    <p> - Enhancement - Unlocked Client Feilds on Edit Inquery Screen</p>
+    <p> - Fix - Added County to Inquery Client view</p>
+    <p> - Fix - Added County to Inquery Client Create</p>
+    <p> - Fix - Added County to Inquery Client Edit</p>
+    <p> - Enhancement - Added Page to pull SSRS Cleint Search</p>
+    <p> - Enhancement - Added Link to WFS Services Site</p>
 
+    <h2>06/18/2020</h2>
+    <p> - Fix - In Progress on home page from listing results</p>
+    <p> - Fix - Client DB Number not showing on Client Page </p>
+    <p> - Fix - Converted Insurance2 to Foreign Key tied to Insurance List</p>
+    <p> - Enhancement - Added Change log</p>
+    <p> - Fix - Fixed Incomming Clients page not defaulting to new clients</p>
+    <p> - Fix - Search on Client only searches the first phone number box, not the 2nd box also same with these search options email and contact relationship.</p>
+    <p> - Enhancement - Added Name to In Process List on Homepage</p>
+    <p> - Enhancement - Added Name to Incomming Inquiries</p>
+    <p> - Enhancement - Added County to Client Page</p>
+
+    <h2>04292020</h2>
+    <p> - Inital Release from CMU</p>
 
 
 
@@ -86,6 +107,9 @@
 
 
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

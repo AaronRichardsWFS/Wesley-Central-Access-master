@@ -124,6 +124,9 @@ Feature improvements developed by [Abhi Deverapalli](https://github.com/abhideva
 Offical Changelog
 
 05/07/2021
+ - Fix - Corrected Inquiries list headers on cleint edit page
+
+05/07/2021
  - Fix - fixed client form so it is editable and saveable on create inquiry page and edit inquiry page
  - Fix - fixed SCA form so it is saveable on create inquiry and edit inquiry page
  - Fix - fixed several dropdown fields in client form
