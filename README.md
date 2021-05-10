@@ -130,6 +130,7 @@ Offical Changelog
  - Enhancement - Updated Create New Note Page to have Client Accordion expanded by default
  - Fix - Fixed service drop down on create new Inqury listing all active and not active services
  - Fix - Missing ID on DOB feild causing age not to calculate
+ - Fix Service Drop down on edit Inquiry not filtering by active
 
 05/07/2021 
  - Fix - Corrected Inquiries list headers on cleint edit page
