@@ -26,33 +26,34 @@
                     <div class="row justify-content-between">
                         <div class="col-md-12 rounded p-3 mb-2 table-active text-dark">
                             <div class="row">
-                                <div class="col-md-3 col-md-offset-1">
+                                <div class="col-md-2 col-md-offset-1">
                                     <label asp-for="Client.cfirst" class="control-label"></label>
                                     <input asp-for="Client.cfirst" class="form-control" />
                                     <span asp-validation-for="Client.cfirst" class="text-danger"></span>
                                 </div>
-                                <div class="col-md-3 col-md-offset-1">
+                                <div class="col-md-2 col-md-offset-1">
                                     <label asp-for="Client.clast" class="control-label"></label>
                                     <input asp-for="Client.clast" class="form-control" />
                                     <span asp-validation-for="Client.clast" class="text-danger"></span>
                                 </div>
-                                <div class="col-md-3 col-md-offset-1">
+                                <div class="col-md-2 col-md-offset-1">
                                     <label asp-for="Client.dob" class="control-label"></label>
-                                    <input asp-for="Client.dob" class="form-control" />
+                                    <input id="dob" input asp-for="Client.dob" class="form-control" />
                                     <span asp-validation-for="Client.dob" class="text-danger"></span>
                                 </div>
-                                <div class="col-md-3 col-md-offset-1">
+                                <div class="col-md-2 col-md-offset-1">
                                     <label asp-for="Client.age" class="control-label"></label>
                                     <span asp-validation-for="Client.age" class="text-danger"></span>
                                     <input asp-for="Client.age" class="form-control" />
                                 </div>
-                            </div><br style="line-height:5px;" />
-                            <div class="row">
                                 <div class="col-md-3 col-md-offset-1">
                                     <label asp-for="Client.ssn" class="control-label"></label>
                                     <input asp-for="Client.ssn" class="form-control" />
                                     <span asp-validation-for="Client.ssn" class="text-danger"></span>
                                 </div>
+                            </div><br style="line-height:5px;" />
+                            <div class="row">
+
                                 <div class="col-md-3 col-md-offset-1">
                                     <label asp-for="Client.gender" class="control-label"></label>
                                     <select asp-for="Client.gender" class="form-control">
@@ -87,22 +88,19 @@
                                     <input asp-for="Client.city" class="form-control" />
                                     <span asp-validation-for="Client.city" class="text-danger"></span>
                                 </div>
-                                <div class="col-md-3 col-md-offset-1">
+                                <div class="col-md-2 col-md-offset-1">
                                     <label asp-for="Client.state" class="control-label"></label>
                                     <select asp-for="Client.state" class="form-control">
                                         <option selected>PA</option>
                                     </select>
                                     <span asp-validation-for="Client.state" class="text-danger"></span>
                                 </div>
-                                <div class="col-md-3 col-md-offset-1">
+                                <div class="col-md-2 col-md-offset-1">
                                     <label asp-for="Client.zipcode" class="control-label"></label>
                                     <input asp-for="Client.zipcode" class="form-control" />
                                     <span asp-validation-for="Client.zipcode" class="text-danger"></span>
                                 </div>
-                            </div><br style="line-height:5px;" />
-                            <!--AHR add inc county-->
-                            <div class="row">
-                                <div class="col-md-3 col-md-offset-1">
+                                <div class="col-md-2 col-md-offset-1">
                                     <label asp-for="Client.ZcountyId" class="control-label"></label>
                                     <select asp-for="Client.ZcountyId" class="form-control" asp-items="@ViewBag.ZcountyId">
                                         <option value="" selected disabled>Select County</option>
@@ -110,6 +108,8 @@
                                     <span asp-validation-for="Client.ZcountyId" class="text-danger"></span>
                                 </div>
                             </div><br style="line-height:5px;" />
+                            <!--AHR add inc county-->
+                            <br style="line-height:5px;" />
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-1">
                                     <label asp-for="Client.phone" class="control-label"></label>
@@ -145,7 +145,7 @@
                                 </div>
                             </div><br style="line-height:5px;" /><hr /><br style="line-height:5px;" />
                             <div class="row">
-                                <div class="col-md-4 col-md-offset-1">
+                                <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <label asp-for="Client.ZinsuranceId" class="control-label"></label>
                                         <select asp-for="Client.ZinsuranceId" class="form-control" asp-items="@ViewBag.ZinsuranceId">
@@ -154,14 +154,14 @@
                                         <span asp-validation-for="Client.ZinsuranceId" class="text-danger"></span>
                                     </div>
                                 </div>
-                                <div class="col-md-12 col-md-offset-1">
+                                <div class="col-md-9 col-md-offset-1">
                                     <div class="form-group">
                                         <label asp-for="Client.ins_note" class="control-label"></label>
                                         <textarea asp-for="Client.ins_note" class="form-control"></textarea>
                                         <span asp-validation-for="Client.ins_note" class="text-danger"></span>
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-md-offset-1">
+                                <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <label asp-for="Client.insurance2" class="control-label"></label>
                                         <select asp-for="Client.insurance2" class="form-control" asp-items="@ViewBag.ZinsuranceId">
@@ -170,7 +170,7 @@
                                         <span asp-validation-for="Client.insurance2" class="text-danger"></span>
                                     </div>
                                 </div>
-                                <div class="col-md-12 col-md-offset-1">
+                                <div class="col-md-9 col-md-offset-1">
                                     <div class="form-group">
                                         <label asp-for="Client.ins_other_note" class="control-label"></label>
                                         <textarea asp-for="Client.ins_other_note" class="form-control"></textarea>
@@ -195,7 +195,7 @@
             <input type="hidden" asp-for="Inquiry.ClientServiceId" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row justify-content-between">
-                <div class="col-md-8 col-md-offset-1 rounded p-3 mb-2 table-active text-dark">
+                <div class="col-md-9 rounded p-3 mb-2 table-active text-dark">
                     <div class="row">
                         <div class="col-md-6 col-md-offset-1">
                             <label asp-for="Inquiry.ClientId" class="control-label"></label>
@@ -453,9 +453,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md ml-1 col-md-offset-1 rounded p-3 mb-2 table-active text-dark">
+                <div class="col-md-3 rounded p-3 mb-2 table-active text-dark">
                     <div class="row">
-                        <div class="col-md-12 col-md-offset-1">
+                        <div class="col-md-11 col-md-offset-1">
                             <label asp-for="Inquiry.ZstatusId" class="control-label"></label>
                             <select asp-for="Inquiry.ZstatusId" class="form-control" asp-items="@ViewBag.ZstatusId">
                                 <option value="" selected disabled>Select Status</option>
@@ -464,7 +464,7 @@
                         </div>
                     </div><br style="line-height:5px;" />
                     <div class="row">
-                        <div class="col-md-12 col-md-offset-1">
+                        <div class="col-md-11 col-md-offset-1">
                             <label asp-for="Inquiry.ZreasonId" class="control-label"></label>
                             <select asp-for="Inquiry.ZreasonId" class="form-control" asp-items="@ViewBag.ZreasonId">
                                 <option value="" selected disabled>Select Reason</option>
@@ -473,7 +473,7 @@
                         </div>
                     </div><br style="line-height:5px;" />
                     <div class="row">
-                        <div class="col-md-12 col-md-offset-1">
+                        <div class="col-md-11 col-md-offset-1">
                             <label asp-for="Inquiry.ZworkerId" class="control-label"></label>
                             <select asp-for="Inquiry.ZworkerId" class="form-control" asp-items="@ViewBag.ZworkerId">
                                 <option value="" selected disabled>Select Worker</option>
@@ -482,14 +482,14 @@
                         </div>
                     </div><br style="line-height:5px;" />
                     <div class="row">
-                        <div class="col-md-12 col-md-offset-1">
+                        <div class="col-md-11 col-md-offset-1">
                             <label asp-for="Inquiry.recdate" class="control-label"></label>
                             <input asp-for="Inquiry.recdate" class="form-control" />
                             <span asp-validation-for="Inquiry.recdate" class="text-danger"></span>
                         </div>
                     </div><br style="line-height:5px;" />
                     <div class="row">
-                        <div class="col-md-12 col-md-offset-1">
+                        <div class="col-md-11 col-md-offset-1">
                             <label asp-for="Inquiry.closedate" class="control-label"></label>
                             <input asp-for="Inquiry.closedate" class="form-control" />
                             <span asp-validation-for="Inquiry.closedate" class="text-danger"></span>

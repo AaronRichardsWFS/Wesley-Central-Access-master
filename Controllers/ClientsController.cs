@@ -68,7 +68,9 @@ namespace WCAProject.Controllers
                                           || c.contact2.Contains(searchString));
                     
                 }
+                
             }
+
             int pageSize = 9;
             return View(await PaginatedList<Client>.CreateAsync(clients.AsNoTracking(), pageNumber ?? 1, pageSize));
         }

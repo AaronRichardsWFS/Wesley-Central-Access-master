@@ -123,10 +123,13 @@ Feature improvements developed by [Abhi Deverapalli](https://github.com/abhideva
 
 Offical Changelog
 
-05/07/2021
+05/09/2021
  - Enhancement - Updated Header and Main Body to remove left/right padding
  - Enhancement - Updated Edit Client page to make use of extra space for additonal columns
+ - Enhancement - Updated Edit Client Services page to make use of extra space for additonal columns
  - Enhancement - Updated Create New Note Page to have Client Accordion expanded by default
+ - Fix - Fixed service drop down on create new Inqury listing all active and not active services
+ - Fix - Missing ID on DOB feild causing age not to calculate
 
 05/07/2021
  - Fix - Corrected Inquiries list headers on cleint edit page
