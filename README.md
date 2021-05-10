@@ -131,10 +131,10 @@ Offical Changelog
  - Fix - Fixed service drop down on create new Inqury listing all active and not active services
  - Fix - Missing ID on DOB feild causing age not to calculate
 
-05/07/2021
+05/07/2021 
  - Fix - Corrected Inquiries list headers on cleint edit page
 
-05/07/2021
+05/07/2021 - CMU 2021 Release
  - Fix - fixed client form so it is editable and saveable on create inquiry page and edit inquiry page
  - Fix - fixed SCA form so it is saveable on create inquiry and edit inquiry page
  - Fix - fixed several dropdown fields in client form
