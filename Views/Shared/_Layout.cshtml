@@ -13,10 +13,11 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
-            <div class="container justify-content-between">
+        <nav class="navbar navbar-expand-xl navbar-toggleable-xl navbar-light border-bottom box-shadow mb-3">
+            <div class="container-fluid justify-content-between">
                 <div class="">
                     <a class="navbar-brand text-white" asp-controller="Home" asp-action="Index"><img class="" id="logo" src="~/images/WFS-H2_reverse_web.png"></a>
                 </div>
@@ -45,7 +46,7 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container-fluid">
         @if (TempData["Alert"] != null)
         {
             <div class="alert alert-success fade show" role="alert">

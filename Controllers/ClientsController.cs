@@ -41,23 +41,32 @@ namespace WCAProject.Controllers
                           select c;
             if (!String.IsNullOrEmpty(searchString)){
               if (searchby == "Name"){
-                clients = clients.Where(c => c.clast.Contains(searchString)
-                                          || c.cfirst.Contains(searchString));
-              }else if (searchby == "Email"){
+                    clients = clients.Where(c => c.clast.Contains(searchString)
+                                              || c.cfirst.Contains(searchString));
+                    
+                }
+                else if (searchby == "Email"){
                 clients = clients.Where(c => c.email.Contains(searchString)
                                           || c.email2.Contains(searchString));
+                
                 }
                 else if (searchby == "Phone"){
                 clients = clients.Where(c => c.phone.Contains(searchString)
                                           || c.phone2.Contains(searchString));
+                
                 }
                 else if (searchby == "Credible Id"){
                 clients = clients.Where(c => c.CredibleID.Contains(searchString));
-              }else if (searchby == "Client Id"){
+                
+                }
+                else if (searchby == "Client Id"){
                 clients = clients.Where(c => c.ClientId.ToString().Contains(searchString));
-              }else if (searchby == "Contact Relationship"){
+                    
+                }
+                else if (searchby == "Contact Relationship"){
                   clients = clients.Where(c => c.contact.Contains(searchString)
                                           || c.contact2.Contains(searchString));
+                    
                 }
             }
             int pageSize = 9;

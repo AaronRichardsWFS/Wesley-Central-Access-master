@@ -13,12 +13,13 @@
       <div class="card-header" id="headingOne">
         <h5 class="mb-0">
           <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          
             Client Details - @(Model.Client.name)
           </button>
         </h5>
       </div>
 
-      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#client-accordion">
+      <div id="collapseOne" aria-labelledby="headingOne" data-parent="#client-accordion">
         <div class="card-body">
           <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row justify-content-between">
